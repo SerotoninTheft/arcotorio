@@ -7,7 +7,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Arco-bead",
-        icon = "__Arcotorio__/graphics/Arco-bead.png",
+        icon = "__arcotorio__/graphics/Arco-bead.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -15,7 +15,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Rock-Arco-bead",
-        icon = "__Arcotorio__/graphics/Rock-Arco-bead.png",
+        icon = "__arcotorio__/graphics/Rock-Arco-bead.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -23,7 +23,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Paper-Arco-bead",
-        icon = "__Arcotorio__/graphics/Paper-Arco-bead.png",
+        icon = "__arcotorio__/graphics/Paper-Arco-bead.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -31,7 +31,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Scissors-Arco-bead",
-        icon = "__Arcotorio__/graphics/Scissors-Arco-bead.png",
+        icon = "__arcotorio__/graphics/Scissors-Arco-bead.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -39,7 +39,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Arco-orb",
-        icon = "__Arcotorio__/graphics/Arco-orb.png",
+        icon = "__arcotorio__/graphics/Arco-orb.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -47,7 +47,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Water-Arco-orb",
-        icon = "__Arcotorio__/graphics/Water-Arco-orb.png",
+        icon = "__arcotorio__/graphics/Water-Arco-orb.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -55,7 +55,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Air-Arco-orb",
-        icon = "__Arcotorio__/graphics/Air-Arco-orb.png",
+        icon = "__arcotorio__/graphics/Air-Arco-orb.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -63,7 +63,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Fire-Arco-orb",
-        icon = "__Arcotorio__/graphics/Fire-Arco-orb.png",
+        icon = "__arcotorio__/graphics/Fire-Arco-orb.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -71,7 +71,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Earth-Arco-orb",
-        icon = "__Arcotorio__/graphics/Earth-Arco-orb.png",
+        icon = "__arcotorio__/graphics/Earth-Arco-orb.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -79,7 +79,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Arco-boulder",
-        icon = "__Arcotorio__/graphics/Arco-boulder.png",
+        icon = "__arcotorio__/graphics/Arco-boulder.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -87,7 +87,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Pride-Arco-boulder",
-        icon = "__Arcotorio__/graphics/Pride-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/Pride-Arco-boulder.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -95,7 +95,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Greed-Arco-boulder",
-        icon = "__Arcotorio__/graphics/Greed-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/Greed-Arco-boulder.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -103,7 +103,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Lust-Arco-boulder",
-        icon = "__Arcotorio__/graphics/Lust-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/Lust-Arco-boulder.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -111,7 +111,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Envy-Arco-boulder",
-        icon = "__Arcotorio__/graphics/Envy-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/Envy-Arco-boulder.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -119,7 +119,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Gluttony-Arco-boulder",
-        icon = "__Arcotorio__/graphics/Gluttony-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/Gluttony-Arco-boulder.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -127,7 +127,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Wrath-Arco-boulder",
-        icon = "__Arcotorio__/graphics/Wrath-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/Wrath-Arco-boulder.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -135,7 +135,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Sloth-Arco-boulder",
-        icon = "__Arcotorio__/graphics/Sloth-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/Sloth-Arco-boulder.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -143,7 +143,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Arco-planet",
-        icon = "__Arcotorio__/graphics/Arco-planet.png",
+        icon = "__arcotorio__/graphics/Arco-planet.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -151,7 +151,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Mercury-Arco-planet",
-        icon = "__Arcotorio__/graphics/Mercury-Arco-planet.png",
+        icon = "__arcotorio__/graphics/Mercury-Arco-planet.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -159,7 +159,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Venus-Arco-planet",
-        icon = "__Arcotorio__/graphics/Venus-Arco-planet.png",
+        icon = "__arcotorio__/graphics/Venus-Arco-planet.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -167,7 +167,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Earth-Arco-planet",
-        icon = "__Arcotorio__/graphics/Earth-Arco-planet.png",
+        icon = "__arcotorio__/graphics/Earth-Arco-planet.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -175,7 +175,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Mars-Arco-planet",
-        icon = "__Arcotorio__/graphics/Mars-Arco-planet.png",
+        icon = "__arcotorio__/graphics/Mars-Arco-planet.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -183,7 +183,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Jupiter-Arco-planet",
-        icon = "__Arcotorio__/graphics/Jupiter-Arco-planet.png",
+        icon = "__arcotorio__/graphics/Jupiter-Arco-planet.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -191,7 +191,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Saturn-Arco-planet",
-        icon = "__Arcotorio__/graphics/Saturn-Arco-planet.png",
+        icon = "__arcotorio__/graphics/Saturn-Arco-planet.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -199,7 +199,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Uranus-Arco-planet",
-        icon = "__Arcotorio__/graphics/Uranus-Arco-planet.png",
+        icon = "__arcotorio__/graphics/Uranus-Arco-planet.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -207,7 +207,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Neptune-Arco-planet",
-        icon = "__Arcotorio__/graphics/Neptune-Arco-planet.png",
+        icon = "__arcotorio__/graphics/Neptune-Arco-planet.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -215,7 +215,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "McArco-sphere",
-        icon = "__Arcotorio__/graphics/McArco-sphere.png",
+        icon = "__arcotorio__/graphics/McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -223,7 +223,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Walmart-McArco-sphere",
-        icon = "__Arcotorio__/graphics/Walmart-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/Walmart-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -231,7 +231,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "McDonalds-McArco-sphere",
-        icon = "__Arcotorio__/graphics/McDonalds-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/McDonalds-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -239,7 +239,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Tesco-McArco-sphere",
-        icon = "__Arcotorio__/graphics/Tesco-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/Tesco-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -247,7 +247,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Wendys-McArco-sphere",
-        icon = "__Arcotorio__/graphics/Wendys-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/Wendys-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -255,7 +255,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Subway-McArco-sphere",
-        icon = "__Arcotorio__/graphics/Subway-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/Subway-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -263,7 +263,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "White-Castle-McArco-sphere",
-        icon = "__Arcotorio__/graphics/White-Castle-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/White-Castle-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -271,7 +271,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Taco-Bell-McArco-sphere",
-        icon = "__Arcotorio__/graphics/Taco-Bell-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/Taco-Bell-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -279,7 +279,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "KFC-McArco-sphere",
-        icon = "__Arcotorio__/graphics/KFC-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/KFC-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -287,7 +287,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Jimmy-Johns-McArco-sphere",
-        icon = "__Arcotorio__/graphics/Jimmy-Johns-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/Jimmy-Johns-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
@@ -295,7 +295,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Arcofolder",
-        icon = "__Arcotorio__/graphics/Arcofolder-icon.png",
+        icon = "__arcotorio__/graphics/Arcofolder-icon.png",
         icon_size = 64,
         subgroup = "production-machine",
         order = "a[Arcofolder]",
@@ -305,7 +305,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "Advanced Arcofolder",
-        icon = "__Arcotorio__/graphics/Advanced-arcofolder-icon.png",
+        icon = "__arcotorio__/graphics/Advanced-arcofolder-icon.png",
         icon_size = 64,
         subgroup = "production-machine",
         order = "a[Advanced arcofolder]",
@@ -315,7 +315,7 @@ data:extend(arco_gen.arco_beads)
     {
         type = "item",
         name = "McArcofolder",
-        icon = "__Arcotorio__/graphics/McArcofolder-icon.png",
+        icon = "__arcotorio__/graphics/McArcofolder-icon.png",
         icon_size = 64,
         subgroup = "production-machine",
         order = "a[McArcofolder]",
