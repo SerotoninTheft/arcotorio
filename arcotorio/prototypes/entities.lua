@@ -28,7 +28,7 @@ data:extend({
     {
         type = "assembling-machine",
         name = "Advanced Arcofolder",
-        icon = "__arcotorio__/graphics/icons/Advanced arcofolder-icon.png",
+        icon = "__arcotorio__/graphics/icons/advanced-arcofolder-icon.png",
         icon_size = 64,
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 1, result = "Advanced arcofolder"},
