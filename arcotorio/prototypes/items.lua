@@ -1,8 +1,3 @@
-local arco_gen = require("graphics.arco-gen")
-
-data:extend(arco_gen.arco_beads)
-
-
 --[[ data:extend({
     {
         type = "item",
