@@ -23,6 +23,7 @@
             width = 512,
             height = 512,
         },
+        allowed_effects = {"consumption", "speed", "pollution"},
     },
     {
         type = "assembling-machine",
@@ -50,6 +51,7 @@
             width = 512,
             height = 512,
         },
+        allowed_effects = {"consumption", "speed", "pollution"},
     },
     {
         type = "assembling-machine",
@@ -77,5 +79,6 @@
             width = 512,
             height = 512,
         },
+        allowed_effects = {"consumption", "speed", "pollution"},
     },
 }) ]]
