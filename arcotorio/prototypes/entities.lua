@@ -1,4 +1,4 @@
---[[ data:extend({
+data:extend({
     {
         type = "assembling-machine",
         name = "Arcofolder",
@@ -81,4 +81,4 @@
         },
         allowed_effects = {"consumption", "speed", "pollution"},
     },
-}) ]]
+})
