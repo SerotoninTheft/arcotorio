@@ -1,4 +1,4 @@
---[[ data:extend({
+data:extend({
     {
         type = "item",
         name = "Arco-bead",
@@ -318,4 +318,3 @@
         stack_size = 50
     },
 })
- ]]
