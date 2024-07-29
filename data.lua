@@ -44,6 +44,9 @@ end
 
 local function add_results(recipe, item3, item4)
     if recipe.results then
+        if #recipe.results == 1 then
+            recipe.main_product = recipe.results[1].name
+        end
         table.insert(recipe.results, {type = "item", name = item3, amount = 2})
         table.insert(recipe.results, {type = "item", name = item4, amount = 2})
     elseif recipe.normal and recipe.normal.results then
@@ -54,6 +57,7 @@ local function add_results(recipe, item3, item4)
         table.insert(recipe.expensive.results, {type = "item", name = item4, amount = 2})
     elseif recipe.result then
         local original_result = recipe.result
+        recipe.main_product = recipe.result
         recipe.result = nil
         recipe.results = {
             {type = "item", name = original_result, amount = 1},
