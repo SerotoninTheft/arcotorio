@@ -2,46 +2,46 @@ local deform = {}
 for i = 1, 16 do
     deform[i] = {
         file = {
-            filename = "__arcotorio__/graphics/deform/deform-" .. i .. ".png",
+            filename = "__Arcotorio__/graphics/deform/deform-" .. i .. ".png",
             size = 32,
             scale = 0.5,
             hr_version = {
-                filename = "__arcotorio__/graphics/deform/hr-deform-" .. i .. ".png",
+                filename = "__Arcotorio__/graphics/deform/hr-deform-" .. i .. ".png",
                 size = 64,
                 scale = 0.25
             }
         },
         icon = {
-            icon = "__arcotorio__/graphics/deform/deform-" .. i .. ".png",
+            icon = "__Arcotorio__/graphics/deform/deform-" .. i .. ".png",
             icon_size = 32
         }
     }
 end
 local sphere = {
     file = {
-        filename = "__arcotorio__/graphics/sphere.png",
+        filename = "__Arcotorio__/graphics/sphere.png",
         size = 64
     },
     icon = {
-        icon = "__arcotorio__/graphics/sphere.png",
+        icon = "__Arcotorio__/graphics/sphere.png",
         icon_size = 64
     },
 }
 local glow_layer = function(tint) return {
     file = {
-        filename = "__arcotorio__/graphics/glow-layer.png",
+        filename = "__Arcotorio__/graphics/glow-layer.png",
         size = 32,
         scale = 0.5,
         tint = tint,
         hr_version = {
-            filename = "__arcotorio__/graphics/hr-glow-layer.png",
+            filename = "__Arcotorio__/graphics/hr-glow-layer.png",
             size = 64,
             scale = 0.25,
             tint = tint,
         }
     },
     icon = {
-        icon = "__arcotorio__/graphics/glow-layer.png",
+        icon = "__Arcotorio__/graphics/glow-layer.png",
         tint = tint,
         icon_size = 32
     }
@@ -66,7 +66,7 @@ local function gen_arco_beads()
                 deform[i].icon,
                 glow_layer(top[i].tint).icon,
                 {
-                    icon = "__arcotorio__/graphics/symbols/beads/" .. top[i].name .. ".png",
+                    icon = "__Arcotorio__/graphics/symbols/beads/" .. top[i].name .. ".png",
                     icon_size = 32
                 }
             }
