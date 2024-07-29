@@ -16,7 +16,7 @@ data:extend({
         energy_source = {
             type = "void"
         },
-        energy_usage = "0kW",
+        energy_usage = "10kW",
         ingredient_count = 6,
         animation = {
             filename = "__arcotorio__/graphics/Arcofolder.png",
