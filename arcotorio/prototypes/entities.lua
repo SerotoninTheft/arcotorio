@@ -2,7 +2,7 @@
     {
         type = "assembling-machine",
         name = "Arcofolder",
-        icon = "__Arcotorio__/graphics/icons/Arcofolder-icon.png",
+        icon = "__arcotorio__/graphics/icons/Arcofolder-icon.png",
         icon_size = 64,
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 1, result = "Arcofolder"},
@@ -19,7 +19,7 @@
         energy_usage = "0kW",
         ingredient_count = 6,
         animation = {
-            filename = "__Arcotorio__/graphics/Arcofolder.png",
+            filename = "__arcotorio__/graphics/Arcofolder.png",
             width = 512,
             height = 512,
         },
@@ -28,7 +28,7 @@
     {
         type = "assembling-machine",
         name = "Advanced Arcofolder",
-        icon = "__Arcotorio__/graphics/icons/Advanced arcofolder-icon.png",
+        icon = "__arcotorio__/graphics/icons/Advanced arcofolder-icon.png",
         icon_size = 64,
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 1, result = "Advanced arcofolder"},
@@ -47,7 +47,7 @@
         energy_usage = "400kW",
         ingredient_count = 6,
         animation = {
-            filename = "__Arcotorio__/graphics/advanced-arcofolder.png",
+            filename = "__arcotorio__/graphics/advanced-arcofolder.png",
             width = 512,
             height = 512,
         },
@@ -56,7 +56,7 @@
     {
         type = "assembling-machine",
         name = "McArcofolder",
-        icon = "__Arcotorio__/graphics/icons/McArcofolder-icon.png",
+        icon = "__arcotorio__/graphics/icons/McArcofolder-icon.png",
         icon_size = 64,
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 1, result = "McArcofolder"},
@@ -75,7 +75,7 @@
         energy_usage = "1000kW",
         ingredient_count = 6,
         animation = {
-            filename = "__Arcotorio__/graphics/McArcofolder.png",
+            filename = "__arcotorio__/graphics/McArcofolder.png",
             width = 512,
             height = 512,
         },
