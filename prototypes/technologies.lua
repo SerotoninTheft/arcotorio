@@ -1,4 +1,4 @@
-local recipe_util = require("prototypes.recipe-util")
+ local recipe_util = require("prototypes.recipe-util")
 
 local milestones = {
     ["vanilla"] = {
@@ -11,7 +11,7 @@ local milestones = {
     }
 }
 
----change target to whatever compat setting required
+-- Change target to whatever compat setting required
 local target = milestones.vanilla
 
 local mcarco = {
@@ -63,28 +63,47 @@ local beads = {
 ---@param ingredients table<TechnologyPrototypeFilter.research_unit_ingredient>
 local function highest_pack(ingredients)
     local highest = "automation-science-pack"
-    for _, item in pairs(ingredients) do
-        if target[highest].rating < target[item].rating then
-            highest = item
+    for _, ingredient in pairs(ingredients) do
+        local item_name = ingredient.name or ingredient[1] -- Handle both table formats
+        if target[highest] and target[item_name] then
+            if target[highest].rating < target[item_name].rating then
+                highest = item_name
+            end
+        else
+            log("Warning: Missing target entry for " .. (item_name or "unknown item"))
         end
     end
-    return target[highest].rating
+    return target[highest] and target[highest].rating or 0 -- Return 0 if highest is invalid
 end
 
 local function process_tech_tree()
+    local prod_list = data.raw["module"]["productivity-module"].limitation
+    if not prod_list then error("Default productivity 1 module has no limitation. Please contact mod author") end
     for name, tech in pairs(data.raw["technology"]) do
         local tier = highest_pack(tech.unit.ingredients)
-        --using goto means less indentation which makes it slightly more readable
         if not tech.effects then goto no_effects end
         for index, effect in pairs(tech.effects) do
             if effect.type ~= "unlock-recipe" then goto not_recipe end
-            local scale = tier + 1
-            if tier > 3 then recipe_util.recreate(table.deepcopy(effect.recipe),mcarco,scale - tier) end
-            if tier > 2 then recipe_util.recreate(table.deepcopy(effect.recipe),planets,scale - tier) end
-            if tier > 1 then recipe_util.recreate(table.deepcopy(effect.recipe),boulders,scale - tier) end
-            if tier > 0 then recipe_util.recreate(table.deepcopy(effect.recipe),orbs,scale - tier) end
-            recipe_util.recreate(table.deepcopy(effect.recipe),beads,scale - tier)
-            tech.effects[index] = nil
+
+            -- Get the recipe to check its subgroup
+            local recipe = data.raw["recipe"][effect.recipe]
+            local is_intermediate = false
+
+            for _, prod in pairs(prod_list) do
+                if prod == recipe.name then is_intermediate = true end
+            end
+
+            -- Only recreate recipes that are intermediate products
+            if is_intermediate then
+                local scale = tier + 1
+                if tier > 3 then recipe_util.recreate(table.deepcopy(effect.recipe), mcarco, scale - tier) end
+                if tier > 2 then recipe_util.recreate(table.deepcopy(effect.recipe), planets, scale - tier) end
+                if tier > 1 then recipe_util.recreate(table.deepcopy(effect.recipe), boulders, scale - tier) end
+                if tier > 0 then recipe_util.recreate(table.deepcopy(effect.recipe), orbs, scale - tier) end
+                recipe_util.recreate(table.deepcopy(effect.recipe), beads, scale - tier)
+                tech.effects[index] = nil
+            end
+
             ::not_recipe::
         end
         ::no_effects::
