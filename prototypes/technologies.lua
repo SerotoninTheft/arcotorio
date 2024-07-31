@@ -2,12 +2,12 @@
 
 local milestones = {
     ["vanilla"] = {
-        ["space-science-pack"] =        {rating = 4, tech = data.raw["technology"]["space-science-pack"]},
-        ["production-science-pack"] =   {rating = 3, tech = data.raw["technology"]["production-science-pack"]},
-        ["utility-science-pack"] =      {rating = 3, tech = data.raw["technology"]["utility-science-pack"]},
-        ["chemical-science-pack"] =     {rating = 2, tech = data.raw["technology"]["chemical-science-pack"]},
-        ["logistic-science-pack"] =     {rating = 1, tech = data.raw["technology"]["logistic-science-pack"]},
-        ["automation-science-pack"] =   {rating = 0, tech = nil}
+        ["space-science-pack"] =        {rating = 5, tech = data.raw["technology"]["space-science-pack"]},
+        ["production-science-pack"] =   {rating = 4, tech = data.raw["technology"]["production-science-pack"]},
+        ["utility-science-pack"] =      {rating = 4, tech = data.raw["technology"]["utility-science-pack"]},
+        ["chemical-science-pack"] =     {rating = 3, tech = data.raw["technology"]["chemical-science-pack"]},
+        ["logistic-science-pack"] =     {rating = 2, tech = data.raw["technology"]["logistic-science-pack"]},
+        ["automation-science-pack"] =   {rating = 1, tech = nil}
     }
 }
 
@@ -60,12 +60,20 @@ local beads = {
     "Scissors-Arco-bead"
 }
 
+local orb_tiers = {
+    beads,
+    orbs,
+    boulders,
+    planets,
+    mcarco
+}
+local tech_util = {}
 ---@param ingredients table<TechnologyPrototypeFilter.research_unit_ingredient>
 local function highest_pack(ingredients)
     local highest = "automation-science-pack"
     for _, ingredient in pairs(ingredients) do
         local item_name = ingredient.name or ingredient[1] -- Handle both table formats
-        if target[highest] and target[item_name] then
+        if target[highest] and target[item_name]then
             if target[highest].rating < target[item_name].rating then
                 highest = item_name
             end
@@ -73,41 +81,83 @@ local function highest_pack(ingredients)
             log("Warning: Missing target entry for " .. (item_name or "unknown item"))
         end
     end
-    return target[highest] and target[highest].rating or 0 -- Return 0 if highest is invalid
+    return target[highest].rating
 end
 
-local function process_tech_tree()
-    local prod_list = data.raw["module"]["productivity-module"].limitation
-    if not prod_list then error("Default productivity 1 module has no limitation. Please contact mod author") end
+local queue = {}
+local add_to_queue = function(tech, recipe)
+    if tech then
+        queue[tech.name] = queue[tech.name] or {}
+        table.insert(queue[tech.name], recipe)
+    end
+end
+
+local process_queue = function()
+    for tech_name, recipes in pairs(queue) do
+        local tech = data.raw["technology"][tech_name]
+        if not recipes then error('no recipe added') end
+        for _, recipe in pairs(recipes) do
+            table.insert(tech.effects, {
+                type = "unlock-recipe",
+                recipe = recipe.name
+            })
+        end
+        queue[tech_name] = nil
+    end
+end
+
+local prod_list = data.raw["module"]["productivity-module"].limitation
+if not prod_list then error("Default productivity 1 module has no limitation. Please contact mod author") end
+
+tech_util.process_recipe = function(recipe_name, tech, tier)
+    tier = tier or 1
+    -- Get the recipe to check its subgroup
+    local recipe = data.raw["recipe"][recipe_name]
+    local is_intermediate = false
+
+    if recipe.category and recipe.category == "smelting" then return end
+
+    for _, prod in pairs(prod_list) do
+        if prod == recipe.name then is_intermediate = true end
+    end
+
+    add_to_queue(tech, recipe_util.recreate(table.deepcopy(recipe), orb_tiers[tier]))
+    -- Only create additional recipes for items that are intermediate products (using productivity as the metric)
+    if is_intermediate then
+        local scale = 1
+        tier = tier + 1
+        if target[recipe.name] then
+            tier = tier + 1
+        end
+        while tier < 6 do
+            for _, data in pairs(target) do
+                if data.rating == tier then
+                    add_to_queue(data.tech, recipe_util.recreate(table.deepcopy(recipe), orb_tiers[tier], scale))
+                end
+            end
+            tier = tier + 1
+            scale = scale + 1
+        end
+    end
+    return true
+end
+
+tech_util.process_tech_tree = function()
     for name, tech in pairs(data.raw["technology"]) do
-        local tier = highest_pack(tech.unit.ingredients)
+        local highest = highest_pack(tech.unit.ingredients)
         if not tech.effects then goto no_effects end
         for index, effect in pairs(tech.effects) do
             if effect.type ~= "unlock-recipe" then goto not_recipe end
 
-            -- Get the recipe to check its subgroup
-            local recipe = data.raw["recipe"][effect.recipe]
-            local is_intermediate = false
-
-            for _, prod in pairs(prod_list) do
-                if prod == recipe.name then is_intermediate = true end
-            end
-
-            -- Only recreate recipes that are intermediate products
-            if is_intermediate then
-                local scale = tier + 1
-                if tier > 3 then recipe_util.recreate(table.deepcopy(effect.recipe), mcarco, scale - tier) end
-                if tier > 2 then recipe_util.recreate(table.deepcopy(effect.recipe), planets, scale - tier) end
-                if tier > 1 then recipe_util.recreate(table.deepcopy(effect.recipe), boulders, scale - tier) end
-                if tier > 0 then recipe_util.recreate(table.deepcopy(effect.recipe), orbs, scale - tier) end
-                recipe_util.recreate(table.deepcopy(effect.recipe), beads, scale - tier)
+            if tech_util.process_recipe(effect.recipe, tech, highest) then
                 tech.effects[index] = nil
             end
-
             ::not_recipe::
         end
         ::no_effects::
     end
+    process_queue()
 end
 
-process_tech_tree()
+return tech_util
+
