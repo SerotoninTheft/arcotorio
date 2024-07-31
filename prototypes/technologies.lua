@@ -2,7 +2,7 @@
 
 local milestones = {
     ["vanilla"] = {
-        ["space-science-pack"] =        {rating = 5, tech = data.raw["technology"]["space-science-pack"]},
+        ["satellite"] =        {rating = 5, tech = data.raw["technology"]["space-science-pack"]},
         ["production-science-pack"] =   {rating = 4, tech = data.raw["technology"]["production-science-pack"]},
         ["utility-science-pack"] =      {rating = 4, tech = data.raw["technology"]["utility-science-pack"]},
         ["chemical-science-pack"] =     {rating = 3, tech = data.raw["technology"]["chemical-science-pack"]},
@@ -121,14 +121,15 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
         if prod == recipe.name then is_intermediate = true end
     end
 
+    if target[recipe.name] then
+        tier = tier + 1
+    end
+
     add_to_queue(tech, recipe_util.recreate(table.deepcopy(recipe), orb_tiers[tier]))
     -- Only create additional recipes for items that are intermediate products (using productivity as the metric)
-    if is_intermediate then
+    --[[ if is_intermediate then
         local scale = 1
         tier = tier + 1
-        if target[recipe.name] then
-            tier = tier + 1
-        end
         while tier < 6 do
             for _, data in pairs(target) do
                 if data.rating == tier then
@@ -138,7 +139,7 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
             tier = tier + 1
             scale = scale + 1
         end
-    end
+    end ]]
     return true
 end
 
