@@ -7,7 +7,7 @@ local milestones = {
         ["utility-science-pack"] =      {rating = 4, tech = data.raw["technology"]["utility-science-pack"]},
         ["chemical-science-pack"] =     {rating = 3, tech = data.raw["technology"]["chemical-science-pack"]},
         ["logistic-science-pack"] =     {rating = 2, tech = data.raw["technology"]["logistic-science-pack"]},
-        ["automation-science-pack"] =   {rating = 1, tech = nil}
+        ["automation-science-pack"] =   {rating = 1, tech = nil, raw = "coal"}
     }
 }
 
@@ -148,9 +148,9 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
         if prod == recipe.name then is_intermediate = true end
     end
 
-    --[[ if target[recipe.name] then
+    if target[recipe.name] and target[recipe.name].tech then
         tier = tier + 1
-    end ]]
+    end
 
     add_to_queue(tech, recipe_util.recreate(table.deepcopy(recipe), orb_tiers[tier]))
     -- Only create additional recipes for items that are intermediate products (using productivity as the metric)
@@ -191,19 +191,39 @@ tech_util.process_tech_tree = function()
     process_queue()
 end
 
+local function adjust_tech(rating, recipe)
+    for item_name, milestone in pairs(target) do
+        if rating - 1 == milestone.rating then
+            recipe.ingredients = recipe.ingredients or {}
+            for _, ingredient in pairs(recipe.ingredients) do
+                if ingredient.name == item_name then return end
+            end
+            table.insert(recipe.ingredients,{type = "item", name = item_name, amount = 1})
+        end
+    end
+end
+
 tech_util.process_arco_recipes = function()
     for item_name, milestone in pairs(target) do
-        for _, recipe_name in pairs(unlocks[milestone.rating]) do
+        for index, recipe_name in pairs(unlocks[milestone.rating]) do 
+            local item =  {type = "item", name = item_name, amount = 1}
             local recipe = data.raw["recipe"][recipe_name]
-            recipe.ingredients = recipe.ingredients or {
-                {type = "item", name = item_name, amount = 1}
-            }
             if milestone.tech then
+                if index == 1 then
+                    adjust_tech(milestone.rating, recipe)
+                else
+                    recipe.ingredients = recipe.ingredients or { item }
+                end
                 table.insert(milestone.tech.effects, {
                     type = "unlock-recipe",
                     recipe = recipe.name
                 })
             else
+                if recipe.name == "Arco-bead" then
+                    item = {type = "item", name = milestone.raw, amount = 1}
+                    recipe.category = "crafting"
+                end
+                recipe.ingredients = recipe.ingredients or { item }
                 recipe.enabled = true
             end
         end

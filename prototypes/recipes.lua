@@ -5,7 +5,7 @@ local bead = {
     result = "Arco-bead",
     result_count = 5,
     energy_required = 10,
-    enabled = false
+    enabled = false,
 }
 local orb = {
     type = "recipe",
