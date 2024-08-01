@@ -21,11 +21,11 @@ end
 ---Table of recipe names that correlate to a rating, these are added to the tech based on rating, or enabled for rating 1
 ---@as table<table<string>>
 local unlocks = {
-    [1] = {"Arco-bead", "Arcofolder"},
-    [2] = {"Arco-orb"},
-    [3] = {"Arco-boulder", "Advanced-Arcofolder"},
-    [4] = {"Arco-planet"},
-    [5] = {"McArco-sphere", "McArcofolder"},
+    [1] = {"Arco-bead", "Arco-bead-initialize", "Arcofolder"},
+    [2] = {"Arco-orb", "Arco-orb-initialize"},
+    [3] = {"Arco-boulder", "Arco-boulder-initialize", "Advanced-Arcofolder"},
+    [4] = {"Arco-planet", "Arco-planet-initialize"},
+    [5] = {"McArco-sphere", "McArco-sphere-initialize", "McArcofolder"},
 }
 
 -- Change target to whatever compat setting required
@@ -36,14 +36,14 @@ local beads = {
     "Paper-Arco-bead",
     "Scissors-Arco-bead"
 }
---TableConcat(unlocks[1], beads)
+TableConcat(unlocks[1], beads)
 local orbs = {
     "Water-Arco-orb",
     "Air-Arco-orb",
     "Fire-Arco-orb",
     "Earth-Arco-orb"
 }
---TableConcat(unlocks[2], orbs)
+TableConcat(unlocks[2], orbs)
 local boulders = {
     "Pride-Arco-boulder",
     "Greed-Arco-boulder",
@@ -76,11 +76,7 @@ local mcarco = {
     "KFC-McArco-sphere",
     "Jimmy-Johns-McArco-sphere"
 }
---TableConcat(unlocks[5], mcarco)
-
-
-
-
+TableConcat(unlocks[5], mcarco)
 
 local orb_tiers = {
     beads,
