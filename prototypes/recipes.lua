@@ -1,47 +1,57 @@
 local bead = {
     type = "recipe",
     name = "Arco-bead",
+    subgroup = "Arco-bead-arcofolding",
     category = "arcofolding",
     result = "Arco-bead",
-    result_count = 5,
+    result_count = 10,
     energy_required = 10,
     enabled = false,
+    order = "a[Arco-bead]"
 }
 local orb = {
     type = "recipe",
     name = "Arco-orb",
+    subgroup = "Arco-orb-arcofolding",
     category = "arcofolding",
     result = "Arco-orb",
-    result_count = 5,
+    result_count = 10,
     energy_required = 10,
-    enabled = false
+    enabled = false,
+    order = "a[Arco-orb]"
 }
 local boulder = {
     type = "recipe",
     name = "Arco-boulder",
+    subgroup = "Arco-boulder-arcofolding",
     category = "arcofolding",
     result = "Arco-boulder",
-    result_count = 5,
+    result_count = 10,
     energy_required = 10,
-    enabled = false
+    enabled = false,
+    order = "a[Arco-boulder]"
 }
 local planet = {
     type = "recipe",
     name = "Arco-planet",
+    subgroup = "Arco-planet-arcofolding",
     category = "arcofolding",
     result = "Arco-planet",
-    result_count = 5,
+    result_count = 10,
     energy_required = 10,
-    enabled = false
+    enabled = false,
+    order = "a[Arco-planet]"
 }
 local mcarco = {
     type = "recipe",
     name = "McArco-sphere",
+    subgroup = "McArco-sphere-arcofolding",
     category = "arcofolding",
     result = "McArco-sphere",
-    result_count = 5,
+    result_count = 10,
     energy_required = 10,
-    enabled = false
+    enabled = false,
+    order = "a[McArco-sphere]"
 }
 local arcofolder = {
     type = "recipe",
@@ -94,7 +104,8 @@ local folds = {
             {name = "Earth-Arco-planet", amount = 5}
         },
         result = "Mars-Arco-planet",
-        result_count = 15
+        result_count = 15,
+        subgroup = "Arco-planet-arcofolding"
     },
     {
         ingredients = {
@@ -103,7 +114,8 @@ local folds = {
             {name = "Earth-Arco-planet", amount = 5}
         },
         result = "Jupiter-Arco-planet",
-        result_count = 15
+        result_count = 15,
+        subgroup = "Arco-planet-arcofolding"
     },
     {
         ingredients = {
@@ -112,7 +124,8 @@ local folds = {
             {name = "Earth-Arco-planet", amount = 5}
         },
         result = "Saturn-Arco-planet",
-        result_count = 15
+        result_count = 15,
+        subgroup = "Arco-planet-arcofolding"
     },
     {
         ingredients = {
@@ -121,7 +134,8 @@ local folds = {
             {name = "Saturn-Arco-planet", amount = 5}
         },
         result = "Neptune-Arco-planet",
-        result_count = 15
+        result_count = 15,
+        subgroup = "Arco-planet-arcofolding"
     },
     {
         ingredients = {
@@ -130,7 +144,8 @@ local folds = {
             {name = "Saturn-Arco-planet", amount = 5}
         },
         result = "Uranus-Arco-planet",
-        result_count = 15
+        result_count = 15,
+        subgroup = "Arco-planet-arcofolding"
     },
     {
         ingredients = {
@@ -139,7 +154,8 @@ local folds = {
             {name = "Saturn-Arco-planet", amount = 5}
         },
         result = "Venus-Arco-planet",
-        result_count = 15
+        result_count = 15,
+        subgroup = "Arco-planet-arcofolding"
     },
     {
         ingredients = {
@@ -148,7 +164,8 @@ local folds = {
             {name = "Venus-Arco-planet", amount = 5}
         },
         result = "Mercury-Arco-planet",
-        result_count = 15
+        result_count = 15,
+        subgroup = "Arco-planet-arcofolding"
     },
     {
         ingredients = {
@@ -157,7 +174,8 @@ local folds = {
             {name = "Venus-Arco-planet", amount = 5}
         },
         result = "Earth-Arco-planet",
-        result_count = 15
+        result_count = 15,
+        subgroup = "Arco-planet-arcofolding"
     },
     {
         ingredients = {
@@ -165,7 +183,8 @@ local folds = {
             {name = "Pride-Arco-boulder", amount = 5}
         },
         result = "Lust-Arco-boulder",
-        result_count = 10
+        result_count = 10,
+        subgroup = "Arco-boulder-arcofolding"
     },
     {
         ingredients = {
@@ -173,7 +192,8 @@ local folds = {
             {name = "Pride-Arco-boulder", amount = 5}
         },
         result = "Envy-Arco-boulder",
-        result_count = 10
+        result_count = 10,
+        subgroup = "Arco-boulder-arcofolding"
     },
     {
         ingredients = {
@@ -181,7 +201,8 @@ local folds = {
             {name = "Lust-Arco-boulder", amount = 5}
         },
         result = "Gluttony-Arco-boulder",
-        result_count = 10
+        result_count = 10,
+        subgroup = "Arco-boulder-arcofolding"
     },
     {
         ingredients = {
@@ -189,7 +210,8 @@ local folds = {
             {name = "Envy-Arco-boulder", amount = 5}
         },
         result = "Wrath-Arco-boulder",
-        result_count = 10
+        result_count = 10,
+        subgroup = "Arco-boulder-arcofolding"
     },
     {
         ingredients = {
@@ -197,7 +219,8 @@ local folds = {
             {name = "Gluttony-Arco-boulder", amount = 5}
         },
         result = "Sloth-Arco-boulder",
-        result_count = 10
+        result_count = 10,
+        subgroup = "Arco-boulder-arcofolding"
     },
     {
         ingredients = {
@@ -205,7 +228,8 @@ local folds = {
             {name = "Wrath-Arco-boulder", amount = 5}
         },
         result = "Greed-Arco-boulder",
-        result_count = 10
+        result_count = 10,
+        subgroup = "Arco-boulder-arcofolding"
     },
     {
         ingredients = {
@@ -213,7 +237,8 @@ local folds = {
             {name = "Sloth-Arco-boulder", amount = 5}
         },
         result = "Pride-Arco-boulder",
-        result_count = 10
+        result_count = 10,
+        subgroup = "Arco-boulder-arcofolding"
     },
     {
         ingredients = {
@@ -221,7 +246,8 @@ local folds = {
             {name = "Fire-Arco-orb", amount = 5}
         },
         result = "Earth-Arco-orb",
-        result_count = 10
+        result_count = 10,
+        subgroup = "Arco-orb-arcofolding"
     },
     {
         ingredients = {
@@ -229,7 +255,8 @@ local folds = {
             {name = "Fire-Arco-orb", amount = 5}
         },
         result = "Air-Arco-orb",
-        result_count = 10
+        result_count = 10,
+        subgroup = "Arco-orb-arcofolding"
     },
     {
         ingredients = {
@@ -237,7 +264,8 @@ local folds = {
             {name = "Air-Arco-orb", amount = 5}
         },
         result = "Water-Arco-orb",
-        result_count = 10
+        result_count = 10,
+        subgroup = "Arco-orb-arcofolding"
     },
     {
         ingredients = {
@@ -245,7 +273,8 @@ local folds = {
             {name = "Air-Arco-orb", amount = 5}
         },
         result = "Fire-Arco-orb",
-        result_count = 10
+        result_count = 10,
+        subgroup = "Arco-orb-arcofolding"
     },
     {
         ingredients = {
@@ -253,8 +282,8 @@ local folds = {
         },
         result = "Paper-Arco-bead",
         result_count = 15,
-        category = "arcofolding",
-        seconds = 1
+        seconds = 1,
+        subgroup = "Arco-bead-arcofolding"
     },
     {
         ingredients = {
@@ -262,8 +291,8 @@ local folds = {
         },
         result = "Rock-Arco-bead",
         result_count = 15,
-        category = "arcofolding",
-        seconds = 1
+        seconds = 1,
+        subgroup = "Arco-bead-arcofolding"
     },
     {
         ingredients = {
@@ -271,8 +300,8 @@ local folds = {
         },
         result = "Scissors-Arco-bead",
         result_count = 15,
-        category = "arcofolding",
-        seconds = 1
+        seconds = 1,
+        subgroup = "Arco-bead-arcofolding"
     },
     {
         ingredients = {
@@ -281,7 +310,8 @@ local folds = {
         result = "Paper-Arco-bead",
         result_count = 1,
         category = "crafting",
-        name = "hand-Paper-Arco-bead"
+        name = "hand-Paper-Arco-bead",
+        subgroup = "Arco-bead-arcofolding"
     },
     {
         ingredients = {
@@ -290,7 +320,8 @@ local folds = {
         result = "Rock-Arco-bead",
         result_count = 1,
         category = "crafting",
-        name = "hand-Rock-Arco-bead"
+        name = "hand-Rock-Arco-bead",
+        subgroup = "Arco-bead-arcofolding"
     },
     {
         ingredients = {
@@ -299,7 +330,8 @@ local folds = {
         result = "Scissors-Arco-bead",
         result_count = 1,
         category = "crafting",
-        name = "hand-Scissors-Arco-bead"
+        name = "hand-Scissors-Arco-bead",
+        subgroup = "Arco-bead-arcofolding"
     },
     {
         ingredients = {
@@ -312,7 +344,8 @@ local folds = {
             {name = "Subway-McArco-sphere", amount = 15},
             {name = "White-Castle-McArco-sphere", amount = 5}
         },
-        main_product = "Subway-McArco-sphere"
+        main_product = "Subway-McArco-sphere",
+        subgroup = "McArco-sphere-arcofolding"
     },
     {
         ingredients = {
@@ -325,7 +358,8 @@ local folds = {
             {name = "White-Castle-McArco-sphere", amount = 15},
             {name = "Taco-Bell-McArco-sphere", amount = 5}
         },
-        main_product = "White-Castle-McArco-sphere"
+        main_product = "White-Castle-McArco-sphere",
+        subgroup = "McArco-sphere-arcofolding"
     },
     {
         ingredients = {
@@ -338,7 +372,8 @@ local folds = {
             {name = "Taco-Bell-McArco-sphere", amount = 15},
             {name = "KFC-McArco-sphere", amount = 5}
         },
-        main_product = "Taco-Bell-McArco-sphere"
+        main_product = "Taco-Bell-McArco-sphere",
+        subgroup = "McArco-sphere-arcofolding"
     },
     {
         ingredients = {
@@ -351,7 +386,8 @@ local folds = {
             {name = "KFC-McArco-sphere", amount = 15},
             {name = "Jimmy-Johns-McArco-sphere", amount = 5}
         },
-        main_product = "KFC-McArco-sphere"
+        main_product = "KFC-McArco-sphere",
+        subgroup = "McArco-sphere-arcofolding"
     },
     {
         ingredients = {
@@ -364,7 +400,8 @@ local folds = {
             {name = "Jimmy-Johns-McArco-sphere", amount = 15},
             {name = "Walmart-McArco-sphere", amount = 5}
         },
-        main_product = "Jimmy-Johns-McArco-sphere"
+        main_product = "Jimmy-Johns-McArco-sphere",
+        subgroup = "McArco-sphere-arcofolding"
     },
     {
         ingredients = {
@@ -377,7 +414,8 @@ local folds = {
             {name = "Walmart-McArco-sphere", amount = 15},
             {name = "McDonalds-McArco-sphere", amount = 5}
         },
-        main_product = "Walmart-McArco-sphere"
+        main_product = "Walmart-McArco-sphere",
+        subgroup = "McArco-sphere-arcofolding"
     },
     {
         ingredients = {
@@ -390,7 +428,8 @@ local folds = {
             {name = "McDonalds-McArco-sphere", amount = 15},
             {name = "Tesco-McArco-sphere", amount = 5}
         },
-        main_product = "McDonalds-McArco-sphere"
+        main_product = "McDonalds-McArco-sphere",
+        subgroup = "McArco-sphere-arcofolding"
     },
     {
         ingredients = {
@@ -403,7 +442,8 @@ local folds = {
             {name = "Tesco-McArco-sphere", amount = 15},
             {name = "Wendys-McArco-sphere", amount = 5}
         },
-        main_product = "Tesco-McArco-sphere"
+        main_product = "Tesco-McArco-sphere",
+        subgroup = "McArco-sphere-arcofolding"
     },
     {
         ingredients = {
@@ -416,7 +456,8 @@ local folds = {
             {name = "Wendys-McArco-sphere", amount = 15},
             {name = "Subway-McArco-sphere", amount = 5}
         },
-        main_product = "Wendys-McArco-sphere"
+        main_product = "Wendys-McArco-sphere",
+        subgroup = "McArco-sphere-arcofolding"
     },
     {
         ingredients = {
@@ -436,8 +477,8 @@ local folds = {
         icon = "__arcotorio__/graphics/McArco-sphere.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
-        subgroup = "arcofolding",
-        category = "crafting"
+        subgroup = "McArco-sphere-arcofolding",
+        order = "a[McArco-sphere]"
     },
     {
         ingredients = {
@@ -456,8 +497,8 @@ local folds = {
         icon = "__arcotorio__/graphics/Arco-planet.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
-        subgroup = "arcofolding",
-        category = "crafting"
+        subgroup = "Arco-planet-arcofolding",
+        order = "a[Arco-planet]"
     },
     {
         ingredients = {
@@ -475,8 +516,8 @@ local folds = {
         icon = "__arcotorio__/graphics/Arco-boulder.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
-        subgroup = "arcofolding",
-        category = "crafting"
+        subgroup = "Arco-boulder-arcofolding",
+        order = "a[Arco-boulder]"
     },
     {
         ingredients = {
@@ -491,8 +532,8 @@ local folds = {
         icon = "__arcotorio__/graphics/Arco-orb.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
-        subgroup = "arcofolding",
-        category = "crafting"
+        subgroup = "Arco-orb-arcofolding",
+        order = "a[Arco-orb]"
     },
     {
         ingredients = {
@@ -506,15 +547,17 @@ local folds = {
         icon = "__arcotorio__/graphics/Arco-bead.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
-        subgroup = "arcofolding",
-        category = "crafting"
+        subgroup = "Arco-bead-arcofolding",
+        category = "crafting",
+        order = "a[Arco-bead]"
     }
 }
 --generates recipes based off this info
 for _, recipe_data in pairs(folds) do
+    name = recipe_data.name or recipe_data.result or recipe_data.main_product or (recipe_data.ingredients[1].name .. "-initialize")
     local recipe = {
         type = "recipe",
-        name = recipe_data.name or recipe_data.result or recipe_data.main_product or (recipe_data.ingredients[1].name .. "-initialize"),
+        name = name,
         main_product = recipe_data.main_product,
         icon = recipe_data.icon,
         icon_size = recipe_data.icon_size,
@@ -526,7 +569,8 @@ for _, recipe_data in pairs(folds) do
         results = recipe_data.results,
         ingredients = recipe_data.ingredients,
         energy_required = recipe_data.seconds or 2,
-        enabled = false
+        enabled = false,
+        order = recipe_data.order or ("b["..name.."]")
     }
     data:extend{recipe}
 end
