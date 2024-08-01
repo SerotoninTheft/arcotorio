@@ -249,52 +249,55 @@ local folds = {
     },
     {
         ingredients = {
-            {name = "Rock-Arco-bead", amount = 5}
+            {name = "Rock-Arco-bead", amount = 15}
         },
         result = "Paper-Arco-bead",
-        result_count = 5,
-        category = "arcofolding"
+        result_count = 15,
+        category = "arcofolding",
+        seconds = 1
     },
     {
         ingredients = {
-            {name = "Scissors-Arco-bead", amount = 5}
+            {name = "Scissors-Arco-bead", amount = 15}
         },
         result = "Rock-Arco-bead",
-        result_count = 5,
-        category = "arcofolding"
+        result_count = 15,
+        category = "arcofolding",
+        seconds = 1
     },
     {
         ingredients = {
-            {name = "Paper-Arco-bead", amount = 5}
+            {name = "Paper-Arco-bead", amount = 15}
         },
         result = "Scissors-Arco-bead",
-        result_count = 5,
-        category = "arcofolding"
+        result_count = 15,
+        category = "arcofolding",
+        seconds = 1
     },
     {
         ingredients = {
-            {name = "Rock-Arco-bead", amount = 5}
+            {name = "Rock-Arco-bead", amount = 1}
         },
         result = "Paper-Arco-bead",
-        result_count = 5,
+        result_count = 1,
         category = "crafting",
         name = "hand-Paper-Arco-bead"
     },
     {
         ingredients = {
-            {name = "Scissors-Arco-bead", amount = 5}
+            {name = "Scissors-Arco-bead", amount = 1}
         },
         result = "Rock-Arco-bead",
-        result_count = 5,
+        result_count = 1,
         category = "crafting",
         name = "hand-Rock-Arco-bead"
     },
     {
         ingredients = {
-            {name = "Paper-Arco-bead", amount = 5}
+            {name = "Paper-Arco-bead", amount = 1}
         },
         result = "Scissors-Arco-bead",
-        result_count = 5,
+        result_count = 1,
         category = "crafting",
         name = "hand-Scissors-Arco-bead"
     },
@@ -522,7 +525,7 @@ for _, recipe_data in pairs(folds) do
         result_count = recipe_data.result_count,
         results = recipe_data.results,
         ingredients = recipe_data.ingredients,
-        energy_required = 2,
+        energy_required = recipe_data.seconds or 2,
         enabled = false
     }
     data:extend{recipe}
