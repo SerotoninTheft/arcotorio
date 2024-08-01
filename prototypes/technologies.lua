@@ -11,18 +11,60 @@ local milestones = {
     }
 }
 
+function TableConcat(t1,t2)
+    for i=1,#t2 do
+        t1[#t1+1] = t2[i]
+    end
+    return t1
+end
+
+---Table of recipe names that correlate to a rating, these are added to the tech based on rating, or enabled for rating 1
 ---@as table<table<string>>
 local unlocks = {
-    [1] = {"Arco-bead"},
+    [1] = {"Arco-bead", "Arcofolder"},
     [2] = {"Arco-orb"},
-    [3] = {"Arco-boulder"},
+    [3] = {"Arco-boulder", "Advanced-Arcofolder"},
     [4] = {"Arco-planet"},
-    [5] = {"McArco-sphere"},
+    [5] = {"McArco-sphere", "McArcofolder"},
 }
 
 -- Change target to whatever compat setting required
 local target = milestones.vanilla
 
+local beads = {
+    "Rock-Arco-bead",
+    "Paper-Arco-bead",
+    "Scissors-Arco-bead"
+}
+--TableConcat(unlocks[1], beads)
+local orbs = {
+    "Water-Arco-orb",
+    "Air-Arco-orb",
+    "Fire-Arco-orb",
+    "Earth-Arco-orb"
+}
+--TableConcat(unlocks[2], orbs)
+local boulders = {
+    "Pride-Arco-boulder",
+    "Greed-Arco-boulder",
+    "Lust-Arco-boulder",
+    "Envy-Arco-boulder",
+    "Gluttony-Arco-boulder",
+    "Wrath-Arco-boulder",
+    "Sloth-Arco-boulder"
+}
+TableConcat(unlocks[3], boulders)
+local planets = {
+    "Mercury-Arco-planet",
+    "Venus-Arco-planet",
+    "Earth-Arco-planet",
+    "Mars-Arco-planet",
+    "Jupiter-Arco-planet",
+    "Saturn-Arco-planet",
+    "Uranus-Arco-planet",
+    "Neptune-Arco-planet"
+}
+TableConcat(unlocks[4], planets)
 local mcarco = {
     "Walmart-McArco-sphere",
     "McDonalds-McArco-sphere",
@@ -34,40 +76,11 @@ local mcarco = {
     "KFC-McArco-sphere",
     "Jimmy-Johns-McArco-sphere"
 }
+--TableConcat(unlocks[5], mcarco)
 
-local planets = {
-    "Mercury-Arco-planet",
-    "Venus-Arco-planet",
-    "Earth-Arco-planet",
-    "Mars-Arco-planet",
-    "Jupiter-Arco-planet",
-    "Saturn-Arco-planet",
-    "Uranus-Arco-planet",
-    "Neptune-Arco-planet"
-}
 
-local boulders = {
-    "Pride-Arco-boulder",
-    "Greed-Arco-boulder",
-    "Lust-Arco-boulder",
-    "Envy-Arco-boulder",
-    "Gluttony-Arco-boulder",
-    "Wrath-Arco-boulder",
-    "Sloth-Arco-boulder"
-}
 
-local orbs = {
-    "Water-Arco-orb",
-    "Air-Arco-orb",
-    "Fire-Arco-orb",
-    "Earth-Arco-orb"
-}
 
-local beads = {
-    "Rock-Arco-bead",
-    "Paper-Arco-bead",
-    "Scissors-Arco-bead"
-}
 
 local orb_tiers = {
     beads,
@@ -76,7 +89,9 @@ local orb_tiers = {
     planets,
     mcarco
 }
+
 local tech_util = {}
+
 ---@param ingredients table<TechnologyPrototypeFilter.research_unit_ingredient>
 local function highest_pack(ingredients)
     local highest = "automation-science-pack"

@@ -326,3 +326,32 @@ data:extend({
         stack_size = 50
     },
 }) -- mcarcospheres
+data:extend({
+    {
+        type = "item",
+        name = "Arcofolder",
+        icon = "__arcotorio__/graphics/Arcofolder-icon.png",
+        icon_size = 64,
+        subgroup = "production-machine",
+        stack_size = 20,
+        place_result = "Arcofolder"
+    },
+    {
+        type = "item",
+        name = "Advanced-Arcofolder",
+        icon = "__arcotorio__/graphics/advanced-arcofolder-icon.png",
+        icon_size = 64,
+        subgroup = "production-machine",
+        stack_size = 20,
+        place_result = "Advanced-Arcofolder"
+    },
+    {
+        type = "item",
+        name = "McArcofolder",
+        icon = "__arcotorio__/graphics/McArcofolder-icon.png",
+        icon_size = 64,
+        subgroup = "production-machine",
+        stack_size = 20,
+        place_result = "McArcofolder"
+    },
+})
