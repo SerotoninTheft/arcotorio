@@ -1,5 +1,6 @@
 -- data.lua
 local tech = require("prototypes.technologies")
+require("prototypes.recipes")
 require("prototypes.recipe-util")
 require("prototypes.entities")
 require("prototypes.items")
@@ -10,9 +11,10 @@ tech.process_tech_tree()
 --search for recipes that are enabled by default, rather than unlocked by techs
 local queue = {}
 for _, recipe in pairs(data.raw["recipe"]) do
-    if recipe.enabled or
-            (recipe.normal and recipe.normal.enabled) or
-            (recipe.expensive and recipe.expensive.enabled) then
+    if recipe.enabled ~= false or
+        (recipe.normal and recipe.normal.enabled ~= false) or
+        (recipe.expensive and recipe.expensive.enabled ~= false) then
+
         table.insert(queue, recipe.name)
     end
 end
@@ -20,3 +22,5 @@ end
 for _, recipe in pairs(queue) do
     tech.process_recipe(recipe)
 end
+
+tech.process_arco_recipes()
