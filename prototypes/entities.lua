@@ -23,7 +23,7 @@ data:extend({
             height = 195,
             width = 196,
             scale = 0.5,
-            animation_speed = 30,
+            animation_speed = 0.5,
             frame_count = 30,
             line_length = 5,
             shift = {x = 0 / 64, y = -0.5 / 64}
@@ -33,7 +33,7 @@ data:extend({
             height = 196,
             width = 196,
             scale = 0.5,
-            animation_speed = 30,
+            animation_speed = 0.5,
             frame_count = 1,
             repeat_count = 30
         },
@@ -65,7 +65,7 @@ data:extend({
             height = 195,
             width = 196,
             scale = 0.5,
-            animation_speed = 30,
+            animation_speed = 0.5,
             frame_count = 30,
             line_length = 5,
             shift = {x = 0 / 64, y = -0.5 / 64}
@@ -75,7 +75,7 @@ data:extend({
             height = 196,
             width = 196,
             scale = 0.5,
-            animation_speed = 30,
+            animation_speed = 0.5,
             frame_count = 1,
             repeat_count = 30
         },
@@ -107,7 +107,7 @@ data:extend({
             height = 195,
             width = 196,
             scale = 0.5,
-            animation_speed = 30,
+            animation_speed = 0.5,
             frame_count = 30,
             line_length = 5,
             shift = {x = 0 / 64, y = -0.5 / 64}
@@ -117,7 +117,7 @@ data:extend({
             height = 196,
             width = 196,
             scale = 0.5,
-            animation_speed = 30,
+            animation_speed = 0.5,
             frame_count = 1,
             repeat_count = 30
         },
