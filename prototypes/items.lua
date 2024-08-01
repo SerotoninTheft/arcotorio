@@ -30,7 +30,9 @@ data:extend({
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
-    },
+    }
+}) -- beads
+data:extend({
     {
         type = "item",
         name = "Arco-orb",
@@ -70,7 +72,9 @@ data:extend({
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
-    },
+    }
+}) -- orbs
+data:extend({
     {
         type = "item",
         name = "Arco-boulder",
@@ -134,7 +138,9 @@ data:extend({
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
-    },
+    }
+}) -- boulders
+data:extend({
     {
         type = "item",
         name = "Arco-planet",
@@ -206,7 +212,9 @@ data:extend({
         icon_size = 64,
         subgroup = "intermediate-product",
         stack_size = 100
-    },
+    }
+}) -- planets
+data:extend({
     {
         type = "item",
         name = "McArco-sphere",
@@ -317,4 +325,4 @@ data:extend({
         place_result = "McArcofolder",
         stack_size = 50
     },
-})
+}) -- mcarcospheres

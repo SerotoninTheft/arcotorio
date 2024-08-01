@@ -1,14 +1,23 @@
- local recipe_util = require("prototypes.recipe-util")
+local recipe_util = require("prototypes.recipe-util")
 
 local milestones = {
     ["vanilla"] = {
-        ["satellite"] =        {rating = 5, tech = data.raw["technology"]["space-science-pack"]},
+        ["satellite"] =                 {rating = 5, tech = data.raw["technology"]["space-science-pack"]},
         ["production-science-pack"] =   {rating = 4, tech = data.raw["technology"]["production-science-pack"]},
         ["utility-science-pack"] =      {rating = 4, tech = data.raw["technology"]["utility-science-pack"]},
         ["chemical-science-pack"] =     {rating = 3, tech = data.raw["technology"]["chemical-science-pack"]},
         ["logistic-science-pack"] =     {rating = 2, tech = data.raw["technology"]["logistic-science-pack"]},
         ["automation-science-pack"] =   {rating = 1, tech = nil}
     }
+}
+
+---@as table<table<string>>
+local unlocks = {
+    [1] = {"Arco-bead"},
+    [2] = {"Arco-orb"},
+    [3] = {"Arco-boulder"},
+    [4] = {"Arco-planet"},
+    [5] = {"McArco-sphere"},
 }
 
 -- Change target to whatever compat setting required
@@ -115,7 +124,7 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
     local recipe = data.raw["recipe"][recipe_name]
     local is_intermediate = false
 
-    if recipe.category and recipe.category == "smelting" then return end
+    if recipe and recipe.category and recipe.category == "smelting" then return end
 
     for _, prod in pairs(prod_list) do
         if prod == recipe.name then is_intermediate = true end
@@ -140,6 +149,10 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
             scale = scale + 1
         end
     end ]]
+    
+    data.raw["recipe"][recipe_name].enabled = false
+    if data.raw["recipe"][recipe_name].normal then data.raw["recipe"][recipe_name].normal.enabled = false end
+    if data.raw["recipe"][recipe_name].expensive then data.raw["recipe"][recipe_name].expensive.enabled = false end
     return true
 end
 
@@ -158,6 +171,25 @@ tech_util.process_tech_tree = function()
         ::no_effects::
     end
     process_queue()
+end
+
+tech_util.process_arco_recipes = function()
+    for item_name, milestone in pairs(target) do
+        for _, recipe_name in pairs(unlocks[milestone.rating]) do
+            local recipe = data.raw["recipe"][recipe_name]
+            recipe.ingredients = recipe.ingredients or {
+                {type = "item", name = item_name, amount = 1}
+            }
+            if milestone.tech then
+                table.insert(milestone.tech.effects, {
+                    type = "unlock-recipe",
+                    recipe = recipe.name
+                })
+            else
+                recipe.enabled = true
+            end
+        end
+    end
 end
 
 return tech_util

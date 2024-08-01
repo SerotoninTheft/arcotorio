@@ -49,7 +49,8 @@ local function return_item(name)
         "module",
         "artillery-wagon",
         "spidertron-remote",
-        "spider-vehicle"
+        "spider-vehicle",
+        "repair-tool"
     }
     for _, category in pairs(categories) do
         if data.raw[category][name] then return data.raw[category][name] end
@@ -64,16 +65,16 @@ local function fix_icon(recipe, item)
     elseif recipe.icons then
         recipe.icons = item.icons
     else
-        error("Error: neither icon nor icon exists")
+        error("Error: neither icons nor icon exists")
     end
 end
 
 local function preserve_icon(recipe, results)
-    recipe.main_product = recipe.results[1].name or recipe.results[1][1]
+    recipe.main_product = results[1].name or results[1][1]
     if recipe.results[1].type == "fluid" then
-        fix_icon(recipe, data.raw["fluid"][recipe.results[1].name or recipe.results[1][1]])
+        fix_icon(recipe, data.raw["fluid"][results[1].name or results[1][1]])
     else
-        fix_icon(recipe, return_item(recipe.results[1].name or recipe.results[1][1]))
+        fix_icon(recipe, return_item(results[1].name or results[1][1]))
     end
 end
 
@@ -92,65 +93,39 @@ end
 ---AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH we should try and reduce the size of this
 ---@param recipe data.RecipePrototype
 function arcotorio_util.modify_results(recipe, item1, item2, scale)
-    if recipe.results then
-        if #recipe.results == 1 then
-            preserve_icon(recipe, recipe.results)
-        end
-        modify_original(recipe.results, scale)
-        table.insert(recipe.results, {type = "item", name = item1, amount = 1})
-        table.insert(recipe.results, {type = "item", name = item2, amount = 1})
-    elseif recipe.normal then
-        if recipe.normal.results then
-            if #recipe.normal.results == 1 then
-                preserve_icon(recipe, recipe.results)
-            end
-            modify_original(recipe.normal.results, scale)
-            table.insert(recipe.normal.results, {type = "item", name = item1, amount = 1})
-            table.insert(recipe.normal.results, {type = "item", name = item2, amount = 1})
-        else
-            local original_item = return_item(recipe.normal.result)
-            recipe.normal.main_product = original_item.name
-            recipe.normal.results = {
-                {type = "item", name = original_item.name, amount = (recipe.normal.result_count or 1) * scale},
-                {type = "item", name = item1, amount = 1},
-                {type = "item", name = item2, amount = 1}
-            }
-            fix_icon(recipe, original_item)
-            recipe.normal.result = nil
-            recipe.normal.result_count = nil
-        end
-    elseif recipe.expensive then
-        if recipe.expensive.results then
-            if #recipe.expensive.results == 1 then
-                preserve_icon(recipe, recipe.results)
-            end
-            modify_original(recipe.expensive.results, scale)
-            table.insert(recipe.expensive.results, {type = "item", name = item1, amount = 1})
-            table.insert(recipe.expensive.results, {type = "item", name = item2, amount = 1})
-        else
-            local original_item = return_item(recipe.expensive.result)
-            recipe.expensive.main_product = original_item.name
-            recipe.expensive.results = {
-                {type = "item", name = original_item.name, amount = (recipe.expensive.result_count or 1) * scale},
-                {type = "item", name = item1, amount = 1},
-                {type = "item", name = item2, amount = 1}
-            }
-            fix_icon(recipe, original_item)
-            recipe.expensive.result = nil
-            recipe.expensive.result_count = nil
-        end
-    elseif recipe.result then
-        local original_item = return_item(recipe.result)
-        recipe.main_product = original_item.name
-        recipe.results = {
-            {type = "item", name = original_item.name, amount = (recipe.result_count or 1) * scale},
+    local single_result = function(recipe_container)
+        local original_item = return_item(recipe_container.result)
+        recipe_container.main_product = original_item.name
+        recipe_container.results = {
+            {type = "item", name = original_item.name, amount = (recipe_container.result_count or 1) * scale},
             {type = "item", name = item1, amount = 1},
             {type = "item", name = item2, amount = 1}
         }
         fix_icon(recipe, original_item)
-        recipe.result = nil
-        recipe.result_count = nil
+        recipe_container.result = nil
+        recipe_container.result_count = nil
     end
+
+    local mutli_result = function(recipe_container)
+        if #recipe_container.results == 1 then
+            preserve_icon(recipe, recipe_container.results)
+        end
+        modify_original(recipe_container.results, scale)
+        table.insert(recipe_container.results, {type = "item", name = item1, amount = 1})
+        table.insert(recipe_container.results, {type = "item", name = item2, amount = 1})
+    end
+    
+    local process_recipe = function(recipe_container)
+        if recipe_container.results then
+            mutli_result(recipe_container)
+        elseif recipe_container.result then
+            single_result(recipe_container)
+        end
+    end
+
+    if recipe.normal then process_recipe(recipe.normal) end
+    if recipe.expensive then process_recipe(recipe.expensive) end
+    if recipe.results or recipe.result then process_recipe(recipe) end
 end
 
 return arcotorio_util
