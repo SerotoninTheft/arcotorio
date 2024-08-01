@@ -249,29 +249,26 @@ local folds = {
     },
     {
         ingredients = {
-            {name = "Rock-Arco-bead", amount = 5},
-            {name = "Scissors-Arco-bead", amount = 5}
+            {name = "Rock-Arco-bead", amount = 5}
         },
         result = "Paper-Arco-bead",
-        result_count = 10,
+        result_count = 5,
         category = "crafting"
     },
     {
         ingredients = {
-            {name = "Paper-Arco-bead", amount = 5},
             {name = "Scissors-Arco-bead", amount = 5}
         },
         result = "Rock-Arco-bead",
-        result_count = 10,
+        result_count = 5,
         category = "crafting"
     },
     {
         ingredients = {
-            {name = "Paper-Arco-bead", amount = 5},
-            {name = "Rock-Arco-bead", amount = 5}
+            {name = "Paper-Arco-bead", amount = 5}
         },
         result = "Scissors-Arco-bead",
-        result_count = 10,
+        result_count = 5,
         category = "crafting"
     },
     {
