@@ -253,7 +253,7 @@ local folds = {
         },
         result = "Paper-Arco-bead",
         result_count = 5,
-        category = "crafting"
+        category = "arcofolding"
     },
     {
         ingredients = {
@@ -261,7 +261,7 @@ local folds = {
         },
         result = "Rock-Arco-bead",
         result_count = 5,
-        category = "crafting"
+        category = "arcofolding"
     },
     {
         ingredients = {
@@ -269,7 +269,34 @@ local folds = {
         },
         result = "Scissors-Arco-bead",
         result_count = 5,
-        category = "crafting"
+        category = "arcofolding"
+    },
+    {
+        ingredients = {
+            {name = "Rock-Arco-bead", amount = 5}
+        },
+        result = "Paper-Arco-bead",
+        result_count = 5,
+        category = "crafting",
+        name = "hand-Paper-Arco-bead"
+    },
+    {
+        ingredients = {
+            {name = "Scissors-Arco-bead", amount = 5}
+        },
+        result = "Rock-Arco-bead",
+        result_count = 5,
+        category = "crafting",
+        name = "hand-Rock-Arco-bead"
+    },
+    {
+        ingredients = {
+            {name = "Paper-Arco-bead", amount = 5}
+        },
+        result = "Scissors-Arco-bead",
+        result_count = 5,
+        category = "crafting",
+        name = "hand-Scissors-Arco-bead"
     },
     {
         ingredients = {
@@ -484,7 +511,7 @@ local folds = {
 for _, recipe_data in pairs(folds) do
     local recipe = {
         type = "recipe",
-        name = recipe_data.result or recipe_data.main_product or (recipe_data.ingredients[1].name .. "-initialize"),
+        name = recipe_data.name or recipe_data.result or recipe_data.main_product or (recipe_data.ingredients[1].name .. "-initialize"),
         main_product = recipe_data.main_product,
         icon = recipe_data.icon,
         icon_size = recipe_data.icon_size,

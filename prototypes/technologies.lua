@@ -37,6 +37,12 @@ local beads = {
     "Scissors-Arco-bead"
 }
 TableConcat(unlocks[1], beads)
+local hand_beads =  {
+    "hand-Rock-Arco-bead",
+    "hand-Paper-Arco-bead",
+    "hand-Scissors-Arco-bead"
+}
+TableConcat(unlocks[1], hand_beads)
 local orbs = {
     "Water-Arco-orb",
     "Air-Arco-orb",
@@ -77,6 +83,7 @@ local mcarco = {
     "Jimmy-Johns-McArco-sphere"
 }
 TableConcat(unlocks[5], mcarco)
+
 
 local orb_tiers = {
     beads,
@@ -141,9 +148,9 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
         if prod == recipe.name then is_intermediate = true end
     end
 
-    if target[recipe.name] then
+    --[[ if target[recipe.name] then
         tier = tier + 1
-    end
+    end ]]
 
     add_to_queue(tech, recipe_util.recreate(table.deepcopy(recipe), orb_tiers[tier]))
     -- Only create additional recipes for items that are intermediate products (using productivity as the metric)
