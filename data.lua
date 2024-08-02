@@ -1,7 +1,7 @@
 -- data.lua
 local tech = require("prototypes.technologies")
 require("prototypes.recipes")
-require("prototypes.recipe-util")
+require("scripts.recipe_util")
 require("prototypes.entities")
 require("prototypes.items")
 require("prototypes.category")
