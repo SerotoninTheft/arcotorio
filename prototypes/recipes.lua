@@ -105,6 +105,7 @@ local folds = {
         },
         result = "Mars-Arco-planet",
         result_count = 15,
+        seconds = 5,
         subgroup = "Arco-planet-arcofolding"
     },
     {
@@ -115,6 +116,7 @@ local folds = {
         },
         result = "Jupiter-Arco-planet",
         result_count = 15,
+        seconds = 5,
         subgroup = "Arco-planet-arcofolding"
     },
     {
@@ -125,6 +127,7 @@ local folds = {
         },
         result = "Saturn-Arco-planet",
         result_count = 15,
+        seconds = 5,
         subgroup = "Arco-planet-arcofolding"
     },
     {
@@ -135,6 +138,7 @@ local folds = {
         },
         result = "Neptune-Arco-planet",
         result_count = 15,
+        seconds = 5,
         subgroup = "Arco-planet-arcofolding"
     },
     {
@@ -145,6 +149,7 @@ local folds = {
         },
         result = "Uranus-Arco-planet",
         result_count = 15,
+        seconds = 5,
         subgroup = "Arco-planet-arcofolding"
     },
     {
@@ -155,6 +160,7 @@ local folds = {
         },
         result = "Venus-Arco-planet",
         result_count = 15,
+        seconds = 5,
         subgroup = "Arco-planet-arcofolding"
     },
     {
@@ -165,6 +171,7 @@ local folds = {
         },
         result = "Mercury-Arco-planet",
         result_count = 15,
+        seconds = 5,
         subgroup = "Arco-planet-arcofolding"
     },
     {
@@ -175,6 +182,7 @@ local folds = {
         },
         result = "Earth-Arco-planet",
         result_count = 15,
+        seconds = 5,
         subgroup = "Arco-planet-arcofolding"
     },
     {
@@ -184,6 +192,7 @@ local folds = {
         },
         result = "Lust-Arco-boulder",
         result_count = 10,
+        seconds = 2,
         subgroup = "Arco-boulder-arcofolding"
     },
     {
@@ -193,6 +202,7 @@ local folds = {
         },
         result = "Envy-Arco-boulder",
         result_count = 10,
+        seconds = 2,
         subgroup = "Arco-boulder-arcofolding"
     },
     {
@@ -202,6 +212,7 @@ local folds = {
         },
         result = "Gluttony-Arco-boulder",
         result_count = 10,
+        seconds = 2,
         subgroup = "Arco-boulder-arcofolding"
     },
     {
@@ -211,6 +222,7 @@ local folds = {
         },
         result = "Wrath-Arco-boulder",
         result_count = 10,
+        seconds = 2,
         subgroup = "Arco-boulder-arcofolding"
     },
     {
@@ -220,6 +232,7 @@ local folds = {
         },
         result = "Sloth-Arco-boulder",
         result_count = 10,
+        seconds = 2,
         subgroup = "Arco-boulder-arcofolding"
     },
     {
@@ -229,6 +242,7 @@ local folds = {
         },
         result = "Greed-Arco-boulder",
         result_count = 10,
+        seconds = 2,
         subgroup = "Arco-boulder-arcofolding"
     },
     {
@@ -238,6 +252,7 @@ local folds = {
         },
         result = "Pride-Arco-boulder",
         result_count = 10,
+        seconds = 2,
         subgroup = "Arco-boulder-arcofolding"
     },
     {
@@ -247,6 +262,7 @@ local folds = {
         },
         result = "Earth-Arco-orb",
         result_count = 10,
+        seconds = 1,
         subgroup = "Arco-orb-arcofolding"
     },
     {
@@ -256,6 +272,7 @@ local folds = {
         },
         result = "Air-Arco-orb",
         result_count = 10,
+        seconds = 1,
         subgroup = "Arco-orb-arcofolding"
     },
     {
@@ -265,6 +282,7 @@ local folds = {
         },
         result = "Water-Arco-orb",
         result_count = 10,
+        seconds = 1,
         subgroup = "Arco-orb-arcofolding"
     },
     {
@@ -274,6 +292,7 @@ local folds = {
         },
         result = "Fire-Arco-orb",
         result_count = 10,
+        seconds = 1,
         subgroup = "Arco-orb-arcofolding"
     },
     {
@@ -309,6 +328,7 @@ local folds = {
         },
         result = "Paper-Arco-bead",
         result_count = 1,
+        seconds = 1,
         category = "crafting",
         name = "hand-Paper-Arco-bead",
         subgroup = "Arco-bead-arcofolding"
@@ -319,6 +339,7 @@ local folds = {
         },
         result = "Rock-Arco-bead",
         result_count = 1,
+        seconds = 1,
         category = "crafting",
         name = "hand-Rock-Arco-bead",
         subgroup = "Arco-bead-arcofolding"
@@ -329,6 +350,7 @@ local folds = {
         },
         result = "Scissors-Arco-bead",
         result_count = 1,
+        seconds = 1,
         category = "crafting",
         name = "hand-Scissors-Arco-bead",
         subgroup = "Arco-bead-arcofolding"
@@ -344,6 +366,7 @@ local folds = {
             {name = "Subway-McArco-sphere", amount = 15},
             {name = "White-Castle-McArco-sphere", amount = 5}
         },
+        seconds = 10,
         main_product = "Subway-McArco-sphere",
         subgroup = "McArco-sphere-arcofolding"
     },
@@ -358,6 +381,7 @@ local folds = {
             {name = "White-Castle-McArco-sphere", amount = 15},
             {name = "Taco-Bell-McArco-sphere", amount = 5}
         },
+        seconds = 10,
         main_product = "White-Castle-McArco-sphere",
         subgroup = "McArco-sphere-arcofolding"
     },
@@ -372,6 +396,7 @@ local folds = {
             {name = "Taco-Bell-McArco-sphere", amount = 15},
             {name = "KFC-McArco-sphere", amount = 5}
         },
+        seconds = 10,
         main_product = "Taco-Bell-McArco-sphere",
         subgroup = "McArco-sphere-arcofolding"
     },
@@ -386,6 +411,7 @@ local folds = {
             {name = "KFC-McArco-sphere", amount = 15},
             {name = "Jimmy-Johns-McArco-sphere", amount = 5}
         },
+        seconds = 10,
         main_product = "KFC-McArco-sphere",
         subgroup = "McArco-sphere-arcofolding"
     },
@@ -400,6 +426,7 @@ local folds = {
             {name = "Jimmy-Johns-McArco-sphere", amount = 15},
             {name = "Walmart-McArco-sphere", amount = 5}
         },
+        seconds = 10,
         main_product = "Jimmy-Johns-McArco-sphere",
         subgroup = "McArco-sphere-arcofolding"
     },
@@ -414,6 +441,7 @@ local folds = {
             {name = "Walmart-McArco-sphere", amount = 15},
             {name = "McDonalds-McArco-sphere", amount = 5}
         },
+        seconds = 10,
         main_product = "Walmart-McArco-sphere",
         subgroup = "McArco-sphere-arcofolding"
     },
@@ -428,6 +456,7 @@ local folds = {
             {name = "McDonalds-McArco-sphere", amount = 15},
             {name = "Tesco-McArco-sphere", amount = 5}
         },
+        seconds = 10,
         main_product = "McDonalds-McArco-sphere",
         subgroup = "McArco-sphere-arcofolding"
     },
@@ -442,6 +471,7 @@ local folds = {
             {name = "Tesco-McArco-sphere", amount = 15},
             {name = "Wendys-McArco-sphere", amount = 5}
         },
+        seconds = 10,
         main_product = "Tesco-McArco-sphere",
         subgroup = "McArco-sphere-arcofolding"
     },
@@ -456,6 +486,7 @@ local folds = {
             {name = "Wendys-McArco-sphere", amount = 15},
             {name = "Subway-McArco-sphere", amount = 5}
         },
+        seconds = 10,
         main_product = "Wendys-McArco-sphere",
         subgroup = "McArco-sphere-arcofolding"
     },
@@ -474,7 +505,7 @@ local folds = {
             {name = "Taco-Bell-McArco-sphere", amount = 1},
             {name = "White-Castle-McArco-sphere", amount = 1}
         },
-        icon = "__arcotorio__/graphics/McArco-sphere.png",
+        icon = "__arcotorio__/graphics/Mc-Initialize.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
         subgroup = "McArco-sphere-arcofolding",
@@ -494,7 +525,7 @@ local folds = {
             {name = "Uranus-Arco-planet", amount = 1},
             {name = "Neptune-Arco-planet", amount = 1}
         },
-        icon = "__arcotorio__/graphics/Arco-planet.png",
+        icon = "__arcotorio__/graphics/Planet-Initialize.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
         subgroup = "Arco-planet-arcofolding",
@@ -513,7 +544,7 @@ local folds = {
             {name = "Wrath-Arco-boulder", amount = 1},
             {name = "Sloth-Arco-boulder", amount = 1}
         },
-        icon = "__arcotorio__/graphics/Arco-boulder.png",
+        icon = "__arcotorio__/graphics/Boulder-Initialize.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
         subgroup = "Arco-boulder-arcofolding",
@@ -529,7 +560,7 @@ local folds = {
             {name = "Earth-Arco-orb", amount = 1},
             {name = "Air-Arco-orb", amount = 1}
         },
-        icon = "__arcotorio__/graphics/Arco-orb.png",
+        icon = "__arcotorio__/graphics/Orb-Initialize.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
         subgroup = "Arco-orb-arcofolding",
@@ -544,7 +575,7 @@ local folds = {
             {name = "Rock-Arco-bead", amount = 1},
             {name = "Scissors-Arco-bead", amount = 1}
         },
-        icon = "__arcotorio__/graphics/Arco-bead.png",
+        icon = "__arcotorio__/graphics/Bead-Initialize.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
         subgroup = "Arco-bead-arcofolding",
