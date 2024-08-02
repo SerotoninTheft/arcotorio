@@ -1,12 +1,19 @@
 local recipe_util = require("scripts.recipe_util")
+local rusty_util = require("__rusty-locale__.locale")
 
+---@class (exact) Milestone_Data
+---@field rating int
+---@field tech data.TechnologyPrototype
+---@field raw string
+
+---@as {[string]: {[string]: Milestone_Data}}
 local milestones = {
     ["vanilla"] = {
-        ["satellite"] =                 {rating = 5, tech = data.raw["technology"]["space-science-pack"]},
-        ["production-science-pack"] =   {rating = 4, tech = data.raw["technology"]["production-science-pack"]},
-        ["utility-science-pack"] =      {rating = 4, tech = data.raw["technology"]["utility-science-pack"]},
-        ["chemical-science-pack"] =     {rating = 3, tech = data.raw["technology"]["chemical-science-pack"]},
-        ["logistic-science-pack"] =     {rating = 2, tech = data.raw["technology"]["logistic-science-pack"]},
+        ["satellite"] =                 {rating = 5, tech = data.raw["technology"]["space-science-pack"],       raw = "space-science-pack"},
+        ["production-science-pack"] =   {rating = 4, tech = data.raw["technology"]["production-science-pack"],  raw = "production-science-pack"},
+        ["utility-science-pack"] =      {rating = 4, tech = data.raw["technology"]["utility-science-pack"],     raw = "utility-science-pack"},
+        ["chemical-science-pack"] =     {rating = 3, tech = data.raw["technology"]["chemical-science-pack"],    raw = "chemical-science-pack"},
+        ["logistic-science-pack"] =     {rating = 2, tech = data.raw["technology"]["logistic-science-pack"],    raw = "logistic-science-pack"},
         ["automation-science-pack"] =   {rating = 1, tech = nil, raw = "coal"}
     }
 }
@@ -93,6 +100,34 @@ local orb_tiers = {
     mcarco
 }
 
+---@class (exact) Manufacture_Data
+---@field rating int
+---@field tech data.TechnologyData
+
+---@return Manufacture_Data
+local function manufacture_tech(tech_name, rating)
+    return {
+        rating = rating,
+        tech = {
+            icon = "__arcotorio__/graphics/"..unlocks[rating][1]..".png",
+            icon_size = 64,
+            type = "technology",
+            name = tech_name,
+            prerequisites = {},
+            effects = {},
+            unit = nil
+        }
+    }--[[@as Manufacture_Data]]
+end
+
+---@as { [string]: Manufacture_Data }
+local manufacturing_techs = {
+    ["frugal-manufacturing"]        = manufacture_tech("frugal-manufacturing", 2),
+    ["efficient-manufacturing"]     = manufacture_tech("efficient-manufacturing", 3),
+    ["improved-manufacturing"]      = manufacture_tech("improved-manufacturing", 4),
+    ["zero-waste-manufacturing"]    = manufacture_tech("zero-waste-manufacturing", 5)
+}
+
 local tech_util = {}
 
 ---@param ingredients table<TechnologyPrototypeFilter.research_unit_ingredient>
@@ -113,13 +148,17 @@ end
 
 local queue = {}
 local add_to_queue = function(tech, recipe)
-    if tech then
+    if tech and recipe then
         queue[tech.name] = queue[tech.name] or {}
         table.insert(queue[tech.name], recipe)
+    elseif recipe then
+        if recipe.normal    then recipe.normal.enabled = true end
+        if recipe.expensive then recipe.expensive.enabled = true end
+        if not (recipe.normal and recipe.expensive) then recipe.enabled = true end
     end
 end
 
-local process_queue = function()
+tech_util.process_queue = function()
     for tech_name, recipes in pairs(queue) do
         local tech = data.raw["technology"][tech_name]
         if not recipes then error('no recipe added') end
@@ -136,13 +175,18 @@ end
 local prod_list = data.raw["module"]["productivity-module"].limitation
 if not prod_list then error("Default productivity 1 module has no limitation. Please contact mod author") end
 
+---@param recipe_name string
+---@param tech ?data.TechnologyPrototype
+---@param tier ?int
 tech_util.process_recipe = function(recipe_name, tech, tier)
     tier = tier or 1
+    if not recipe_name then error("recipe_name missing: " .. serpent.block(tech)) end
+
     -- Get the recipe to check its subgroup
     local recipe = data.raw["recipe"][recipe_name]
     local is_intermediate = false
 
-    if recipe and recipe.category and recipe.category == "smelting" then return end
+    if recipe and recipe.category and recipe.category ~= "crafting" then return end
 
     for _, prod in pairs(prod_list) do
         if prod == recipe.name then is_intermediate = true end
@@ -154,20 +198,21 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
 
     add_to_queue(tech, recipe_util.recreate(table.deepcopy(recipe), orb_tiers[tier]))
     -- Only create additional recipes for items that are intermediate products (using productivity as the metric)
-    --[[ if is_intermediate then
-        local scale = 1
-        tier = tier + 1
-        while tier < 6 do
-            for _, data in pairs(target) do
-                if data.rating == tier then
-                    add_to_queue(data.tech, recipe_util.recreate(table.deepcopy(recipe), orb_tiers[tier], scale))
+    -- TODO add "Hard Mode" setting to disable this feature
+    local difference = 1
+    if is_intermediate then
+        while tier < 5 do
+            tier = tier + 1
+            difference = difference + 1
+            for _, manufacture_data in pairs(manufacturing_techs) do
+                if manufacture_data.rating == tier then
+                    new_recipe = table.deepcopy(recipe)
+                    add_to_queue(manufacture_data.tech, recipe_util.recreate(new_recipe, orb_tiers[tier], 6 - difference, 1))
                 end
             end
-            tier = tier + 1
-            scale = scale + 1
         end
-    end ]]
-    
+    end
+
     data.raw["recipe"][recipe_name].enabled = false
     if data.raw["recipe"][recipe_name].normal then data.raw["recipe"][recipe_name].normal.enabled = false end
     if data.raw["recipe"][recipe_name].expensive then data.raw["recipe"][recipe_name].expensive.enabled = false end
@@ -188,7 +233,6 @@ tech_util.process_tech_tree = function()
         end
         ::no_effects::
     end
-    process_queue()
 end
 
 local function adjust_tech(rating, recipe)
@@ -203,9 +247,22 @@ local function adjust_tech(rating, recipe)
     end
 end
 
+tech_util.place_manufacturing = function()
+    for _, manufacture_data in pairs(manufacturing_techs) do
+        for _, milestone in pairs(target) do
+            if manufacture_data.rating == milestone.rating then
+                manufacture_data.tech.prerequisites[#manufacture_data.tech.prerequisites + 1] = milestone.tech.name
+                manufacture_data.tech.unit = manufacture_data.tech.unit or milestone.tech.unit
+                table.insert(manufacture_data.tech.unit.ingredients, {milestone.raw, 1})
+            end
+        end
+        data:extend{manufacture_data.tech}
+    end
+end
+
 tech_util.process_arco_recipes = function()
     for item_name, milestone in pairs(target) do
-        for index, recipe_name in pairs(unlocks[milestone.rating]) do 
+        for index, recipe_name in pairs(unlocks[milestone.rating]) do
             local item =  {type = "item", name = item_name, amount = 1}
             local recipe = data.raw["recipe"][recipe_name]
             if milestone.tech then
@@ -224,7 +281,7 @@ tech_util.process_arco_recipes = function()
                     recipe.category = "crafting"
                 end
                 recipe.ingredients = recipe.ingredients or { item }
-                recipe.enabled = true
+                recipe.enabled = recipe.enabled or true
             end
         end
     end

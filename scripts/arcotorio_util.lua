@@ -11,16 +11,30 @@ function arcotorio_util.pick_two_items(item_table)
     return {item1 = shuffled[1], item2 = shuffled[2]}
 end
 
-function arcotorio_util.add_ingredients(recipe, item1, item2)
+---@param recipe data.RecipePrototype
+function arcotorio_util.modify_ingredients(recipe, item1, item2, scale, improve)
+    if improve < 1 then scale = 1 end
+    ---@param ingredients table<int, data.IngredientPrototype>
+    local scale_ingredients = function(ingredients)
+        for _, ingredient in pairs(ingredients) do
+            ingredient.name = ingredient.name or ingredient[1]
+            ingredient.amount = (ingredient.amount or ingredient[2]) * scale
+            ingredient[1], ingredient[2] = nil, nil
+        end
+    end
+
     if recipe.ingredients then
-        table.insert(recipe.ingredients, {type = "item", name = item1, amount = 1})
-        table.insert(recipe.ingredients, {type = "item", name = item2, amount = 1})
+        scale_ingredients(recipe.ingredients)
+        table.insert(recipe.ingredients, {type = "item", name = item1, amount = scale})
+        table.insert(recipe.ingredients, {type = "item", name = item2, amount = scale})
     elseif recipe.normal and recipe.normal.ingredients then
-        table.insert(recipe.normal.ingredients, {type = "item", name = item1, amount = 1})
-        table.insert(recipe.normal.ingredients, {type = "item", name = item2, amount = 1})
+        scale_ingredients(recipe.normal.ingredients)
+        table.insert(recipe.normal.ingredients, {type = "item", name = item1, amount = scale})
+        table.insert(recipe.normal.ingredients, {type = "item", name = item2, amount = scale})
     elseif recipe.expensive and recipe.expensive.ingredients then
-        table.insert(recipe.expensive.ingredients, {type = "item", name = item1, amount = 1})
-        table.insert(recipe.expensive.ingredients, {type = "item", name = item2, amount = 1})
+        scale_ingredients(recipe.expensive.ingredients)
+        table.insert(recipe.expensive.ingredients, {type = "item", name = item1, amount = scale})
+        table.insert(recipe.expensive.ingredients, {type = "item", name = item2, amount = scale})
     end
 end
 
@@ -92,14 +106,14 @@ local function modify_original(results, scale)
 end
 ---AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH we should try and reduce the size of this
 ---@param recipe data.RecipePrototype
-function arcotorio_util.modify_results(recipe, item1, item2, scale)
+function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
     local single_result = function(recipe_container)
         local original_item = return_item(recipe_container.result)
         recipe_container.main_product = original_item.name
         recipe_container.results = {
-            {type = "item", name = original_item.name, amount = (recipe_container.result_count or 1) * scale},
-            {type = "item", name = item1, amount = 1},
-            {type = "item", name = item2, amount = 1}
+            {type = "item", name = original_item.name, amount = (recipe_container.result_count or 1) * (scale + improve)},
+            {type = "item", name = item1, amount = scale},
+            {type = "item", name = item2, amount = scale}
         }
         fix_icon(recipe, original_item)
         recipe_container.result = nil
@@ -110,9 +124,9 @@ function arcotorio_util.modify_results(recipe, item1, item2, scale)
         if #recipe_container.results == 1 then
             preserve_icon(recipe, recipe_container.results)
         end
-        modify_original(recipe_container.results, scale)
-        table.insert(recipe_container.results, {type = "item", name = item1, amount = 1})
-        table.insert(recipe_container.results, {type = "item", name = item2, amount = 1})
+        modify_original(recipe_container.results, (scale + improve))
+        table.insert(recipe_container.results, {type = "item", name = item1, amount = scale})
+        table.insert(recipe_container.results, {type = "item", name = item2, amount = scale})
     end
     
     local process_recipe = function(recipe_container)

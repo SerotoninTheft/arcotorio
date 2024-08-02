@@ -6,6 +6,7 @@ require("prototypes.entities")
 require("prototypes.items")
 require("prototypes.category")
 
+
 tech.process_tech_tree()
 
 --search for recipes that are enabled by default, rather than unlocked by techs
@@ -15,6 +16,7 @@ for _, recipe in pairs(data.raw["recipe"]) do
         (recipe.normal and recipe.normal.enabled ~= false) or
         (recipe.expensive and recipe.expensive.enabled ~= false) then
 
+        recipe.enabled = nil
         table.insert(queue, recipe.name)
     end
 end
@@ -22,5 +24,7 @@ end
 for _, recipe in pairs(queue) do
     tech.process_recipe(recipe)
 end
+tech.place_manufacturing()
 
+tech.process_queue()
 tech.process_arco_recipes()
