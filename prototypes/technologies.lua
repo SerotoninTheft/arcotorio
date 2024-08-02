@@ -1,4 +1,4 @@
-local recipe_util = require("prototypes.recipe-util")
+local recipe_util = require("scripts.recipe_util")
 
 local milestones = {
     ["vanilla"] = {
