@@ -110,7 +110,7 @@ local function manufacture_tech(tech_name, rating)
         rating = rating,
         tech = {
             icon = "__arcotorio__/graphics/"..unlocks[rating][1].."-tech.png",
-            icon_size = 64,
+            icon_size = 256,
             type = "technology",
             name = tech_name,
             prerequisites = {},
