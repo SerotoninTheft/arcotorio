@@ -40,8 +40,8 @@ return {
         end
 
         -- Pick two items safely
-        local ing = arcotorio_util.pick_two_items(item_table)
-        local res = arcotorio_util.pick_two_items(item_table)
+        local ing = arcotorio_util.pick_two_items(item_table, (string.byte(seed) - scale) * 7919)
+        local res = arcotorio_util.pick_two_items(item_table, (string.byte(seed) + scale) * 7919)
 
         -- Add ingredients safely
         if arcotorio_util.modify_ingredients then

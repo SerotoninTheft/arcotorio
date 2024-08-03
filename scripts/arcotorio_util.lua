@@ -1,14 +1,10 @@
 local arcotorio_util = {}
 
-function arcotorio_util.pick_two_items(item_table)
-    local shuffled = table.deepcopy(item_table)
-    for i = #shuffled, 2, -1 do
-        local j = math.random(i)
-        local temp = shuffled[i]
-        shuffled[i] = shuffled[j]
-        shuffled[j] = temp
-    end
-    return {item1 = shuffled[1], item2 = shuffled[2]}
+function arcotorio_util.pick_two_items(item_table, seed)
+    local pick_one = ((seed + 1) * (#item_table + 1) % #item_table) + 1
+    local pick_two = (((seed) * (#item_table + 1)) % #item_table) + 1
+    if pick_one == pick_two then error() end
+    return {item1 = item_table[pick_one], item2 = item_table[pick_two]}
 end
 
 ---@param recipe data.RecipePrototype
