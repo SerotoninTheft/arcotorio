@@ -1,4 +1,7 @@
 local arcotorio_util = require("scripts/arcotorio_util")
+local rusty_util = require("__rusty-locale__.locale")
+
+local namings = {"frugal", "efficient", "improved", "zero-waste"}
 
 return {
     ---@param recipe data.RecipePrototype
@@ -24,6 +27,17 @@ return {
         if recipe.normal then recipe.normal.enabled = false end
         if recipe.expensive then recipe.expensive.enabled = false end
         if not (recipe.normal and recipe.expensive) then recipe.enabled = false end
+
+        local seed = recipe.name or recipe.main_product
+
+        if improve > 0 then
+            local prefix = "arcotorio-manufacturing." .. namings[(6 - scale) - 1]
+            local locale = rusty_util.of_recipe(recipe).name
+            recipe.localised_name = {prefix, locale}
+            recipe.name = "arco-" .. namings[(6 - scale) - 1] .. "-" .. recipe.name
+        else
+            recipe.name = "arco-" .. recipe.name
+        end
 
         -- Pick two items safely
         local ing = arcotorio_util.pick_two_items(item_table)
@@ -52,12 +66,6 @@ return {
         end
         if not recipe.normal then
             recipe.energy_required = (recipe.energy_required or 0.5) * scale
-        end
-
-        if improve > 0 then
-            recipe.name = "arco-T" .. (6 - scale) .. "-" .. recipe.name
-        else
-            recipe.name = "arco-" .. recipe.name
         end
 
         -- Extend the data with the modified recipe
