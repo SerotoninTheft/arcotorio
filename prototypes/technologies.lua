@@ -172,6 +172,16 @@ tech_util.process_queue = function()
     end
 end
 
+valid_categories = {
+    ["crafting"] = true,
+    ["advanced-crafting"] = true,
+    ["basic-crafting"] = true,
+    ["centrifuging-crafting"] = true,
+    ["chemistry-crafting"] = true,
+    ["crafting-with-fluid"] = true,
+    ["oil-processing"] = true
+}
+
 local prod_list = data.raw["module"]["productivity-module"].limitation
 if not prod_list then error("Default productivity 1 module has no limitation. Please contact mod author") end
 
@@ -186,7 +196,7 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
     local recipe = data.raw["recipe"][recipe_name]
     local is_intermediate = false
 
-    if recipe and recipe.category and recipe.category ~= "crafting" then return end
+    if recipe and recipe.category and not valid_categories[recipe.category] then return end
 
     for _, prod in pairs(prod_list) do
         if prod == recipe.name then is_intermediate = true end
