@@ -1,5 +1,4 @@
 local recipe_util = require("scripts.recipe_util")
-local rusty_util = require("__rusty-locale__.locale")
 
 ---@class (exact) Milestone_Data
 ---@field rating int
@@ -172,12 +171,12 @@ tech_util.process_queue = function()
     end
 end
 
-valid_categories = {
+local valid_categories = {
     ["crafting"] = true,
     ["advanced-crafting"] = true,
     ["basic-crafting"] = true,
-    ["centrifuging-crafting"] = true,
-    ["chemistry-crafting"] = true,
+    ["centrifuging"] = true,
+    ["chemistry"] = true,
     ["crafting-with-fluid"] = true,
     ["oil-processing"] = true
 }
@@ -196,7 +195,7 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
     local recipe = data.raw["recipe"][recipe_name]
     local is_intermediate = false
 
-    if recipe and recipe.category and not valid_categories[recipe.category] then return end
+    if recipe and recipe.category and (not valid_categories[recipe.category]) then return end
 
     for _, prod in pairs(prod_list) do
         if prod == recipe.name then is_intermediate = true end
