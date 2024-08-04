@@ -33,5 +33,9 @@ data:extend({
         name = "Arcofolders",
         group = "production",
         order = "e[Arco]"
+    },
+    {
+        type = "fuel-category",
+        name = "mcarco"
     }
 })

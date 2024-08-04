@@ -237,7 +237,12 @@ data:extend({
         icon = "__arcotorio__/graphics/McDonalds-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
-        stack_size = 100
+        stack_size = 100,
+        fuel_category = "mcarco",
+        fuel_acceleration_multiplier = 2.5 * 1.5,
+        fuel_top_speed_multiplier = 1.15 * 1.5,
+        fuel_value = "200MJ",
+        burnt_result = "Walmart-McArco-sphere"
     },
     {
         type = "item",
@@ -253,7 +258,12 @@ data:extend({
         icon = "__arcotorio__/graphics/Wendys-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
-        stack_size = 100
+        stack_size = 100,
+        fuel_category = "mcarco",
+        fuel_acceleration_multiplier = 2.5 * 1.5,
+        fuel_top_speed_multiplier = 1.15 * 1.5,
+        fuel_value = "200MJ",
+        burnt_result = "Walmart-McArco-sphere"
     },
     {
         type = "item",
@@ -261,7 +271,12 @@ data:extend({
         icon = "__arcotorio__/graphics/Subway-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
-        stack_size = 100
+        stack_size = 100,
+        fuel_category = "mcarco",
+        fuel_acceleration_multiplier = 2.5 * 1.5,
+        fuel_top_speed_multiplier = 1.15 * 1.5,
+        fuel_value = "200MJ",
+        burnt_result = "Walmart-McArco-sphere"
     },
     {
         type = "item",
@@ -269,7 +284,12 @@ data:extend({
         icon = "__arcotorio__/graphics/White-Castle-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
-        stack_size = 100
+        stack_size = 100,
+        fuel_category = "mcarco",
+        fuel_acceleration_multiplier = 1.2,
+        fuel_top_speed_multiplier = 1.05,
+        fuel_value = "12MJ",
+        burnt_result = "McArco-sphere"
     },
     {
         type = "item",
@@ -277,7 +297,12 @@ data:extend({
         icon = "__arcotorio__/graphics/Taco-Bell-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
-        stack_size = 100
+        stack_size = 100,
+        fuel_category = "mcarco",
+        fuel_acceleration_multiplier = 2.5 * 1.5,
+        fuel_top_speed_multiplier = 1.15 * 1.5,
+        fuel_value = "200MJ",
+        burnt_result = "Tesco-McArco-sphere"
     },
     {
         type = "item",
@@ -285,7 +310,12 @@ data:extend({
         icon = "__arcotorio__/graphics/KFC-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
-        stack_size = 100
+        stack_size = 100,
+        fuel_category = "mcarco",
+        fuel_acceleration_multiplier = 2.5 * 1.5,
+        fuel_top_speed_multiplier = 1.15 * 1.5,
+        fuel_value = "200MJ",
+        burnt_result = "Tesco-McArco-sphere"
     },
     {
         type = "item",
@@ -293,38 +323,13 @@ data:extend({
         icon = "__arcotorio__/graphics/Jimmy-Johns-McArco-sphere.png",
         icon_size = 64,
         subgroup = "intermediate-product",
-        stack_size = 100
-    },
-    {
-        type = "item",
-        name = "Arcofolder",
-        icon = "__arcotorio__/graphics/Arcofolder-icon.png",
-        icon_size = 64,
-        subgroup = "production-machine",
-        order = "a[Arcofolder]",
-        place_result = "Arcofolder",
-        stack_size = 50
-    },
-    {
-        type = "item",
-        name = "Advanced-Arcofolder",
-        icon = "__arcotorio__/graphics/advanced-arcofolder-icon.png",
-        icon_size = 64,
-        subgroup = "production-machine",
-        order = "a[Advanced arcofolder]",
-        place_result = "Advanced-Arcofolder",
-        stack_size = 50
-    },
-    {
-        type = "item",
-        name = "McArcofolder",
-        icon = "__arcotorio__/graphics/McArcofolder-icon.png",
-        icon_size = 64,
-        subgroup = "production-machine",
-        order = "a[McArcofolder]",
-        place_result = "McArcofolder",
-        stack_size = 50
-    },
+        stack_size = 100,
+        fuel_category = "mcarco",
+        fuel_acceleration_multiplier = 2.5 * 1.5,
+        fuel_top_speed_multiplier = 1.15 * 1.5,
+        fuel_value = "200MJ",
+        burnt_result = "Tesco-McArco-sphere"
+    }
 }) -- mcarcospheres
 data:extend({
     {
