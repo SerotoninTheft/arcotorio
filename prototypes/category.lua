@@ -27,5 +27,11 @@ data:extend({
         type = "item-subgroup",
         name = "McArco-sphere-arcofolding",
         group = "intermediate-products"
+    },
+    {
+        type = "item-subgroup",
+        name = "Arcofolders",
+        group = "production",
+        order = "e[Arco]"
     }
 })
