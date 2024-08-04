@@ -73,10 +73,11 @@ local adv_arcofolder = {
     category = "crafting",
     result = "Advanced-Arcofolder",
     result_count = 1,
-    ingredients = { --placeholder
-        {name = "electronic-circuit", amount = 5},
-        {name = "iron-plate", amount = 8},
-        {name = "iron-gear-wheel", amount = 6}
+    ingredients = {
+        {name = "advanced-circuit", amount = 10},
+        {name = "Arcofolder", amount = 2},
+        {name = "engine-unit", amount = 4},
+        {name = "steel-plate", amount = 6}
     },
     energy_required = 4,
     enabled = false
@@ -87,10 +88,12 @@ local mcarcofolder = {
     category = "crafting",
     result = "McArcofolder",
     result_count = 1,
-    ingredients = {--placeholder
-        {name = "electronic-circuit", amount = 5},
-        {name = "iron-plate", amount = 8},
-        {name = "iron-gear-wheel", amount = 6}
+    ingredients = {
+        {name = "processing-unit", amount = 5},
+        {name = "low-density-structure", amount = 10},
+        {name = "Advanced-Arcofolder", amount = 2},
+        {name = "effectivity-module", amount = 2},
+        {name = "speed-module", amount = 2}
     },
     energy_required = 4,
     enabled = false
