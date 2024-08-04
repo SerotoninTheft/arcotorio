@@ -14,7 +14,9 @@ data:extend({
         crafting_categories = {"arcofolding"},
         crafting_speed = 1,
         energy_source = {
-            type = "void"
+            type = "electric",
+            usage_priority = "secondary-input",
+            emissions_per_minute = 0.04
         },
         energy_usage = "10kW",
         ingredient_count = 6,
