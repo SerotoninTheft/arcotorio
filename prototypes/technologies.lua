@@ -261,7 +261,7 @@ tech_util.place_manufacturing = function()
         for _, milestone in pairs(target) do
             if manufacture_data.rating == milestone.rating then
                 manufacture_data.tech.prerequisites[#manufacture_data.tech.prerequisites + 1] = milestone.tech.name
-                manufacture_data.tech.unit = manufacture_data.tech.unit or milestone.tech.unit
+                manufacture_data.tech.unit = manufacture_data.tech.unit or table.deepcopy(milestone.tech.unit)
                 table.insert(manufacture_data.tech.unit.ingredients, {milestone.raw, 1})
             end
         end
