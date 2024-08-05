@@ -133,8 +133,8 @@ function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
             recipe_container.results = recipe_container.results or {}
             table.insert(recipe_container.results, {type = "item", name = recipe_container.result, amount = (recipe_container.result_count or 1) * (scale + improve)})
         end
-        table.insert(recipe_container.results, {type = "item", name = item1, amount = scale})
-        table.insert(recipe_container.results, {type = "item", name = item2, amount = scale})
+        table.insert(recipe_container.results, {type = "item", name = item1, amount = scale, catalyst_amount = scale})
+        table.insert(recipe_container.results, {type = "item", name = item2, amount = scale, catalyst_amount = scale})
 
         fix_icon(recipe, return_item(recipe_container.main_product))
         recipe_container.result = nil
