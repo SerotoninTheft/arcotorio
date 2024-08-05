@@ -257,6 +257,21 @@ local folds = {
         subgroup = "Arco-bead-arcofolding",
         category = "crafting",
         order = "a[Arco-bead]"
+    },
+    {
+        ingredients = {
+            {name = "Arco-bead", amount = 3}
+        },
+        results = {
+            {name = "Paper-Arco-bead", amount = 1},
+            {name = "Rock-Arco-bead", amount = 1},
+            {name = "Scissors-Arco-bead", amount = 1}
+        },
+        icon = "__arcotorio__/graphics/Bead-Initialize.png",
+        icon_size = 64,
+        tint = {0.5,0.5,0},
+        subgroup = "Arco-bead-arcofolding",
+        order = "a[Arco-bead]"
     }
 }
 
