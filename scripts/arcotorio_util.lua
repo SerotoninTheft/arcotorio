@@ -60,7 +60,8 @@ local function return_item(name)
         "artillery-wagon",
         "spidertron-remote",
         "spider-vehicle",
-        "repair-tool"
+        "repair-tool",
+        "item-with-tags"
     }
     for _, category in pairs(categories) do
         if data.raw[category][name] then return data.raw[category][name] end
@@ -75,16 +76,18 @@ local function fix_icon(recipe, item)
     elseif recipe.icons then
         recipe.icons = item.icons
     else
-        error("Error: neither icons nor icon exists")
+        log("Error: neither icons nor icon exists")
     end
 end
 
 local function preserve_icon(recipe, results)
-    recipe.main_product = results[1].name or results[1][1]
+    recipe.main_product = recipe.main_product or results[1].name or results[1][1]
     if recipe.results[1].type == "fluid" then
-        fix_icon(recipe, data.raw["fluid"][results[1].name or results[1][1]])
+        if data.raw["fluid"][recipe.main_product] then
+            fix_icon(recipe, data.raw["fluid"][recipe.main_product])
+        end
     else
-        fix_icon(recipe, return_item(results[1].name or results[1][1]))
+        fix_icon(recipe, return_item(recipe.main_product))
     end
 end
 
@@ -100,7 +103,7 @@ local function modify_original(results, scale)
         end
     end
 end
----AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH we should try and reduce the size of this
+
 ---@param recipe data.RecipePrototype
 function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
     local single_result = function(recipe_container)
@@ -118,7 +121,9 @@ function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
 
     local mutli_result = function(recipe_container)
         if #recipe_container.results == 1 then
-            preserve_icon(recipe, recipe_container.results)
+            if not recipe_container.icon then
+                preserve_icon(recipe, recipe_container.results)
+            end
         end
         modify_original(recipe_container.results, (scale + improve))
         table.insert(recipe_container.results, {type = "item", name = item1, amount = scale})

@@ -273,7 +273,7 @@ end
 tech_util.process_arco_recipes = function()
     for item_name, milestone in pairs(target) do
         for index, recipe_name in pairs(unlocks[milestone.rating]) do
-            local item =  {type = "item", name = item_name, amount = 1}
+            local item =  {type = "item", name = milestone.raw, amount = 1}
             local recipe = data.raw["recipe"][recipe_name]
             if milestone.tech then
                 if index == 1 then
@@ -286,10 +286,6 @@ tech_util.process_arco_recipes = function()
                     recipe = recipe.name
                 })
             else
-                if recipe.name == "Arco-bead" then
-                    item = {type = "item", name = milestone.raw, amount = 1}
-                    recipe.category = "crafting"
-                end
                 recipe.ingredients = recipe.ingredients or { item }
                 recipe.enabled = recipe.enabled or true
             end
