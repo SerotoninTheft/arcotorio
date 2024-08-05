@@ -335,7 +335,7 @@ data:extend({
     {
         type = "item",
         name = "Arcofolder",
-        icon = "__arcotorio__/graphics/Arcofolder-icon.png",
+        icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png",
         icon_size = 64,
         subgroup = "Arcofolders",
         stack_size = 20,

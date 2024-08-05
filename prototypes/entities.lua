@@ -2,7 +2,7 @@ data:extend({
     {
         type = "assembling-machine",
         name = "Arcofolder",
-        icon = "__arcotorio__/graphics/Arcofolder-icon.png",
+        icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png",
         icon_size = 64,
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 1, result = "Arcofolder"},
@@ -21,23 +21,149 @@ data:extend({
         energy_usage = "10kW",
         ingredient_count = 6,
         integration_patch = {
-            filename = "__arcotorio__/graphics/Arcofolder-integration.png",
+            filename = "__arcotorio__/graphics/arcofolder/Arcofolder-integration.png",
             height = 98,
             width = 98,
             scale = 0.54 * 2,
             shift = {x = 0 / 64, y = 0 / 64},
             hr_version = {
-                filename = "__arcotorio__/graphics/hr-Arcofolder-integration.png",
+                filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-integration.png",
                 height = 196,
                 width = 196,
                 scale = 0.54,
                 shift = {x = 0 / 64, y = 0 / 64},
             }
         },
+        status_colors = {
+            insufficient_input = {r = 1, g = 1, b = 0, a = 1},
+            idle = {1, 0, 1, 1}
+        },
+        working_visualisations = {
+            {
+                --draw_as_light = true,
+                apply_tint = "status",
+                animation = {
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-primary.png",
+                    height = 80,
+                    width = 90,
+                    scale = 1,
+                    animation_speed = 0.5,
+                    frame_count = 30,
+                    line_length = 5,
+                    shift = {x = 0 / 64, y = -2 / 64},
+                    hr_version = {
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-primary.png",
+                        height = 159,
+                        width = 180,
+                        scale = 0.5,
+                        animation_speed = 0.5,
+                        frame_count = 30,
+                        line_length = 5,
+                        shift = {x = 0 / 64, y = -3.5 / 64},
+                    }
+                }
+            },
+            {
+                draw_as_light = true,
+                apply_recipe_tint = "primary",
+                animation = {
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-primary.png",
+                    height = 80,
+                    width = 90,
+                    scale = 1,
+                    animation_speed = 0.5,
+                    frame_count = 30,
+                    line_length = 5,
+                    shift = {x = 0 / 64, y = -2 / 64},
+                    hr_version = {
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-primary.png",
+                        height = 159,
+                        width = 180,
+                        scale = 0.5,
+                        animation_speed = 0.5,
+                        frame_count = 30,
+                        line_length = 5,
+                        shift = {x = 0 / 64, y = -3.5 / 64},
+                    }
+                }
+            },
+            {
+                draw_as_light = true,
+                apply_recipe_tint = "secondary",
+                animation = {
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-secondary.png",
+                    height = 56,
+                    width = 78,
+                    scale = 1,
+                    animation_speed = 0.5,
+                    frame_count = 30,
+                    line_length = 5,
+                    shift = {x = 0 / 64, y = -20 / 32},
+                    hr_version = {
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-secondary.png",
+                        height = 111,
+                        width = 154,
+                        scale = 0.5,
+                        animation_speed = 0.5,
+                        frame_count = 30,
+                        line_length = 5,
+                        shift = {x = 0 / 64, y = -39.5 / 64},
+                    }
+                }
+            },
+            {
+                draw_as_light = true,
+                apply_recipe_tint = "tertiary",
+                animation = {
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-tertiary.png",
+                    height = 72,
+                    width = 59,
+                    scale = 1,
+                    animation_speed = 0.5,
+                    frame_count = 30,
+                    line_length = 6,
+                    shift = {x = -8.5 / 32, y = 2 / 32},
+                    hr_version = {
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-tertiary.png",
+                        height = 144,
+                        width = 117,
+                        scale = 0.5,
+                        animation_speed = 0.5,
+                        frame_count = 30,
+                        line_length = 6,
+                        shift = {x = -17.5 / 64, y = 4 / 64},
+                    }
+                }
+            },
+            {
+                draw_as_light = true,
+                apply_recipe_tint = "quaternary",
+                animation = {
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-quaternary.png",
+                    height = 31,
+                    width = 26,
+                    scale = 1,
+                    animation_speed = 0.5,
+                    frame_count = 30,
+                    line_length = 6,
+                    shift = {x = 8 / 32, y = -18.5 / 32},
+                    hr_version = {
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-quaternary.png",
+                        height = 64,
+                        width = 49,
+                        scale = 0.5,
+                        animation_speed = 0.5,
+                        frame_count = 30,
+                        line_length = 6,
+                        shift = {x = 15.5 / 64, y = -36 / 64},
+                    }
+                }
+            },
+        },
         animation = {
             layers = {
                 {
-                    filename = "__arcotorio__/graphics/Arcofolder.png",
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder.png",
                     height = 98,
                     width = 97,
                     scale = 1,
@@ -46,7 +172,7 @@ data:extend({
                     line_length = 6,
                     shift = {x = 0 / 64, y = 0 / 64},
                     hr_version = {
-                        filename = "__arcotorio__/graphics/hr-Arcofolder.png",
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder.png",
                         height = 196,
                         width = 194,
                         scale = 0.5,
@@ -57,7 +183,7 @@ data:extend({
                     }
                 },
                 {
-                    filename = "__arcotorio__/graphics/Arcofolder-shadow.png",
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-shadow.png",
                     height = 73,
                     width = 108,
                     scale = 1,
@@ -67,7 +193,7 @@ data:extend({
                     draw_as_shadow = true,
                     shift = {x = 10 / 64, y = 29 / 64},
                     hr_version = {
-                        filename = "__arcotorio__/graphics/hr-Arcofolder-shadow.png",
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-shadow.png",
                         height = 145,
                         width = 215,
                         scale = 0.5,
@@ -80,10 +206,10 @@ data:extend({
                 }
             }
         },
-        idle_animation = {
+        --[[ idle_animation = {
             layers = {
                 {
-                    filename = "__arcotorio__/graphics/Arcofolder-idle.png",
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-idle.png",
                     height = 98,
                     width = 98,
                     scale = 1,
@@ -91,7 +217,7 @@ data:extend({
                     frame_count = 1,
                     repeat_count = 30,
                     hr_version = {
-                        filename = "__arcotorio__/graphics/hr-Arcofolder-idle.png",
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-idle.png",
                         height = 196,
                         width = 196,
                         scale = 0.5,
@@ -101,7 +227,7 @@ data:extend({
                     }
                 },
                 {
-                    filename = "__arcotorio__/graphics/Arcofolder-shadow.png",
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-shadow.png",
                     height = 73,
                     width = 108,
                     scale = 1,
@@ -111,7 +237,7 @@ data:extend({
                     draw_as_shadow = true,
                     shift = {x = 10 / 64, y = 29 / 64},
                     hr_version = {
-                        filename = "__arcotorio__/graphics/hr-Arcofolder-shadow.png",
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-shadow.png",
                         height = 145,
                         width = 215,
                         scale = 0.5,
@@ -123,9 +249,9 @@ data:extend({
                     }
                 }
             }
-        },
+        }, ]]
         allowed_effects = {"consumption", "speed", "pollution"},
-    },
+    }--[[@as data.AssemblingMachinePrototype]],
     {
         type = "assembling-machine",
         name = "Advanced-Arcofolder",
@@ -148,13 +274,13 @@ data:extend({
         energy_usage = "400kW",
         ingredient_count = 6,
         integration_patch = {
-            filename = "__arcotorio__/graphics/Arcofolder-integration.png",
+            filename = "__arcotorio__/graphics/arcofolder/Arcofolder-integration.png",
             height = 98,
             width = 98,
             scale = 0.54 * 2,
             shift = {x = 0 / 64, y = 0 / 64},
             hr_version = {
-                filename = "__arcotorio__/graphics/hr-Arcofolder-integration.png",
+                filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-integration.png",
                 height = 196,
                 width = 196,
                 scale = 0.54,
@@ -164,7 +290,7 @@ data:extend({
         animation = {
             layers = {
                 {
-                    filename = "__arcotorio__/graphics/Arcofolder.png",
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder.png",
                     height = 98,
                     width = 97,
                     scale = 1,
@@ -173,7 +299,7 @@ data:extend({
                     line_length = 6,
                     shift = {x = 0 / 64, y = 0 / 64},
                     hr_version = {
-                        filename = "__arcotorio__/graphics/hr-Arcofolder.png",
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder.png",
                         height = 196,
                         width = 194,
                         scale = 0.5,
@@ -184,7 +310,7 @@ data:extend({
                     }
                 },
                 {
-                    filename = "__arcotorio__/graphics/Arcofolder-shadow.png",
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-shadow.png",
                     height = 73,
                     width = 108,
                     scale = 1,
@@ -194,7 +320,7 @@ data:extend({
                     draw_as_shadow = true,
                     shift = {x = 10 / 64, y = 29 / 64},
                     hr_version = {
-                        filename = "__arcotorio__/graphics/hr-Arcofolder-shadow.png",
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-shadow.png",
                         height = 145,
                         width = 215,
                         scale = 0.5,
@@ -210,7 +336,7 @@ data:extend({
         idle_animation = {
             layers = {
                 {
-                    filename = "__arcotorio__/graphics/Arcofolder-idle.png",
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-idle.png",
                     height = 98,
                     width = 98,
                     scale = 1,
@@ -218,7 +344,7 @@ data:extend({
                     frame_count = 1,
                     repeat_count = 30,
                     hr_version = {
-                        filename = "__arcotorio__/graphics/hr-Arcofolder-idle.png",
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-idle.png",
                         height = 196,
                         width = 196,
                         scale = 0.5,
@@ -228,7 +354,7 @@ data:extend({
                     }
                 },
                 {
-                    filename = "__arcotorio__/graphics/Arcofolder-shadow.png",
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-shadow.png",
                     height = 73,
                     width = 108,
                     scale = 1,
@@ -238,7 +364,7 @@ data:extend({
                     draw_as_shadow = true,
                     shift = {x = 10 / 64, y = 29 / 64},
                     hr_version = {
-                        filename = "__arcotorio__/graphics/hr-Arcofolder-shadow.png",
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-shadow.png",
                         height = 145,
                         width = 215,
                         scale = 0.5,
@@ -252,7 +378,7 @@ data:extend({
             }
         },
         allowed_effects = {"consumption", "speed", "pollution"},
-    },
+    }--[[@as data.AssemblingMachinePrototype]],
     {
         type = "assembling-machine",
         name = "McArcofolder",
@@ -275,13 +401,13 @@ data:extend({
         energy_usage = "1000kW",
         ingredient_count = 6,
         integration_patch = {
-            filename = "__arcotorio__/graphics/Arcofolder-integration.png",
+            filename = "__arcotorio__/graphics/arcofolder/Arcofolder-integration.png",
             height = 98,
             width = 98,
             scale = 0.54 * 2,
             shift = {x = 0 / 64, y = 0 / 64},
             hr_version = {
-                filename = "__arcotorio__/graphics/hr-Arcofolder-integration.png",
+                filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-integration.png",
                 height = 196,
                 width = 196,
                 scale = 0.54,
@@ -291,7 +417,7 @@ data:extend({
         animation = {
             layers = {
                 {
-                    filename = "__arcotorio__/graphics/Arcofolder.png",
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder.png",
                     height = 98,
                     width = 97,
                     scale = 1,
@@ -300,7 +426,7 @@ data:extend({
                     line_length = 6,
                     shift = {x = 0 / 64, y = 0 / 64},
                     hr_version = {
-                        filename = "__arcotorio__/graphics/hr-Arcofolder.png",
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder.png",
                         height = 196,
                         width = 194,
                         scale = 0.5,
@@ -311,7 +437,7 @@ data:extend({
                     }
                 },
                 {
-                    filename = "__arcotorio__/graphics/Arcofolder-shadow.png",
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-shadow.png",
                     height = 73,
                     width = 108,
                     scale = 1,
@@ -321,7 +447,7 @@ data:extend({
                     draw_as_shadow = true,
                     shift = {x = 10 / 64, y = 29 / 64},
                     hr_version = {
-                        filename = "__arcotorio__/graphics/hr-Arcofolder-shadow.png",
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-shadow.png",
                         height = 145,
                         width = 215,
                         scale = 0.5,
@@ -337,7 +463,7 @@ data:extend({
         idle_animation = {
             layers = {
                 {
-                    filename = "__arcotorio__/graphics/Arcofolder-idle.png",
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-idle.png",
                     height = 98,
                     width = 98,
                     scale = 1,
@@ -345,7 +471,7 @@ data:extend({
                     frame_count = 1,
                     repeat_count = 30,
                     hr_version = {
-                        filename = "__arcotorio__/graphics/hr-Arcofolder-idle.png",
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-idle.png",
                         height = 196,
                         width = 196,
                         scale = 0.5,
@@ -355,7 +481,7 @@ data:extend({
                     }
                 },
                 {
-                    filename = "__arcotorio__/graphics/Arcofolder-shadow.png",
+                    filename = "__arcotorio__/graphics/arcofolder/Arcofolder-shadow.png",
                     height = 73,
                     width = 108,
                     scale = 1,
@@ -365,7 +491,7 @@ data:extend({
                     draw_as_shadow = true,
                     shift = {x = 10 / 64, y = 29 / 64},
                     hr_version = {
-                        filename = "__arcotorio__/graphics/hr-Arcofolder-shadow.png",
+                        filename = "__arcotorio__/graphics/arcofolder/hr-Arcofolder-shadow.png",
                         height = 145,
                         width = 215,
                         scale = 0.5,
@@ -379,5 +505,5 @@ data:extend({
             }
         },
         allowed_effects = {"consumption", "speed", "pollution"},
-    },
+    }--[[@as data.AssemblingMachinePrototype]]
 })

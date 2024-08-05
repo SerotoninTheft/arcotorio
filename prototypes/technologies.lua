@@ -25,7 +25,7 @@ function TableConcat(t1,t2)
 end
 
 ---Table of recipe names that correlate to a rating, these are added to the tech based on rating, or enabled for rating 1
----@as table<table<string>>
+---@as table<int, string>
 local unlocks = {
     [1] = {"Arco-bead", "Arco-bead-initialize", "Arcofolder"},
     [2] = {"Arco-orb", "Arco-orb-initialize"},
@@ -114,6 +114,7 @@ local function manufacture_tech(tech_name, rating)
             name = tech_name,
             prerequisites = {},
             effects = {},
+            ---@diagnostic disable-next-line: assign-type-mismatch
             unit = nil
         }
     }--[[@as Manufacture_Data]]
