@@ -147,10 +147,12 @@ local function highest_pack(ingredients)
 end
 
 local queue = {}
+local processed_recipes = {}
 local add_to_queue = function(tech, recipe)
     if tech and recipe then
         queue[tech.name] = queue[tech.name] or {}
-        table.insert(queue[tech.name], recipe)
+        queue[tech.name][recipe.name] = recipe
+        processed_recipes[recipe.name] = true
     elseif recipe then
         if recipe.normal    then recipe.normal.enabled = true end
         if recipe.expensive then recipe.expensive.enabled = true end
@@ -162,24 +164,27 @@ tech_util.process_queue = function()
     for tech_name, recipes in pairs(queue) do
         local tech = data.raw["technology"][tech_name]
         if not recipes then error('no recipe added') end
-        for _, recipe in pairs(recipes) do
+        for recipe_name, recipe in pairs(recipes) do
+            if not data.raw["recipe"][recipe_name] then data:extend{recipe} end
             table.insert(tech.effects, {
                 type = "unlock-recipe",
-                recipe = recipe.name
+                recipe = recipe_name
             })
         end
         queue[tech_name] = nil
     end
 end
 
-local valid_categories = {
-    ["crafting"] = true,
-    ["advanced-crafting"] = true,
-    ["basic-crafting"] = true,
-    ["centrifuging"] = true,
-    ["chemistry"] = true,
-    ["crafting-with-fluid"] = true,
-    ["oil-processing"] = true
+
+local invalid_categories = {
+    ["smelting"] = true,
+    ["rocket-building"] = true,
+    ["neutron-absorber"] = true,
+    ["vat"] = true,
+    ["py-runoff"] = true,
+    ["py-venting"] = true,
+    ["py-unbarrelling"] = true,
+    ["py-barrelling"] = true,
 }
 
 local prod_list = data.raw["module"]["productivity-module"].limitation
@@ -196,7 +201,16 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
     local recipe = data.raw["recipe"][recipe_name]
     local is_intermediate = false
 
-    if recipe and recipe.category and (not valid_categories[recipe.category]) then return end
+    if recipe.icons and recipe.icon_size then
+        log("AUGGHGGHHGHGH:" .. recipe.category)
+    end
+
+    if recipe and recipe.category and invalid_categories[recipe.category] then return end
+
+    --if we have already processed this recipe
+    if processed_recipes[recipe.name] then
+        return
+    end
 
     for _, prod in pairs(prod_list) do
         if prod == recipe.name then is_intermediate = true end
@@ -206,26 +220,31 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
         tier = tier + 1
     end
 
-    add_to_queue(tech, recipe_util.recreate(table.deepcopy(recipe), orb_tiers[tier]))
     -- Only create additional recipes for items that are intermediate products (using productivity as the metric)
     -- TODO add "Hard Mode" setting to disable this feature
     local difference = 1
+    local improvement = tier
     if is_intermediate then
-        while tier < 5 do
-            tier = tier + 1
+        while improvement < 5 do
+            improvement = improvement + 1
             difference = difference + 1
             for _, manufacture_data in pairs(manufacturing_techs) do
-                if manufacture_data.rating == tier then
+                if manufacture_data.rating == improvement then
                     new_recipe = table.deepcopy(recipe)
-                    add_to_queue(manufacture_data.tech, recipe_util.recreate(new_recipe, orb_tiers[tier], 6 - difference, 1))
+                    add_to_queue(manufacture_data.tech, recipe_util.recreate(new_recipe, orb_tiers[improvement], 6 - difference, 1))
+                    table.insert(prod_list, new_recipe.name)
+                    table.insert(data.raw["module"]["productivity-module-2"].limitation, new_recipe.name)
+                    table.insert(data.raw["module"]["productivity-module-3"].limitation, new_recipe.name)
                 end
             end
         end
     end
 
+    add_to_queue(tech, recipe_util.recreate(recipe, orb_tiers[tier]))
+--[[ 
     data.raw["recipe"][recipe_name].enabled = false
     if data.raw["recipe"][recipe_name].normal then data.raw["recipe"][recipe_name].normal.enabled = false end
-    if data.raw["recipe"][recipe_name].expensive then data.raw["recipe"][recipe_name].expensive.enabled = false end
+    if data.raw["recipe"][recipe_name].expensive then data.raw["recipe"][recipe_name].expensive.enabled = false end ]]
     return true
 end
 

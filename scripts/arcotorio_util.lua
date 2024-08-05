@@ -61,7 +61,8 @@ local function return_item(name)
         "spidertron-remote",
         "spider-vehicle",
         "repair-tool",
-        "item-with-tags"
+        "item-with-tags",
+        "fluid"
     }
     for _, category in pairs(categories) do
         if data.raw[category][name] then return data.raw[category][name] end
@@ -70,25 +71,26 @@ local function return_item(name)
 end
 
 local function fix_icon(recipe, item)
-    if item.icon then
+    if not recipe.icon and item.icon then
         recipe.icon = item.icon
         recipe.icon_size = item.icon_size
-    elseif recipe.icons then
+    elseif not recipe.icons and item.icons then
         recipe.icons = item.icons
-    else
-        log("Error: neither icons nor icon exists")
+        recipe.icon_size = item.icon_size
+    elseif (recipe.icons or recipe.icon) and not recipe.icon_size then
+        recipe.icon_size = 64
+    elseif not recipe.icon and not recipe.icons then
+        error("Error: neither icons nor icon exists")
     end
 end
 
 local function preserve_icon(recipe, results)
-    recipe.main_product = recipe.main_product or results[1].name or results[1][1]
-    if recipe.results[1].type == "fluid" then
-        if data.raw["fluid"][recipe.main_product] then
-            fix_icon(recipe, data.raw["fluid"][recipe.main_product])
+    if not recipe.main_product then
+        if not recipe.results[1].type == "fluid" then
+            fix_icon(recipe, return_item(recipe.main_product))
         end
-    else
-        fix_icon(recipe, return_item(recipe.main_product))
     end
+    recipe.main_product = recipe.main_product or results[1].name or results[1][1]
 end
 
 local function modify_original(results, scale)
@@ -107,40 +109,69 @@ end
 ---@param recipe data.RecipePrototype
 function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
     local single_result = function(recipe_container)
-        local original_item = return_item(recipe_container.result)
-        recipe_container.main_product = original_item.name
-        recipe_container.results = {
-            {type = "item", name = original_item.name, amount = (recipe_container.result_count or 1) * (scale + improve)},
-            {type = "item", name = item1, amount = scale},
-            {type = "item", name = item2, amount = scale}
-        }
-        fix_icon(recipe, original_item)
+        recipe_container.main_product =
+            recipe_container.main_product or
+            recipe_container.result
+
+        if recipe_container.results then
+            recipe_container.main_product = recipe_container.results[1].name or
+                recipe_container.results[1][1]
+
+            modify_original(recipe_container.results, scale)
+            recipe_container.results[1] = {
+                type = recipe_container.results[1].type or "item",
+                name = recipe_container.results[1].name or
+                    recipe_container.results[1][1],
+                amount = (recipe_container.results[1].amount or
+                    recipe_container.results[1][2]),
+                amount_min = recipe_container.results[1].amount_min,
+                amount_max = recipe_container.results[1].amount_max,
+            }
+        else
+            recipe_container.results = recipe_container.results or {}
+            table.insert(recipe_container.results, {type = "item", name = recipe_container.result, amount = (recipe_container.result_count or 1) * (scale + improve)})
+        end
+        table.insert(recipe_container.results, {type = "item", name = item1, amount = scale})
+        table.insert(recipe_container.results, {type = "item", name = item2, amount = scale})
+
+        fix_icon(recipe, return_item(recipe_container.main_product))
         recipe_container.result = nil
         recipe_container.result_count = nil
     end
 
-    local mutli_result = function(recipe_container)
+    local multi_result = function(recipe_container)
+        recipe_container.main_product = recipe_container.main_product or
+            recipe_container.results[1].name or
+            recipe_container.results[1][1]
+
         if #recipe_container.results == 1 then
             if not recipe_container.icon then
-                preserve_icon(recipe, recipe_container.results)
+                --preserve_icon(recipe, recipe_container.results)
             end
         end
+
         modify_original(recipe_container.results, (scale + improve))
         table.insert(recipe_container.results, {type = "item", name = item1, amount = scale})
         table.insert(recipe_container.results, {type = "item", name = item2, amount = scale})
     end
     
     local process_recipe = function(recipe_container)
-        if recipe_container.results then
-            mutli_result(recipe_container)
-        elseif recipe_container.result then
+        if recipe_container == nil then return end
+
+        if not recipe_container.result and recipe_container.results and not recipe_container.results[1] then
+            error(recipe_container.category)
+        end
+
+        if recipe_container.result or (recipe_container.results and #recipe_container.results == 1) then
             single_result(recipe_container)
+        elseif recipe_container.results then
+            multi_result(recipe_container)
         end
     end
 
-    if recipe.normal then process_recipe(recipe.normal) end
-    if recipe.expensive then process_recipe(recipe.expensive) end
-    if recipe.results or recipe.result then process_recipe(recipe) end
+    process_recipe(recipe.normal)
+    process_recipe(recipe.expensive)
+    process_recipe(recipe)
 end
 
 return arcotorio_util

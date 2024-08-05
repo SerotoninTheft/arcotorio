@@ -35,8 +35,10 @@ return {
             local locale = rusty_util.of_recipe(recipe).name
             recipe.localised_name = {prefix, locale}
             recipe.name = "arco-" .. namings[(6 - scale) - 1] .. "-" .. recipe.name
-        else
-            recipe.name = "arco-" .. recipe.name
+            
+            recipe.enabled = false
+            if recipe.normal then recipe.normal.enabled = false end
+            if recipe.expensive then recipe.expensive.enabled = false end
         end
 
         -- Pick two items safely
@@ -70,12 +72,10 @@ return {
 
         -- Extend the data with the modified recipe
         if recipe then
-            data:extend{recipe}
+            return recipe
         else
             error("Error: Recipe is nil after modifications")
         end
-
-        return recipe
     end,
     util = arcotorio_util
 }

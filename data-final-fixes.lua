@@ -15,7 +15,6 @@ for _, recipe in pairs(data.raw["recipe"]) do
         (recipe.normal and recipe.normal.enabled ~= false) or
         (recipe.expensive and recipe.expensive.enabled ~= false) then
 
-        recipe.enabled = nil
         table.insert(queue, recipe.name)
     end
 end
