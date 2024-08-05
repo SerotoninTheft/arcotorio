@@ -19,7 +19,7 @@ return {
         end
 
         -- Skip barrel recipes
-        if recipe.name:find("barrel") or recipe.name:find("canister") or recipe.name:find("textplate")then
+        if recipe.name:find("barrel") or recipe.name:find("canister") or recipe.name:find("textplate") then
             return nil
         end
 

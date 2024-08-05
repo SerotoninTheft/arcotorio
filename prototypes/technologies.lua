@@ -231,7 +231,9 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
             for _, manufacture_data in pairs(manufacturing_techs) do
                 if manufacture_data.rating == improvement then
                     new_recipe = table.deepcopy(recipe)
-                    add_to_queue(manufacture_data.tech, recipe_util.recreate(new_recipe, orb_tiers[improvement], 6 - difference, 1))
+                    local create = recipe_util.recreate(new_recipe, orb_tiers[improvement], 6 - difference, 1)
+                    if create then add_to_queue(manufacture_data.tech, create)
+                    else return false end
                     table.insert(prod_list, new_recipe.name)
                     table.insert(data.raw["module"]["productivity-module-2"].limitation, new_recipe.name)
                     table.insert(data.raw["module"]["productivity-module-3"].limitation, new_recipe.name)
@@ -239,8 +241,9 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
             end
         end
     end
-
-    add_to_queue(tech, recipe_util.recreate(recipe, orb_tiers[tier]))
+    local create = recipe_util.recreate(recipe, orb_tiers[tier])
+    if create then add_to_queue(tech, create)
+    else return false end
 --[[ 
     data.raw["recipe"][recipe_name].enabled = false
     if data.raw["recipe"][recipe_name].normal then data.raw["recipe"][recipe_name].normal.enabled = false end
