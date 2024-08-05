@@ -18,6 +18,23 @@ local bead = {
         quaternary = {r = 1, g = 0, b = 1, a = 1}
     }
 }
+local hand_bead = {
+    type = "recipe",
+    name = "hand-Arco-bead",
+    subgroup = "hand-Arco-bead-arcofolding",
+    category = "crafting",
+    result = "Arco-bead",
+    result_count = 10,
+    energy_required = 10,
+    enabled = false,
+    order = "a[Arco-bead]",
+    crafting_machine_tint = {
+        primary = {r = 1, g = 0, b = 0, a = 1},
+        secondary = {r = 0, g = 1, b = 0, a = 1},
+        tertiary = {r = 0, g = 0, b = 1, a = 1},
+        quaternary = {r = 1, g = 0, b = 1, a = 1}
+    }
+}
 local orb = {
     type = "recipe",
     name = "Arco-orb",
@@ -101,6 +118,7 @@ local arcofolder = {
     enabled = false
 }
 local adv_arcofolder = {
+    icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {0, 1, 0}, icon_size = 64}},
     type = "recipe",
     name = "Advanced-Arcofolder",
     category = "crafting",
@@ -116,6 +134,7 @@ local adv_arcofolder = {
     enabled = false
 }
 local mcarcofolder = {
+    icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {1, 0, 1}, icon_size = 64}},
     type = "recipe",
     name = "McArcofolder",
     category = "crafting",
@@ -131,7 +150,7 @@ local mcarcofolder = {
     energy_required = 4,
     enabled = false
 }
---contains all folding inputs and outputs
+--contains many folding recipes
 local folds = {
     {
         ingredients = {
@@ -142,7 +161,7 @@ local folds = {
         seconds = 1,
         category = "crafting",
         name = "hand-Paper-Arco-bead",
-        subgroup = "Arco-bead-arcofolding"
+        subgroup = "hand-Arco-bead-arcofolding"
     },
     {
         ingredients = {
@@ -153,7 +172,7 @@ local folds = {
         seconds = 1,
         category = "crafting",
         name = "hand-Rock-Arco-bead",
-        subgroup = "Arco-bead-arcofolding"
+        subgroup = "hand-Arco-bead-arcofolding"
     },
     {
         ingredients = {
@@ -164,7 +183,7 @@ local folds = {
         seconds = 1,
         category = "crafting",
         name = "hand-Scissors-Arco-bead",
-        subgroup = "Arco-bead-arcofolding"
+        subgroup = "hand-Arco-bead-arcofolding"
     },
     {
         ingredients = {
@@ -243,6 +262,7 @@ local folds = {
         order = "a[Arco-orb]"
     },
     {
+        name = "hand-Arco-bead-initialize",
         ingredients = {
             {name = "Arco-bead", amount = 3}
         },
@@ -254,7 +274,7 @@ local folds = {
         icon = "__arcotorio__/graphics/Bead-Initialize.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
-        subgroup = "Arco-bead-arcofolding",
+        subgroup = "hand-Arco-bead-arcofolding",
         category = "crafting",
         order = "a[Arco-bead]"
     },
@@ -331,6 +351,7 @@ local function process_table(item_table, ing_count, out_count, subgroup, ing_siz
         ingredients = {},
     }--[[@as data.RecipePrototype]]
 
+    recipe.localised_name = {"recipe-name." .. item_table[index].name}
     if out_count > 1 then
         recipe.results = {}
         recipe.main_product = item_table[index].name
@@ -426,4 +447,4 @@ for _, recipe_data in pairs(folds) do
     data:extend{recipe}
 end
 
-data:extend{bead, orb, boulder, planet, mcarco, arcofolder, adv_arcofolder, mcarcofolder}
+data:extend{bead, hand_bead, orb, boulder, planet, mcarco, arcofolder, adv_arcofolder, mcarcofolder}

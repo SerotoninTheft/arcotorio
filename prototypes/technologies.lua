@@ -27,7 +27,7 @@ end
 ---Table of recipe names that correlate to a rating, these are added to the tech based on rating, or enabled for rating 1
 ---@as table<int, string>
 local unlocks = {
-    [1] = {"Arco-bead", "Arco-bead-initialize", "Arcofolder"},
+    [1] = {"Arco-bead", "hand-Arco-bead", "Arco-bead-initialize", "hand-Arco-bead-initialize", "Arcofolder"},
     [2] = {"Arco-orb", "Arco-orb-initialize"},
     [3] = {"Arco-boulder", "Arco-boulder-initialize", "Advanced-Arcofolder"},
     [4] = {"Arco-planet", "Arco-planet-initialize"},

@@ -108,6 +108,7 @@ end
 
 ---@param recipe data.RecipePrototype
 function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
+    ---@param recipe_container data.RecipePrototype
     local single_result = function(recipe_container)
         recipe_container.main_product =
             recipe_container.main_product or
@@ -126,6 +127,7 @@ function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
                     recipe_container.results[1][2]),
                 amount_min = recipe_container.results[1].amount_min,
                 amount_max = recipe_container.results[1].amount_max,
+                fluidbox_index = recipe_container.results[1].fluidbox_index
             }
         else
             recipe_container.results = recipe_container.results or {}

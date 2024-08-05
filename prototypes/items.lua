@@ -4,7 +4,7 @@ data:extend({
         name = "Arco-bead",
         icon = "__arcotorio__/graphics/Arco-bead.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-bead-arcofolding",
         stack_size = 100
     },
     {
@@ -12,7 +12,7 @@ data:extend({
         name = "Rock-Arco-bead",
         icon = "__arcotorio__/graphics/Rock-Arco-bead.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-bead-arcofolding",
         stack_size = 100
     },
     {
@@ -20,7 +20,7 @@ data:extend({
         name = "Paper-Arco-bead",
         icon = "__arcotorio__/graphics/Paper-Arco-bead.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-bead-arcofolding",
         stack_size = 100
     },
     {
@@ -28,7 +28,7 @@ data:extend({
         name = "Scissors-Arco-bead",
         icon = "__arcotorio__/graphics/Scissors-Arco-bead.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-bead-arcofolding",
         stack_size = 100
     }
 }) -- beads
@@ -38,7 +38,7 @@ data:extend({
         name = "Arco-orb",
         icon = "__arcotorio__/graphics/Arco-orb.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-orb-arcofolding",
         stack_size = 100
     },
     {
@@ -46,7 +46,7 @@ data:extend({
         name = "Water-Arco-orb",
         icon = "__arcotorio__/graphics/Water-Arco-orb.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-orb-arcofolding",
         stack_size = 100
     },
     {
@@ -54,7 +54,7 @@ data:extend({
         name = "Air-Arco-orb",
         icon = "__arcotorio__/graphics/Air-Arco-orb.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-orb-arcofolding",
         stack_size = 100
     },
     {
@@ -62,7 +62,7 @@ data:extend({
         name = "Fire-Arco-orb",
         icon = "__arcotorio__/graphics/Fire-Arco-orb.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-orb-arcofolding",
         stack_size = 100
     },
     {
@@ -70,7 +70,7 @@ data:extend({
         name = "Earth-Arco-orb",
         icon = "__arcotorio__/graphics/Earth-Arco-orb.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-orb-arcofolding",
         stack_size = 100
     }
 }) -- orbs
@@ -80,7 +80,7 @@ data:extend({
         name = "Arco-boulder",
         icon = "__arcotorio__/graphics/Arco-boulder.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
     },
     {
@@ -88,7 +88,7 @@ data:extend({
         name = "Pride-Arco-boulder",
         icon = "__arcotorio__/graphics/Pride-Arco-boulder.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
     },
     {
@@ -96,7 +96,7 @@ data:extend({
         name = "Greed-Arco-boulder",
         icon = "__arcotorio__/graphics/Greed-Arco-boulder.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
     },
     {
@@ -104,7 +104,7 @@ data:extend({
         name = "Lust-Arco-boulder",
         icon = "__arcotorio__/graphics/Lust-Arco-boulder.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
     },
     {
@@ -112,7 +112,7 @@ data:extend({
         name = "Envy-Arco-boulder",
         icon = "__arcotorio__/graphics/Envy-Arco-boulder.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
     },
     {
@@ -120,7 +120,7 @@ data:extend({
         name = "Gluttony-Arco-boulder",
         icon = "__arcotorio__/graphics/Gluttony-Arco-boulder.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
     },
     {
@@ -128,7 +128,7 @@ data:extend({
         name = "Wrath-Arco-boulder",
         icon = "__arcotorio__/graphics/Wrath-Arco-boulder.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
     },
     {
@@ -136,7 +136,7 @@ data:extend({
         name = "Sloth-Arco-boulder",
         icon = "__arcotorio__/graphics/Sloth-Arco-boulder.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
     }
 }) -- boulders
@@ -146,7 +146,7 @@ data:extend({
         name = "Arco-planet",
         icon = "__arcotorio__/graphics/Arco-planet.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-planet-arcofolding",
         stack_size = 100
     },
     {
@@ -154,7 +154,7 @@ data:extend({
         name = "Mercury-Arco-planet",
         icon = "__arcotorio__/graphics/Mercury-Arco-planet.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-planet-arcofolding",
         stack_size = 100
     },
     {
@@ -162,7 +162,7 @@ data:extend({
         name = "Venus-Arco-planet",
         icon = "__arcotorio__/graphics/Venus-Arco-planet.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-planet-arcofolding",
         stack_size = 100
     },
     {
@@ -170,7 +170,7 @@ data:extend({
         name = "Earth-Arco-planet",
         icon = "__arcotorio__/graphics/Earth-Arco-planet.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-planet-arcofolding",
         stack_size = 100
     },
     {
@@ -178,7 +178,7 @@ data:extend({
         name = "Mars-Arco-planet",
         icon = "__arcotorio__/graphics/Mars-Arco-planet.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-planet-arcofolding",
         stack_size = 100
     },
     {
@@ -186,7 +186,7 @@ data:extend({
         name = "Jupiter-Arco-planet",
         icon = "__arcotorio__/graphics/Jupiter-Arco-planet.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-planet-arcofolding",
         stack_size = 100
     },
     {
@@ -194,7 +194,7 @@ data:extend({
         name = "Saturn-Arco-planet",
         icon = "__arcotorio__/graphics/Saturn-Arco-planet.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-planet-arcofolding",
         stack_size = 100
     },
     {
@@ -202,7 +202,7 @@ data:extend({
         name = "Uranus-Arco-planet",
         icon = "__arcotorio__/graphics/Uranus-Arco-planet.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-planet-arcofolding",
         stack_size = 100
     },
     {
@@ -210,7 +210,7 @@ data:extend({
         name = "Neptune-Arco-planet",
         icon = "__arcotorio__/graphics/Neptune-Arco-planet.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "Arco-planet-arcofolding",
         stack_size = 100
     }
 }) -- planets
@@ -220,7 +220,7 @@ data:extend({
         name = "McArco-sphere",
         icon = "__arcotorio__/graphics/McArco-sphere.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "McArco-sphere-arcofolding",
         stack_size = 100
     },
     {
@@ -228,7 +228,7 @@ data:extend({
         name = "Walmart-McArco-sphere",
         icon = "__arcotorio__/graphics/Walmart-McArco-sphere.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "McArco-sphere-arcofolding",
         stack_size = 100
     },
     {
@@ -236,7 +236,7 @@ data:extend({
         name = "McDonalds-McArco-sphere",
         icon = "__arcotorio__/graphics/McDonalds-McArco-sphere.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
         fuel_category = "mcarco",
         fuel_acceleration_multiplier = 2.5 * 1.5,
@@ -249,7 +249,7 @@ data:extend({
         name = "Tesco-McArco-sphere",
         icon = "__arcotorio__/graphics/Tesco-McArco-sphere.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "McArco-sphere-arcofolding",
         stack_size = 100
     },
     {
@@ -257,7 +257,7 @@ data:extend({
         name = "Wendys-McArco-sphere",
         icon = "__arcotorio__/graphics/Wendys-McArco-sphere.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
         fuel_category = "mcarco",
         fuel_acceleration_multiplier = 2.5 * 1.5,
@@ -270,7 +270,7 @@ data:extend({
         name = "Subway-McArco-sphere",
         icon = "__arcotorio__/graphics/Subway-McArco-sphere.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
         fuel_category = "mcarco",
         fuel_acceleration_multiplier = 2.5 * 1.5,
@@ -283,7 +283,7 @@ data:extend({
         name = "White-Castle-McArco-sphere",
         icon = "__arcotorio__/graphics/White-Castle-McArco-sphere.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
         fuel_category = "mcarco",
         fuel_acceleration_multiplier = 1.2,
@@ -296,7 +296,7 @@ data:extend({
         name = "Taco-Bell-McArco-sphere",
         icon = "__arcotorio__/graphics/Taco-Bell-McArco-sphere.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
         fuel_category = "mcarco",
         fuel_acceleration_multiplier = 2.5 * 1.5,
@@ -309,7 +309,7 @@ data:extend({
         name = "KFC-McArco-sphere",
         icon = "__arcotorio__/graphics/KFC-McArco-sphere.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
         fuel_category = "mcarco",
         fuel_acceleration_multiplier = 2.5 * 1.5,
@@ -322,7 +322,7 @@ data:extend({
         name = "Jimmy-Johns-McArco-sphere",
         icon = "__arcotorio__/graphics/Jimmy-Johns-McArco-sphere.png",
         icon_size = 64,
-        subgroup = "intermediate-product",
+        subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
         fuel_category = "mcarco",
         fuel_acceleration_multiplier = 2.5 * 1.5,
@@ -345,7 +345,8 @@ data:extend({
     {
         type = "item",
         name = "Advanced-Arcofolder",
-        icon = "__arcotorio__/graphics/advanced-arcofolder-icon.png",
+        icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {0, 1, 0}}},
+        --icon = "__arcotorio__/graphics/advanced-arcofolder-icon.png",
         icon_size = 64,
         subgroup = "Arcofolders",
         stack_size = 20,
@@ -355,7 +356,8 @@ data:extend({
     {
         type = "item",
         name = "McArcofolder",
-        icon = "__arcotorio__/graphics/McArcofolder-icon.png",
+        icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {1, 0, 1}}},
+        --icon = "__arcotorio__/graphics/McArcofolder-icon.png",
         icon_size = 64,
         subgroup = "Arcofolders",
         stack_size = 20,
