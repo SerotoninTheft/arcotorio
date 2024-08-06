@@ -2,7 +2,7 @@ data:extend({
     {
         type = "item",
         name = "Arco-bead",
-        icon = "__arcotorio__/graphics/Arco-bead.png",
+        icon = "__arcotorio__/graphics/arco-bead.png",
         icon_size = 64,
         subgroup = "Arco-bead-arcofolding",
         stack_size = 100
@@ -10,7 +10,7 @@ data:extend({
     {
         type = "item",
         name = "Rock-Arco-bead",
-        icon = "__arcotorio__/graphics/Rock-Arco-bead.png",
+        icon = "__arcotorio__/graphics/rock-arco-bead.png",
         icon_size = 64,
         subgroup = "Arco-bead-arcofolding",
         stack_size = 100
@@ -18,7 +18,7 @@ data:extend({
     {
         type = "item",
         name = "Paper-Arco-bead",
-        icon = "__arcotorio__/graphics/Paper-Arco-bead.png",
+        icon = "__arcotorio__/graphics/paper-arco-bead.png",
         icon_size = 64,
         subgroup = "Arco-bead-arcofolding",
         stack_size = 100
@@ -26,7 +26,7 @@ data:extend({
     {
         type = "item",
         name = "Scissors-Arco-bead",
-        icon = "__arcotorio__/graphics/Scissors-Arco-bead.png",
+        icon = "__arcotorio__/graphics/scissors-arco-bead.png",
         icon_size = 64,
         subgroup = "Arco-bead-arcofolding",
         stack_size = 100
@@ -36,7 +36,7 @@ data:extend({
     {
         type = "item",
         name = "Arco-orb",
-        icon = "__arcotorio__/graphics/Arco-orb.png",
+        icon = "__arcotorio__/graphics/arco-orb.png",
         icon_size = 64,
         subgroup = "Arco-orb-arcofolding",
         stack_size = 100
@@ -44,7 +44,7 @@ data:extend({
     {
         type = "item",
         name = "Water-Arco-orb",
-        icon = "__arcotorio__/graphics/Water-Arco-orb.png",
+        icon = "__arcotorio__/graphics/water-arco-orb.png",
         icon_size = 64,
         subgroup = "Arco-orb-arcofolding",
         stack_size = 100
@@ -52,7 +52,7 @@ data:extend({
     {
         type = "item",
         name = "Air-Arco-orb",
-        icon = "__arcotorio__/graphics/Air-Arco-orb.png",
+        icon = "__arcotorio__/graphics/air-arco-orb.png",
         icon_size = 64,
         subgroup = "Arco-orb-arcofolding",
         stack_size = 100
@@ -60,7 +60,7 @@ data:extend({
     {
         type = "item",
         name = "Fire-Arco-orb",
-        icon = "__arcotorio__/graphics/Fire-Arco-orb.png",
+        icon = "__arcotorio__/graphics/fire-arco-orb.png",
         icon_size = 64,
         subgroup = "Arco-orb-arcofolding",
         stack_size = 100
@@ -68,7 +68,7 @@ data:extend({
     {
         type = "item",
         name = "Earth-Arco-orb",
-        icon = "__arcotorio__/graphics/Earth-Arco-orb.png",
+        icon = "__arcotorio__/graphics/earth-arco-orb.png",
         icon_size = 64,
         subgroup = "Arco-orb-arcofolding",
         stack_size = 100
@@ -78,7 +78,7 @@ data:extend({
     {
         type = "item",
         name = "Arco-boulder",
-        icon = "__arcotorio__/graphics/Arco-boulder.png",
+        icon = "__arcotorio__/graphics/arco-boulder.png",
         icon_size = 64,
         subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
@@ -86,7 +86,7 @@ data:extend({
     {
         type = "item",
         name = "Pride-Arco-boulder",
-        icon = "__arcotorio__/graphics/Pride-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/pride-arco-boulder.png",
         icon_size = 64,
         subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
@@ -94,7 +94,7 @@ data:extend({
     {
         type = "item",
         name = "Greed-Arco-boulder",
-        icon = "__arcotorio__/graphics/Greed-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/greed-arco-boulder.png",
         icon_size = 64,
         subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
@@ -102,7 +102,7 @@ data:extend({
     {
         type = "item",
         name = "Lust-Arco-boulder",
-        icon = "__arcotorio__/graphics/Lust-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/lust-arco-boulder.png",
         icon_size = 64,
         subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
@@ -110,7 +110,7 @@ data:extend({
     {
         type = "item",
         name = "Envy-Arco-boulder",
-        icon = "__arcotorio__/graphics/Envy-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/envy-arco-boulder.png",
         icon_size = 64,
         subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
@@ -118,7 +118,7 @@ data:extend({
     {
         type = "item",
         name = "Gluttony-Arco-boulder",
-        icon = "__arcotorio__/graphics/Gluttony-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/gluttony-arco-boulder.png",
         icon_size = 64,
         subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
@@ -126,7 +126,7 @@ data:extend({
     {
         type = "item",
         name = "Wrath-Arco-boulder",
-        icon = "__arcotorio__/graphics/Wrath-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/wrath-arco-boulder.png",
         icon_size = 64,
         subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
@@ -134,7 +134,7 @@ data:extend({
     {
         type = "item",
         name = "Sloth-Arco-boulder",
-        icon = "__arcotorio__/graphics/Sloth-Arco-boulder.png",
+        icon = "__arcotorio__/graphics/sloth-arco-boulder.png",
         icon_size = 64,
         subgroup = "Arco-boulder-arcofolding",
         stack_size = 100
@@ -144,7 +144,7 @@ data:extend({
     {
         type = "item",
         name = "Arco-planet",
-        icon = "__arcotorio__/graphics/Arco-planet.png",
+        icon = "__arcotorio__/graphics/arco-planet.png",
         icon_size = 64,
         subgroup = "Arco-planet-arcofolding",
         stack_size = 100
@@ -152,7 +152,7 @@ data:extend({
     {
         type = "item",
         name = "Mercury-Arco-planet",
-        icon = "__arcotorio__/graphics/Mercury-Arco-planet.png",
+        icon = "__arcotorio__/graphics/mercury-arco-planet.png",
         icon_size = 64,
         subgroup = "Arco-planet-arcofolding",
         stack_size = 100
@@ -160,7 +160,7 @@ data:extend({
     {
         type = "item",
         name = "Venus-Arco-planet",
-        icon = "__arcotorio__/graphics/Venus-Arco-planet.png",
+        icon = "__arcotorio__/graphics/venus-arco-planet.png",
         icon_size = 64,
         subgroup = "Arco-planet-arcofolding",
         stack_size = 100
@@ -168,7 +168,7 @@ data:extend({
     {
         type = "item",
         name = "Earth-Arco-planet",
-        icon = "__arcotorio__/graphics/Earth-Arco-planet.png",
+        icon = "__arcotorio__/graphics/earth-arco-planet.png",
         icon_size = 64,
         subgroup = "Arco-planet-arcofolding",
         stack_size = 100
@@ -176,7 +176,7 @@ data:extend({
     {
         type = "item",
         name = "Mars-Arco-planet",
-        icon = "__arcotorio__/graphics/Mars-Arco-planet.png",
+        icon = "__arcotorio__/graphics/mars-arco-planet.png",
         icon_size = 64,
         subgroup = "Arco-planet-arcofolding",
         stack_size = 100
@@ -184,7 +184,7 @@ data:extend({
     {
         type = "item",
         name = "Jupiter-Arco-planet",
-        icon = "__arcotorio__/graphics/Jupiter-Arco-planet.png",
+        icon = "__arcotorio__/graphics/jupiter-arco-planet.png",
         icon_size = 64,
         subgroup = "Arco-planet-arcofolding",
         stack_size = 100
@@ -192,7 +192,7 @@ data:extend({
     {
         type = "item",
         name = "Saturn-Arco-planet",
-        icon = "__arcotorio__/graphics/Saturn-Arco-planet.png",
+        icon = "__arcotorio__/graphics/saturn-arco-planet.png",
         icon_size = 64,
         subgroup = "Arco-planet-arcofolding",
         stack_size = 100
@@ -200,7 +200,7 @@ data:extend({
     {
         type = "item",
         name = "Uranus-Arco-planet",
-        icon = "__arcotorio__/graphics/Uranus-Arco-planet.png",
+        icon = "__arcotorio__/graphics/uranus-arco-planet.png",
         icon_size = 64,
         subgroup = "Arco-planet-arcofolding",
         stack_size = 100
@@ -208,7 +208,7 @@ data:extend({
     {
         type = "item",
         name = "Neptune-Arco-planet",
-        icon = "__arcotorio__/graphics/Neptune-Arco-planet.png",
+        icon = "__arcotorio__/graphics/neptune-arco-planet.png",
         icon_size = 64,
         subgroup = "Arco-planet-arcofolding",
         stack_size = 100
@@ -218,7 +218,7 @@ data:extend({
     {
         type = "item",
         name = "McArco-sphere",
-        icon = "__arcotorio__/graphics/McArco-sphere.png",
+        icon = "__arcotorio__/graphics/mcarco-sphere.png",
         icon_size = 64,
         subgroup = "McArco-sphere-arcofolding",
         stack_size = 100
@@ -226,7 +226,7 @@ data:extend({
     {
         type = "item",
         name = "Walmart-McArco-sphere",
-        icon = "__arcotorio__/graphics/Walmart-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/walmart-mcarco-sphere.png",
         icon_size = 64,
         subgroup = "McArco-sphere-arcofolding",
         stack_size = 100
@@ -234,7 +234,7 @@ data:extend({
     {
         type = "item",
         name = "McDonalds-McArco-sphere",
-        icon = "__arcotorio__/graphics/McDonalds-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/mcdonalds-mcarco-sphere.png",
         icon_size = 64,
         subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
@@ -247,7 +247,7 @@ data:extend({
     {
         type = "item",
         name = "Tesco-McArco-sphere",
-        icon = "__arcotorio__/graphics/Tesco-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/tesco-mcarco-sphere.png",
         icon_size = 64,
         subgroup = "McArco-sphere-arcofolding",
         stack_size = 100
@@ -255,7 +255,7 @@ data:extend({
     {
         type = "item",
         name = "Wendys-McArco-sphere",
-        icon = "__arcotorio__/graphics/Wendys-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/wendys-mcarco-sphere.png",
         icon_size = 64,
         subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
@@ -268,7 +268,7 @@ data:extend({
     {
         type = "item",
         name = "Subway-McArco-sphere",
-        icon = "__arcotorio__/graphics/Subway-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/subway-mcarco-sphere.png",
         icon_size = 64,
         subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
@@ -281,7 +281,7 @@ data:extend({
     {
         type = "item",
         name = "White-Castle-McArco-sphere",
-        icon = "__arcotorio__/graphics/White-Castle-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/white-castle-mcarco-sphere.png",
         icon_size = 64,
         subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
@@ -294,7 +294,7 @@ data:extend({
     {
         type = "item",
         name = "Taco-Bell-McArco-sphere",
-        icon = "__arcotorio__/graphics/Taco-Bell-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/taco-bell-mcarco-sphere.png",
         icon_size = 64,
         subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
@@ -307,7 +307,7 @@ data:extend({
     {
         type = "item",
         name = "KFC-McArco-sphere",
-        icon = "__arcotorio__/graphics/KFC-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/kfc-mcarco-sphere.png",
         icon_size = 64,
         subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
@@ -320,7 +320,7 @@ data:extend({
     {
         type = "item",
         name = "Jimmy-Johns-McArco-sphere",
-        icon = "__arcotorio__/graphics/Jimmy-Johns-McArco-sphere.png",
+        icon = "__arcotorio__/graphics/jimmy-johns-mcarco-sphere.png",
         icon_size = 64,
         subgroup = "McArco-sphere-arcofolding",
         stack_size = 100,
@@ -335,7 +335,7 @@ data:extend({
     {
         type = "item",
         name = "Arcofolder",
-        icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png",
+        icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png",
         icon_size = 64,
         subgroup = "Arcofolders",
         stack_size = 20,
@@ -345,8 +345,8 @@ data:extend({
     {
         type = "item",
         name = "Advanced-Arcofolder",
-        icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {0, 1, 0}}},
-        --icon = "__arcotorio__/graphics/advanced-Arcofolder-icon.png",
+        icons = {{icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png", tint = {0, 1, 0}}},
+        --icon = "__arcotorio__/graphics/advanced-arcofolder-icon.png",
         icon_size = 64,
         subgroup = "Arcofolders",
         stack_size = 20,
@@ -356,12 +356,12 @@ data:extend({
     {
         type = "item",
         name = "McArcofolder",
-        icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {1, 0, 1}}},
-        --icon = "__arcotorio__/graphics/McArcofolder-icon.png",
+        icons = {{icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png", tint = {1, 0, 1}}},
+        --icon = "__arcotorio__/graphics/mcarcofolder-icon.png",
         icon_size = 64,
         subgroup = "Arcofolders",
         stack_size = 20,
         order = "c[Arcofolder]",
         place_result = "McArcofolder"
     },
-}) -- Arcofolders
+}) -- arcofolders

@@ -118,7 +118,7 @@ local arcofolder = {
     enabled = false
 }
 local adv_arcofolder = {
-    icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {0, 1, 0}, icon_size = 64}},
+    icons = {{icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png", tint = {0, 1, 0}, icon_size = 64}},
     type = "recipe",
     name = "Advanced-Arcofolder",
     category = "crafting",
@@ -134,7 +134,7 @@ local adv_arcofolder = {
     enabled = false
 }
 local mcarcofolder = {
-    icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {1, 0, 1}, icon_size = 64}},
+    icons = {{icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png", tint = {1, 0, 1}, icon_size = 64}},
     type = "recipe",
     name = "McArcofolder",
     category = "crafting",
@@ -200,7 +200,7 @@ local folds = {
             {name = "Taco-Bell-McArco-sphere", amount = 1},
             {name = "White-Castle-McArco-sphere", amount = 1}
         },
-        icon = "__arcotorio__/graphics/Mc-Initialize.png",
+        icon = "__arcotorio__/graphics/mc-initialize.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
         subgroup = "McArco-sphere-arcofolding",
@@ -220,7 +220,7 @@ local folds = {
             {name = "Uranus-Arco-planet", amount = 1},
             {name = "Neptune-Arco-planet", amount = 1}
         },
-        icon = "__arcotorio__/graphics/Planet-Initialize.png",
+        icon = "__arcotorio__/graphics/planet-initialize.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
         subgroup = "Arco-planet-arcofolding",
@@ -239,7 +239,7 @@ local folds = {
             {name = "Wrath-Arco-boulder", amount = 1},
             {name = "Sloth-Arco-boulder", amount = 1}
         },
-        icon = "__arcotorio__/graphics/Boulder-Initialize.png",
+        icon = "__arcotorio__/graphics/boulder-initialize.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
         subgroup = "Arco-boulder-arcofolding",
@@ -255,7 +255,7 @@ local folds = {
             {name = "Earth-Arco-orb", amount = 1},
             {name = "Air-Arco-orb", amount = 1}
         },
-        icon = "__arcotorio__/graphics/Orb-Initialize.png",
+        icon = "__arcotorio__/graphics/orb-initialize.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
         subgroup = "Arco-orb-arcofolding",
@@ -271,7 +271,7 @@ local folds = {
             {name = "Rock-Arco-bead", amount = 1},
             {name = "Scissors-Arco-bead", amount = 1}
         },
-        icon = "__arcotorio__/graphics/Bead-Initialize.png",
+        icon = "__arcotorio__/graphics/bead-initialize.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
         subgroup = "hand-Arco-bead-arcofolding",
@@ -287,7 +287,7 @@ local folds = {
             {name = "Rock-Arco-bead", amount = 1},
             {name = "Scissors-Arco-bead", amount = 1}
         },
-        icon = "__arcotorio__/graphics/Bead-Initialize.png",
+        icon = "__arcotorio__/graphics/bead-initialize.png",
         icon_size = 64,
         tint = {0.5,0.5,0},
         subgroup = "Arco-bead-arcofolding",

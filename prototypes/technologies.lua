@@ -31,7 +31,14 @@ local unlocks = {
     [2] = {"Arco-orb", "Arco-orb-initialize"},
     [3] = {"Arco-boulder", "Arco-boulder-initialize", "Advanced-Arcofolder"},
     [4] = {"Arco-planet", "Arco-planet-initialize"},
-    [5] = {"McArco-sphere", "McArco-sphere-initialize", "McArcofolder"},
+    [5] = {"McArco-sphere", "McArco-sphere-initialize", "McArcofolder"}
+}
+local unlock_tech_names = {
+    [1] = {"arco-bead"},
+    [2] = {"arco-orb"},
+    [3] = {"arco-boulder"},
+    [4] = {"arco-planet"},
+    [5] = {"mcarco-sphere"}
 }
 
 -- Change target to whatever compat setting required
@@ -108,7 +115,7 @@ local function manufacture_tech(tech_name, rating)
     return {
         rating = rating,
         tech = {
-            icon = "__arcotorio__/graphics/"..unlocks[rating][1].."-tech.png",
+            icon = "__arcotorio__/graphics/"..unlock_tech_names[rating][1].."-tech.png",
             icon_size = 256,
             type = "technology",
             name = tech_name,
