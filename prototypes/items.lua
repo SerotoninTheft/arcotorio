@@ -335,7 +335,7 @@ data:extend({
     {
         type = "item",
         name = "Arcofolder",
-        icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png",
+        icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png",
         icon_size = 64,
         subgroup = "Arcofolders",
         stack_size = 20,
@@ -345,7 +345,7 @@ data:extend({
     {
         type = "item",
         name = "Advanced-Arcofolder",
-        icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {0, 1, 0}}},
+        icons = {{icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png", tint = {0, 1, 0}}},
         --icon = "__arcotorio__/graphics/advanced-arcofolder-icon.png",
         icon_size = 64,
         subgroup = "Arcofolders",
@@ -356,7 +356,7 @@ data:extend({
     {
         type = "item",
         name = "McArcofolder",
-        icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {1, 0, 1}}},
+        icons = {{icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png", tint = {1, 0, 1}}},
         --icon = "__arcotorio__/graphics/McArcofolder-icon.png",
         icon_size = 64,
         subgroup = "Arcofolders",
