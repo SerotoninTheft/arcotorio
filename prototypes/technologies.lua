@@ -185,6 +185,7 @@ local invalid_categories = {
     ["py-venting"] = true,
     ["py-unbarrelling"] = true,
     ["py-barrelling"] = true,
+    ["lamp-burning"] = true
 }
 
 local prod_list = data.raw["module"]["productivity-module"].limitation
