@@ -311,6 +311,8 @@ tech_util.process_arco_recipes = function()
                 recipe.ingredients = recipe.ingredients or { item }
                 recipe.enabled = recipe.enabled or true
             end
+            recipe.show_amount_in_title = false
+            recipe.always_show_products = true
         end
     end
 end
