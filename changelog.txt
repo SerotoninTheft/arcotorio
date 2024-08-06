@@ -3,6 +3,10 @@ Version: 0.9.5
 Date: 08. 6. 2024
   Major Features:
     - Reordered Changelog so that its not terrible and also awful
+    - Larger Lamps Compat
+  Minor Features:
+    - Made all files lowercase for project management reasons. Shouldn't affect gameplay at all
+    - PLEASE DEAR GOD DONT BREAK WHEN I UPLOAD I TESTED I SWEAR
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.4
 Date: 08. 5. 2024
