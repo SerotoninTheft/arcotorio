@@ -118,7 +118,7 @@ local arcofolder = {
     enabled = false
 }
 local adv_arcofolder = {
-    icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {0, 1, 0}, icon_size = 64}},
+    icons = {{icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png", tint = {0, 1, 0}, icon_size = 64}},
     type = "recipe",
     name = "Advanced-Arcofolder",
     category = "crafting",
@@ -134,7 +134,7 @@ local adv_arcofolder = {
     enabled = false
 }
 local mcarcofolder = {
-    icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {1, 0, 1}, icon_size = 64}},
+    icons = {{icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png", tint = {1, 0, 1}, icon_size = 64}},
     type = "recipe",
     name = "McArcofolder",
     category = "crafting",
