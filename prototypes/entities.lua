@@ -2,7 +2,7 @@ data:extend({
     {
         type = "assembling-machine",
         name = "Arcofolder",
-        icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png",
+        icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png",
         icon_size = 64,
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 1, result = "Arcofolder"},
@@ -259,8 +259,8 @@ data:extend({
     {
         type = "assembling-machine",
         name = "Advanced-Arcofolder",
-        icons = {{icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png", tint = {0, 1, 0}}},
-        --icon = "__arcotorio__/graphics/advanced-arcofolder-icon.png",
+        icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {0, 1, 0}}},
+        --icon = "__arcotorio__/graphics/advanced-Arcofolder-icon.png",
         icon_size = 64,
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
         minable = {mining_time = 1, result = "Advanced-Arcofolder"},
@@ -519,7 +519,7 @@ data:extend({
     {
         type = "assembling-machine",
         name = "McArcofolder",
-        icons = {{icon = "__arcotorio__/graphics/arcofolder/arcofolder-icon.png", tint = {1, 0, 1}}},
+        icons = {{icon = "__arcotorio__/graphics/arcofolder/Arcofolder-icon.png", tint = {1, 0, 1}}},
         --icon = "__arcotorio__/graphics/McArcofolder-icon.png",
         icon_size = 64,
         flags = {"placeable-neutral", "placeable-player", "player-creation"},
