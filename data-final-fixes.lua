@@ -5,6 +5,20 @@ require("prototypes.entities")
 require("prototypes.items")
 require("prototypes.category")
 
+--Uncomment this if you need to check for dummy techs. 
+--The indicator is that there are items which have different ingredients than there should be
+--[[ local unlock_counts = {}
+for _, tech in pairs(data.raw.technology) do
+  local normal = (tech.normal or {}).effects or {}
+  local expensive = (tech.expensive or {}).effects or {}
+  local effects = tech.effects or {}
+  for _, effect_table in pairs{normal, expensive, effects} do
+    for _, effect in pairs(effect_table) do
+      if effect.type == 'unlock-recipe' then unlock_counts[effect.recipe] = (unlock_counts[effect.recipe] or 0) + 1 end
+    end
+  end
+end
+log(serpent.block(unlock_counts)) ]]
 
 tech.process_tech_tree()
 
