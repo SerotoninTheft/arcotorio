@@ -5,5 +5,11 @@
     "author": "Serotonintheft, ArchEzekiel",
     "description": "Mod that adds several different tiers of arcospheres, and changes every recipe to require arcospheres and arcosphere management all throughout the game. Recipes are automatically generated, so this should be compatible with most overhaul mods.",
     "factorio_version": "1.1",
-    "dependencies": ["base >= 1.1", "rusty-locale", "? pyalienlife", "? pyalternativeenergy", "? pypostprocessing"]
+    "dependencies": [
+        "base >= 1.1", 
+        "rusty-locale", 
+        "?IndustrialRevolution3",
+        "(?)pyalienlife", 
+        "(?)pyalternativeenergy", 
+        "(?)pypostprocessing" ]
 }

@@ -161,7 +161,9 @@ function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
         if recipe_container == nil then return end
 
         if not recipe_container.result and recipe_container.results and not recipe_container.results[1] then
-            error(recipe_container.category)
+            error("Arcotorio ERROR: A recipe from this category ("
+            ..recipe_container.category..
+            ") has no result. Please report to mod authors so they can implement compatability")
         end
 
         if recipe_container.result or (recipe_container.results and #recipe_container.results == 1) then

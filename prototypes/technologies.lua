@@ -14,8 +14,32 @@ local milestones = {
         ["chemical-science-pack"] =     {rating = 3, tech = data.raw["technology"]["chemical-science-pack"],    raw = "chemical-science-pack"},
         ["logistic-science-pack"] =     {rating = 2, tech = data.raw["technology"]["logistic-science-pack"],    raw = "logistic-science-pack"},
         ["automation-science-pack"] =   {rating = 1, tech = nil, raw = "coal"}
+    },
+    ["IndustrialRevolution3"] = {
+        ["utility-science-pack"] =      {rating = 5, tech = data.raw["technology"]["ir-electronics-3"],         raw = "utility-science-pack"},
+        ["production-science-pack"] =   {rating = 4, tech = data.raw["technology"]["ir-electroplating"],        raw = "production-science-pack"},
+        ["chemical-science-pack"] =     {rating = 3, tech = data.raw["technology"]["ir-steel-milestone"],       raw = "chemical-science-pack"},
+        ["logistic-science-pack"] =     {rating = 2, tech = data.raw["technology"]["ir-iron-milestone"],        raw = "logistic-science-pack"},
+        ["automation-science-pack"] =   {rating = 1, tech = nil, raw = "coal"}
     }
 }
+
+local function determine_milestone()
+    for name, _version in pairs(mods) do
+        log("Arcotorio Mod Search: " .. name .. ": " .. _version)
+        if milestones[name] then
+            log("\t\t" .. name .. " was the first mod found")
+            return milestones[name]
+        end
+    end
+    return milestones["vanilla"]
+end
+
+-- Change target to whatever compat setting required
+local target = determine_milestone()
+
+--if we need to do custom mod suite compat, we can write something here to check if there are multiple options
+--like for k2SE or whatever
 
 function TableConcat(t1,t2)
     for i=1,#t2 do
@@ -40,9 +64,6 @@ local unlock_tech_names = {
     [4] = {"arco-planet"},
     [5] = {"mcarco-sphere"}
 }
-
--- Change target to whatever compat setting required
-local target = milestones.vanilla
 
 local beads = {
     "Rock-Arco-bead",
@@ -108,7 +129,7 @@ local orb_tiers = {
 
 ---@class (exact) Manufacture_Data
 ---@field rating int
----@field tech data.TechnologyData
+---@field tech data.TechnologyPrototype
 
 ---@return Manufacture_Data
 local function manufacture_tech(tech_name, rating)
@@ -155,7 +176,7 @@ end
 
 local queue = {}
 local processed_recipes = {}
-local add_to_queue = function(tech, recipe)
+local add_to_queue = function(tech, recipe, tier)
     if tech and recipe then
         queue[tech.name] = queue[tech.name] or {}
         queue[tech.name][recipe.name] = recipe
@@ -184,15 +205,24 @@ end
 
 
 local invalid_categories = {
+    --Vanilla
     ["smelting"] = true,
     ["rocket-building"] = true,
+    --Py Stuff
     ["neutron-absorber"] = true,
     ["vat"] = true,
     ["py-runoff"] = true,
     ["py-venting"] = true,
     ["py-unbarrelling"] = true,
     ["py-barrelling"] = true,
-    ["lamp-burning"] = true
+    --Larger Lamps
+    ["lamp-burning"] = true,
+    --IR3 Stuff
+    ["air-purification"] = true,
+    ["forestry"] = true,
+    ["forestry-advanced"] = true,
+    ["glowing"] = true,
+    ["venting"] = true, --some other things will probably use this as well
 }
 
 local prod_list = data.raw["module"]["productivity-module"].limitation
@@ -213,9 +243,20 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
         log("AUGGHGGHHGHGH:" .. recipe.category)
     end
 
+    if tech and not tech.enabled and not tech.normal and not tech.expensive then
+        return
+    end
+
+    if recipe.main_product == "processing-unit" then
+        log("e")
+    end
+
     if recipe and recipe.category and invalid_categories[recipe.category] then return end
 
-    --if we have already processed this recipe
+    --if we have already processed this recipe, and this isnt an improvement
+    --we check this to account for dummy techs which act as a framework for the actual tech tree.
+    --We assume that if a tech has the same recipe as another tech, and its higher, than that is the intended balance
+    --There would be no reason for an easier tech to unlock a harder resource early, right? right??
     if processed_recipes[recipe.name] then
         return
     end
