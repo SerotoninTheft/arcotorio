@@ -3,6 +3,7 @@ Version: 0.9.6
 Date: 08. 7. 2024
   Changes:
     - WARNING: Fixed Arcobead recipes having mismatching ingredients compared to their name and handcrafting counterpart
+    - Added Industrial Revolution 3 compatibility
     - Fixed Handcrafting recipe names not showing properly
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.5
