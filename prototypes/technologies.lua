@@ -243,7 +243,7 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
         log("AUGGHGGHHGHGH:" .. recipe.category)
     end
 
-    if tech and not tech.enabled and not tech.normal and not tech.expensive then
+    if tech and tech.enabled == false and not tech.normal and not tech.expensive then
         return
     end
 
@@ -301,12 +301,14 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
 end
 
 tech_util.process_tech_tree = function()
-    for name, tech in pairs(data.raw["technology"]) do
+    for _name, tech in pairs(data.raw["technology"]) do
         local highest = highest_pack(tech.unit.ingredients)
         if not tech.effects then goto no_effects end
         for index, effect in pairs(tech.effects) do
             if effect.type ~= "unlock-recipe" then goto not_recipe end
-
+            if tech.name == "space-science-pack" then
+                log("E")
+            end
             if tech_util.process_recipe(effect.recipe, tech, highest) then
                 tech.effects[index] = nil
             end
