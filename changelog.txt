@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.9.7
+Date: 08. 7. 2024
+  Changes:
+    - WARNING: Fixed many recipes that were nerfed by the previous update due to an oversight during ir3 compatability
+---------------------------------------------------------------------------------------------------
 Version: 0.9.6
 Date: 08. 7. 2024
   Changes:

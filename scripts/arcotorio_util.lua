@@ -93,13 +93,13 @@ local function preserve_icon(recipe, results)
     recipe.main_product = recipe.main_product or results[1].name or results[1][1]
 end
 
-local function modify_original(results, scale)
+local function modify_original(results, scale, improve)
     for _, result in pairs(results) do
         if result.amount then
-            result.amount = result.amount * scale
+            result.amount = result.amount * (scale + 1)
         elseif result.amount_min and result.amount_max then
-            result.amount_min = result.amount_min * scale
-            result.amount_max = result.amount_max * scale
+            result.amount_min = result.amount_min * (scale + 1)
+            result.amount_max = result.amount_max * (scale + 1)
         else
             result[2] = result[2] * scale
         end
@@ -118,7 +118,7 @@ function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
             recipe_container.main_product = recipe_container.results[1].name or
                 recipe_container.results[1][1]
 
-            modify_original(recipe_container.results, scale)
+            modify_original(recipe_container.results, scale, improve)
             recipe_container.results[1] = {
                 type = recipe_container.results[1].type or "item",
                 name = recipe_container.results[1].name or
@@ -152,7 +152,7 @@ function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
             end
         end
 
-        modify_original(recipe_container.results, (scale + improve))
+        modify_original(recipe_container.results, scale, improve)
         table.insert(recipe_container.results, {type = "item", name = item1, amount = scale})
         table.insert(recipe_container.results, {type = "item", name = item2, amount = scale})
     end
