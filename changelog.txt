@@ -1,34 +1,40 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.9.6
+Date: 08. 7. 2024
+  Changes:
+    - WARNING: Fixed Arcobead recipes having mismatching ingredients compared to their name and handcrafting counterpart
+    - Fixed Handcrafting recipe names not showing properly
+---------------------------------------------------------------------------------------------------
 Version: 0.9.5
 Date: 08. 6. 2024
-  Major Features:
+  Changes:
     - Reordered Changelog so that its not terrible and also awful
     - Larger Lamps Compat
-  Minor Features:
+  Info:
     - Made all files lowercase for project management reasons. Shouldn't affect gameplay at all
     - PLEASE DEAR GOD DONT BREAK WHEN I UPLOAD I TESTED I SWEAR
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.4
 Date: 08. 5. 2024
-  Major Features:
+  Changes:
     - File name fix thank you so much SpeckledFleebeedoo I was about to go insane
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.3
 Date: 08. 5. 2024
-  Major Features:
+  Changes:
     - Attempt Upload from ArchEzekiel, which doesnt lose files????
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.2
 Date: 08. 5. 2024
-  Major Features:
+  Changes:
     - Fixed another bug with file names lmao
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.1
 Date: 08. 5. 2024
-  Major Features:
+  Changes:
     - Fixed bug with file names
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.0
 Date: 08. 5. 2024
-  Major Features:
+  Changes:
     - Initial release

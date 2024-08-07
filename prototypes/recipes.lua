@@ -160,6 +160,7 @@ local folds = {
         result_count = 1,
         seconds = 1,
         category = "crafting",
+        localised_name = {"recipe-name.hand-Paper-Arco-bead"},
         name = "hand-Paper-Arco-bead",
         subgroup = "hand-Arco-bead-arcofolding"
     },
@@ -171,6 +172,7 @@ local folds = {
         result_count = 1,
         seconds = 1,
         category = "crafting",
+        localised_name = {"recipe-name.hand-Rock-Arco-bead"},
         name = "hand-Rock-Arco-bead",
         subgroup = "hand-Arco-bead-arcofolding"
     },
@@ -182,6 +184,7 @@ local folds = {
         result_count = 1,
         seconds = 1,
         category = "crafting",
+        localised_name = {"recipe-name.hand-Scissors-Arco-bead"},
         name = "hand-Scissors-Arco-bead",
         subgroup = "hand-Arco-bead-arcofolding"
     },
@@ -296,9 +299,9 @@ local folds = {
 }
 
 local beads = {
-    {name = "Rock-Arco-bead",            primary = {218,137,147}},
+    {name = "Scissors-Arco-bead",        primary = {59,196,144}},
     {name = "Paper-Arco-bead",           primary = {32,177,255}},
-    {name = "Scissors-Arco-bead",        primary = {59,196,144}}
+    {name = "Rock-Arco-bead",            primary = {218,137,147}}
 }
 local orbs = {
     {name = "Water-Arco-orb",            primary = {83,212,209}},
@@ -437,6 +440,7 @@ for _, recipe_data in pairs(folds) do
         energy_required = recipe_data.seconds or 2,
         enabled = false,
         order = recipe_data.order or ("b["..name.."]"),
+        localised_name = recipe_data.localised_name,
         crafting_machine_tint = {
             primary =    recipe_data.primary    or UNASSIGNED_COLOR,
             secondary =  recipe_data.secondary  or UNASSIGNED_COLOR,
