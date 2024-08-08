@@ -14,19 +14,35 @@ return {
         end
 
         -- Skip recipes with arco in the name (our mod recipes)
-        if recipe.name:find("arco") then
+        --[[ if recipe.name:find("arco") then
             return nil
-        end
+        end ]]
 
         -- Skip barrel recipes
         if recipe.name:find("barrel") or recipe.name:find("canister") or recipe.name:find("textplate") then
             return nil
         end
 
-        
-        if recipe.normal then recipe.normal.enabled = false end
-        if recipe.expensive then recipe.expensive.enabled = false end
-        if not (recipe.normal and recipe.expensive) then recipe.enabled = false end
+        if not (recipe.normal and recipe.expensive) then
+            recipe.enabled = false
+            for _, ingredient in pairs(recipe.ingredients) do
+                for _, item in pairs (item_table) do
+                    if (ingredient.name and ingredient.name == item) or ingredient[1] == item then
+                        return nil
+                    end
+                end
+            end
+        else
+            recipe.normal.enabled = false
+            recipe.expensive.enabled = false
+            for _, ingredient in pairs(recipe.normal.ingredients) do
+                for _, item in pairs (item_table) do
+                    if (ingredient.name and ingredient.name == item) or ingredient[1] == item then
+                        return nil
+                    end
+                end
+            end
+        end
 
         local seed = recipe.name or recipe.main_product
 
@@ -35,7 +51,7 @@ return {
             local locale = rusty_util.of_recipe(recipe).name
             recipe.localised_name = {prefix, locale}
             recipe.name = "arco-" .. namings[(6 - scale) - 1] .. "-" .. recipe.name
-            
+
             recipe.enabled = false
             if recipe.normal then recipe.normal.enabled = false end
             if recipe.expensive then recipe.expensive.enabled = false end

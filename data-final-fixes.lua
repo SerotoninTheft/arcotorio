@@ -20,15 +20,17 @@ for _, tech in pairs(data.raw.technology) do
 end
 log(serpent.block(unlock_counts)) ]]
 
+tech.preprocess_tech_tree()
+
 tech.process_tech_tree()
 
 --search for recipes that are enabled by default, rather than unlocked by techs
 local queue = {}
 for _, recipe in pairs(data.raw["recipe"]) do
-    if recipe.enabled ~= false or
-        (recipe.normal and recipe.normal.enabled ~= false) or
-        (recipe.expensive and recipe.expensive.enabled ~= false) then
-
+    if not (recipe.normal and recipe.expensive) and recipe.enabled ~= false then
+        table.insert(queue, recipe.name)
+    elseif recipe.normal and recipe.expensive and
+            recipe.normal.enabled ~= false and recipe.expensive.enabled ~= false then
         table.insert(queue, recipe.name)
     end
 end

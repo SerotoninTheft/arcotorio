@@ -21,6 +21,19 @@ local milestones = {
         ["chemical-science-pack"] =     {rating = 3, tech = data.raw["technology"]["ir-steel-milestone"],       raw = "chemical-science-pack"},
         ["logistic-science-pack"] =     {rating = 2, tech = data.raw["technology"]["ir-iron-milestone"],        raw = "logistic-science-pack"},
         ["automation-science-pack"] =   {rating = 1, tech = nil, raw = "coal"}
+    },
+    ["space-exploration"] = {
+        ["se-deep-space-science-pack-1"] =  {rating = 5, tech = data.raw["technology"]["se-deep-space-science-pack-1"],     raw = "se-deep-space-science-pack-1"},
+        ["se-astronomic-science-pack-3"] =  {rating = 4, tech = data.raw["technology"]["se-astronomic-science-pack-3"],     raw = "se-astronomic-science-pack-3"},
+        ["se-biological-science-pack-3"] =  {rating = 4, tech = data.raw["technology"]["se-biological-science-pack-3"],     raw = "se-biological-science-pack-3"},
+        ["se-material-science-pack-3"] =    {rating = 4, tech = data.raw["technology"]["se-material-science-pack-3"],       raw = "se-material-science-pack-3"},
+        ["se-energy-science-pack-3"] =      {rating = 4, tech = data.raw["technology"]["se-energy-science-pack-3"],         raw = "se-energy-science-pack-3"},
+        ["se-astronomic-science-pack-1"] =  {rating = 3, tech = data.raw["technology"]["se-astronomic-science-pack-1"],     raw = "se-astronomic-science-pack-1"},
+        ["se-biological-science-pack-1"] =  {rating = 3, tech = data.raw["technology"]["se-biological-science-pack-1"],     raw = "se-biological-science-pack-1"},
+        ["se-material-science-pack-1"] =    {rating = 3, tech = data.raw["technology"]["se-material-science-pack-1"],       raw = "se-material-science-pack-1"},
+        ["se-energy-science-pack-1"] =      {rating = 3, tech = data.raw["technology"]["se-energy-science-pack-1"],         raw = "se-energy-science-pack-1"},
+        ["space-science-pack"] =            {rating = 2, tech = data.raw["technology"]["space-science-pack"],              raw = "space-science-pack"},
+        ["automation-science-pack"] =       {rating = 1, tech = nil, raw = "coal"}
     }
 }
 
@@ -158,20 +171,44 @@ local manufacturing_techs = {
 
 local tech_util = {}
 
+local unit_ingredients = {}
+
 ---@param ingredients table<TechnologyPrototypeFilter.research_unit_ingredient>
 local function highest_pack(ingredients)
-    local highest = "automation-science-pack"
+    local highest = 1
     for _, ingredient in pairs(ingredients) do
         local item_name = ingredient.name or ingredient[1] -- Handle both table formats
-        if target[highest] and target[item_name]then
-            if target[highest].rating < target[item_name].rating then
-                highest = item_name
+        if target[item_name] then
+            if highest < target[item_name].rating then
+                highest = target[item_name].rating
+            end
+        elseif unit_ingredients[item_name] then
+            if highest < unit_ingredients[item_name] then
+                highest = unit_ingredients[item_name]
             end
         else
-            log("Warning: Missing target entry for " .. (item_name or "unknown item"))
+            log("Arcotorio: Warning: Missing target entry for " .. (item_name or "unknown item"))
         end
     end
-    return target[highest].rating
+    return highest
+end
+
+tech_util.preprocess_tech_tree = function()
+    for _name, tech in pairs(data.raw["technology"]) do
+        for _, ingredient in pairs(tech.unit.ingredients) do
+            unit_ingredients[ingredient.name or ingredient[1]] = 1
+        end
+    end
+    for _name, tech in pairs(data.raw["technology"]) do
+        if not tech.effects then goto no_effects end
+        local highest = highest_pack(tech.unit.ingredients)
+        for index, effect in pairs(tech.effects) do
+            if effect.type ~= "unlock-recipe" then goto not_recipe end
+            if unit_ingredients[effect.recipe] then unit_ingredients[effect.recipe] = highest end
+            ::not_recipe::
+        end
+        ::no_effects::
+    end
 end
 
 local queue = {}
@@ -223,6 +260,14 @@ local invalid_categories = {
     ["forestry-advanced"] = true,
     ["glowing"] = true,
     ["venting"] = true, --some other things will probably use this as well
+    --SE Stuff
+    ["se-electric-boiling"] = true,
+    ["space-elevator"] = true,
+    ["fixed-recipe"] = true,
+    ["spaceship-rocket-engine"] = true,
+    ["spaceship-ion-engine"] = true,
+    ["spaceship-antimatter-engine"] = true,
+
 }
 
 local prod_list = data.raw["module"]["productivity-module"].limitation
@@ -247,22 +292,12 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
         return
     end
 
-    if recipe.main_product == "processing-unit" then
-        log("e")
-    end
-
     if recipe and recipe.category and invalid_categories[recipe.category] then return end
 
-    --if we have already processed this recipe, and this isnt an improvement
-    --we check this to account for dummy techs which act as a framework for the actual tech tree.
-    --We assume that if a tech has the same recipe as another tech, and its higher, than that is the intended balance
-    --There would be no reason for an easier tech to unlock a harder resource early, right? right??
-    if processed_recipes[recipe.name] then
-        return
-    end
-
     for _, prod in pairs(prod_list) do
-        if prod == recipe.name then is_intermediate = true end
+        if prod == recipe.name then 
+            is_intermediate = true 
+        end
     end
 
     if target[recipe.name] and target[recipe.name].tech then
@@ -291,7 +326,7 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
         end
     end
     local create = recipe_util.recreate(recipe, orb_tiers[tier])
-    if create then add_to_queue(tech, create)
+    if create then add_to_queue(tech, recipe)
     else return false end
 --[[ 
     data.raw["recipe"][recipe_name].enabled = false
@@ -306,9 +341,7 @@ tech_util.process_tech_tree = function()
         if not tech.effects then goto no_effects end
         for index, effect in pairs(tech.effects) do
             if effect.type ~= "unlock-recipe" then goto not_recipe end
-            if tech.name == "space-science-pack" then
-                log("E")
-            end
+            if processed_recipes[effect.recipe] then goto not_recipe end
             if tech_util.process_recipe(effect.recipe, tech, highest) then
                 tech.effects[index] = nil
             end
@@ -317,6 +350,7 @@ tech_util.process_tech_tree = function()
         ::no_effects::
     end
 end
+
 
 local function adjust_tech(rating, recipe)
     for item_name, milestone in pairs(target) do

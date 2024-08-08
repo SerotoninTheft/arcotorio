@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.9.8
+Date: 08. 78. 2024
+  Changes:
+    - WARNING: Some recipes had extra outputs that shouldnt have existed due to an oversight made during ir3 compatability
+    - Added SE compatability
+---------------------------------------------------------------------------------------------------
 Version: 0.9.7
 Date: 08. 7. 2024
   Changes:

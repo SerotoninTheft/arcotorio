@@ -96,10 +96,10 @@ end
 local function modify_original(results, scale, improve)
     for _, result in pairs(results) do
         if result.amount then
-            result.amount = result.amount * (scale + 1)
+            result.amount = result.amount * (scale + improve)
         elseif result.amount_min and result.amount_max then
-            result.amount_min = result.amount_min * (scale + 1)
-            result.amount_max = result.amount_max * (scale + 1)
+            result.amount_min = result.amount_min * (scale + improve)
+            result.amount_max = result.amount_max * (scale + improve)
         else
             result[2] = result[2] * scale
         end
@@ -172,6 +172,8 @@ function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
             multi_result(recipe_container)
         end
     end
+
+    if improve < 1 then scale = 1 end
 
     process_recipe(recipe.normal)
     process_recipe(recipe.expensive)
