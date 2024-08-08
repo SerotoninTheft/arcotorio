@@ -63,14 +63,18 @@ return {
 
         -- Add ingredients safely
         if arcotorio_util.modify_ingredients then
-            arcotorio_util.modify_ingredients(recipe, ing.item1, ing.item2, scale, improve)
+            if not arcotorio_util.modify_ingredients(recipe, ing.item1, ing.item2, scale, improve) then
+                return nil
+            end
         else
             error("Error: arcotorio_util.add_ingredients function not found")
         end
 
         -- Modify results safely
         if arcotorio_util.modify_results then
-            arcotorio_util.modify_results(recipe, res.item1, res.item2, scale, improve)
+            if not arcotorio_util.modify_results(recipe, res.item1, res.item2, scale, improve) then
+                return nil
+            end
         else
             error("Error: arcotorio_util.modify_results function not found")
         end

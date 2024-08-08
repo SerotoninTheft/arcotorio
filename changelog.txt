@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.9.9
+Date: 08. 8. 2024
+  Changes:
+    - No longer error for recipes with no result or category, instead gracefully ignore them. Should fix many errors relating to categories
+---------------------------------------------------------------------------------------------------
 Version: 0.9.8
 Date: 08. 8. 2024
   Changes:

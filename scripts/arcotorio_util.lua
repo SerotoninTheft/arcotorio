@@ -10,6 +10,7 @@ end
 ---@param recipe data.RecipePrototype
 function arcotorio_util.modify_ingredients(recipe, item1, item2, scale, improve)
     if improve < 1 then scale = 1 end
+
     ---@param ingredients table<int, data.IngredientPrototype>
     local scale_ingredients = function(ingredients)
         for _, ingredient in pairs(ingredients) do
@@ -20,18 +21,30 @@ function arcotorio_util.modify_ingredients(recipe, item1, item2, scale, improve)
     end
 
     if recipe.ingredients then
-        scale_ingredients(recipe.ingredients)
-        table.insert(recipe.ingredients, {type = "item", name = item1, amount = scale})
-        table.insert(recipe.ingredients, {type = "item", name = item2, amount = scale})
-    elseif recipe.normal and recipe.normal.ingredients then
+        if recipe.ingredients[1] then
+            scale_ingredients(recipe.ingredients)
+            table.insert(recipe.ingredients, {type = "item", name = item1, amount = scale})
+            table.insert(recipe.ingredients, {type = "item", name = item2, amount = scale})
+        else
+            log("Arcotorio WARNING: A recipe ("
+            ..recipe.name..
+            ") has no ingredients. This may be fine, but if you are experiencing issues please contact mod author")
+            return false
+        end
+    elseif recipe.normal and recipe.expensive then
         scale_ingredients(recipe.normal.ingredients)
+        scale_ingredients(recipe.expensive.ingredients)
         table.insert(recipe.normal.ingredients, {type = "item", name = item1, amount = scale})
         table.insert(recipe.normal.ingredients, {type = "item", name = item2, amount = scale})
-    elseif recipe.expensive and recipe.expensive.ingredients then
-        scale_ingredients(recipe.expensive.ingredients)
         table.insert(recipe.expensive.ingredients, {type = "item", name = item1, amount = scale})
         table.insert(recipe.expensive.ingredients, {type = "item", name = item2, amount = scale})
+    else
+        log("Arcotorio WARNING: A recipe ("
+        ..recipe.name..
+        ") has no ingredients. This may be fine, but if you are experiencing issues please contact mod author")
+        return false
     end
+    return true
 end
 
 local function return_item(name)
@@ -161,9 +174,10 @@ function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
         if recipe_container == nil then return end
 
         if not recipe_container.result and recipe_container.results and not recipe_container.results[1] then
-            error("Arcotorio ERROR: A recipe from this category ("
-            ..recipe_container.category..
-            ") has no result. Please report to mod authors so they can implement compatability")
+            log("Arcotorio WARNING: A recipe ("
+            ..recipe.name..
+            ") has no result. This may be fine, but if you are experiencing issues please contact mod author")
+            return false
         end
 
         if recipe_container.result or (recipe_container.results and #recipe_container.results == 1) then
@@ -171,13 +185,15 @@ function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
         elseif recipe_container.results then
             multi_result(recipe_container)
         end
+        return true
     end
 
     if improve < 1 then scale = 1 end
 
-    process_recipe(recipe.normal)
-    process_recipe(recipe.expensive)
-    process_recipe(recipe)
+    if process_recipe(recipe.normal) or process_recipe(recipe.expensive) or process_recipe(recipe) then
+        return true
+    end
+    return false
 end
 
 return arcotorio_util
