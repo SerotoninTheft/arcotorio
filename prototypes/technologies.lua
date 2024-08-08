@@ -288,6 +288,8 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
         log("AUGGHGGHHGHGH:" .. recipe.category)
     end ]]
 
+    if not recipe.category then return end
+
     if tech and tech.enabled == false and not tech.normal and not tech.expensive then
         return
     end
