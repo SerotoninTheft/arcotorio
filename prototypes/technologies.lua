@@ -283,10 +283,10 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
     -- Get the recipe to check its subgroup
     local recipe = data.raw["recipe"][recipe_name]
     local is_intermediate = false
-
+--[[ 
     if recipe.icons and recipe.icon_size then
         log("AUGGHGGHHGHGH:" .. recipe.category)
-    end
+    end ]]
 
     if tech and tech.enabled == false and not tech.normal and not tech.expensive then
         return
