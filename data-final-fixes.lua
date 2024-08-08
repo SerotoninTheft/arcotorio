@@ -1,9 +1,5 @@
 local tech = require("prototypes.technologies")
-require("prototypes.recipes")
 require("scripts.recipe_util")
-require("prototypes.entities")
-require("prototypes.items")
-require("prototypes.category")
 
 --Uncomment this if you need to check for dummy techs. 
 --The indicator is that there are items which have different ingredients than there should be
@@ -41,6 +37,8 @@ end
 tech.place_manufacturing()
 
 tech.process_queue()
+
+require("prototypes.recipes")
 tech.process_arco_recipes()
 
 local function append_arco_fuel(list)
@@ -51,15 +49,19 @@ local function append_arco_fuel(list)
                 vehicle.burner.fuel_categories = vehicle.burner.fuel_categories or {}
                 table.insert(vehicle.burner.fuel_categories, vehicle.burner.fuel_category)
             end
-            table.insert(vehicle.burner.fuel_categories, "mcarco")
-            vehicle.burner.burnt_inventory_size = vehicle.burner.burnt_inventory_size or vehicle.burner.fuel_inventory_size
+            if vehicle.burner.fuel_categories then
+                table.insert(vehicle.burner.fuel_categories, "mcarco")
+                vehicle.burner.burnt_inventory_size = vehicle.burner.burnt_inventory_size or vehicle.burner.fuel_inventory_size
+            end
         elseif vehicle.energy_source.type == "burner" then
             if vehicle.burner.fuel_category then
                 vehicle.burner.fuel_categories = vehicle.burner.fuel_categories or {}
                 table.insert(vehicle.burner.fuel_categories, vehicle.burner.fuel_category)
             end
-            table.insert(vehicle.burner.fuel_categories, "mcarco")
-            vehicle.burner.burnt_inventory_size = vehicle.burner.burnt_inventory_size or vehicle.burner.fuel_inventory_size
+            if vehicle.burner.fuel_categories then
+                table.insert(vehicle.burner.fuel_categories, "mcarco")
+                vehicle.burner.burnt_inventory_size = vehicle.burner.burnt_inventory_size or vehicle.burner.fuel_inventory_size
+            end
         end
 
     end

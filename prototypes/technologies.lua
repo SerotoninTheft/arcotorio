@@ -242,9 +242,15 @@ end
 
 
 local invalid_categories = {
+    --Our stuff lmao
+    ["arcofolding"] = true,
     --Vanilla
     ["smelting"] = true,
     ["rocket-building"] = true,
+    --Transport Drones
+    ["transport-drone-request"] = true,
+    ["fuel-depot"] = true,
+    ["transport-fluid-request"] = true,
     --Py Stuff
     ["neutron-absorber"] = true,
     ["vat"] = true,
@@ -289,6 +295,12 @@ tech_util.process_recipe = function(recipe_name, tech, tier)
     end ]]
 
     if tech and tech.enabled == false and not tech.normal and not tech.expensive then
+        return
+    end
+
+    -- Check if recipe and recipe.name are valid
+    if not recipe or not recipe.name then
+        log("Arcotorio Error: Invalid recipe or missing recipe name: " .. recipe_name)
         return
     end
 
@@ -341,7 +353,10 @@ tech_util.process_tech_tree = function()
         if not tech.effects then goto no_effects end
         for index, effect in pairs(tech.effects) do
             if effect.type ~= "unlock-recipe" then goto not_recipe end
-            if processed_recipes[effect.recipe] then goto not_recipe end
+            if processed_recipes[effect.recipe] then
+                --local nothing = "E"
+                goto not_recipe
+            end
             if tech_util.process_recipe(effect.recipe, tech, highest) then
                 tech.effects[index] = nil
             end

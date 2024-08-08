@@ -8,10 +8,6 @@ return {
     recreate = function(recipe, item_table, scale, improve)
         improve = improve or 0
         scale = scale or 1
-        -- Check if recipe and recipe.name are valid
-        if not recipe or not recipe.name then
-            error("Error: Invalid recipe or missing recipe name")
-        end
 
         -- Skip recipes with arco in the name (our mod recipes)
         --[[ if recipe.name:find("arco") then
@@ -25,23 +21,9 @@ return {
 
         if not (recipe.normal and recipe.expensive) then
             recipe.enabled = false
-            for _, ingredient in pairs(recipe.ingredients) do
-                for _, item in pairs (item_table) do
-                    if (ingredient.name and ingredient.name == item) or ingredient[1] == item then
-                        return nil
-                    end
-                end
-            end
         else
             recipe.normal.enabled = false
             recipe.expensive.enabled = false
-            for _, ingredient in pairs(recipe.normal.ingredients) do
-                for _, item in pairs (item_table) do
-                    if (ingredient.name and ingredient.name == item) or ingredient[1] == item then
-                        return nil
-                    end
-                end
-            end
         end
 
         local seed = recipe.name or recipe.main_product

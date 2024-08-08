@@ -1,6 +1,6 @@
 {
     "name": "arcotorio",
-    "version": "0.9.9",
+    "version": "0.9.10",
     "title": "Arcotorio",
     "author": "Serotonintheft, ArchEzekiel",
     "description": "Mod that adds several different tiers of arcospheres, and changes every recipe to require arcospheres and arcosphere management all throughout the game. Recipes are automatically generated, so this should be compatible with most overhaul mods.",
@@ -10,8 +10,13 @@
         "rusty-locale", 
         "?IndustrialRevolution3",
         "?space-exploration",
+        "?RampantArsenal",
+        "?RampantIndustry",
+        "(?)space-exploration-postprocess",
         "(?)space-exploration-postprocess",
         "(?)pyalienlife", 
         "(?)pyalternativeenergy", 
-        "(?)pypostprocessing" ]
+        "(?)pypostprocessing",
+        "!space-spidertrons"
+    ]
 }

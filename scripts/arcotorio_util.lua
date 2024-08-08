@@ -11,6 +11,10 @@ end
 function arcotorio_util.modify_ingredients(recipe, item1, item2, scale, improve)
     if improve < 1 then scale = 1 end
 
+    if recipe.name == "steam-engine" then 
+        log ("E")
+    end
+
     ---@param ingredients table<int, data.IngredientPrototype>
     local scale_ingredients = function(ingredients)
         for _, ingredient in pairs(ingredients) do
@@ -21,6 +25,8 @@ function arcotorio_util.modify_ingredients(recipe, item1, item2, scale, improve)
     end
 
     if recipe.ingredients then
+        --delinks ingredient tables shared between RecipeDatas
+        recipe.ingredients = table.deepcopy(recipe.ingredients)
         if recipe.ingredients[1] then
             scale_ingredients(recipe.ingredients)
             table.insert(recipe.ingredients, {type = "item", name = item1, amount = scale})
@@ -32,6 +38,10 @@ function arcotorio_util.modify_ingredients(recipe, item1, item2, scale, improve)
             return false
         end
     elseif recipe.normal and recipe.expensive then
+        --delinks ingredient tables shared between RecipeDatas
+        recipe.normal = table.deepcopy(recipe.normal)
+        recipe.expensive = table.deepcopy(recipe.normal)
+
         scale_ingredients(recipe.normal.ingredients)
         scale_ingredients(recipe.expensive.ingredients)
         table.insert(recipe.normal.ingredients, {type = "item", name = item1, amount = scale})
@@ -80,30 +90,20 @@ local function return_item(name)
     for _, category in pairs(categories) do
         if data.raw[category][name] then return data.raw[category][name] end
     end
-    error( "Error: '" .. name .. "' does not belong to one of the pre-defined categories")
+    return nil
 end
 
+---@param recipe data.RecipePrototype
+---@param item data.ItemPrototype
 local function fix_icon(recipe, item)
-    if not recipe.icon and item.icon then
+    recipe.icon_size = item.icon_size
+    if item.icon then
         recipe.icon = item.icon
-        recipe.icon_size = item.icon_size
-    elseif not recipe.icons and item.icons then
+    elseif item.icons then
         recipe.icons = item.icons
-        recipe.icon_size = item.icon_size
-    elseif (recipe.icons or recipe.icon) and not recipe.icon_size then
-        recipe.icon_size = 64
-    elseif not recipe.icon and not recipe.icons then
-        error("Error: neither icons nor icon exists")
+    else
+        error("Arcotorio: Item has no icon: " .. item.name)
     end
-end
-
-local function preserve_icon(recipe, results)
-    if not recipe.main_product then
-        if not recipe.results[1].type == "fluid" then
-            fix_icon(recipe, return_item(recipe.main_product))
-        end
-    end
-    recipe.main_product = recipe.main_product or results[1].name or results[1][1]
 end
 
 local function modify_original(results, scale, improve)
@@ -149,7 +149,8 @@ function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
         table.insert(recipe_container.results, {type = "item", name = item1, amount = scale, catalyst_amount = scale})
         table.insert(recipe_container.results, {type = "item", name = item2, amount = scale, catalyst_amount = scale})
 
-        fix_icon(recipe, return_item(recipe_container.main_product))
+        local item = return_item(recipe_container.main_product)
+        if item and not recipe.icons and not recipe.icon then fix_icon(recipe, item) end
         recipe_container.result = nil
         recipe_container.result_count = nil
     end
@@ -158,12 +159,6 @@ function arcotorio_util.modify_results(recipe, item1, item2, scale, improve)
         recipe_container.main_product = recipe_container.main_product or
             recipe_container.results[1].name or
             recipe_container.results[1][1]
-
-        if #recipe_container.results == 1 then
-            if not recipe_container.icon then
-                --preserve_icon(recipe, recipe_container.results)
-            end
-        end
 
         modify_original(recipe_container.results, scale, improve)
         table.insert(recipe_container.results, {type = "item", name = item1, amount = scale})

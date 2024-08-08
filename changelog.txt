@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.9.10
+Date: 08. 8. 2024
+  Changes:
+    - Should not ignore as many recipes as previously, as it now delinks recipe ingredient tables
+    - Added SOME Rampant compatibility, but was not the focus of this update
+---------------------------------------------------------------------------------------------------
 Version: 0.9.9
 Date: 08. 8. 2024
   Changes:
@@ -8,7 +14,7 @@ Version: 0.9.8
 Date: 08. 8. 2024
   Changes:
     - WARNING: Some recipes had extra outputs that shouldnt have existed due to an oversight made during ir3 compatability
-    - Added SE compatability
+    - Added SE compatibility
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.7
 Date: 08. 7. 2024
