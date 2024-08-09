@@ -4,6 +4,7 @@ Date: 08. 8. 2024
   Changes:
     - Should not ignore as many recipes as previously, as it now delinks recipe ingredient tables
     - Added SOME Rampant compatibility, but was not the focus of this update
+    - Added Transport Drones compatability
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.9
 Date: 08. 8. 2024
