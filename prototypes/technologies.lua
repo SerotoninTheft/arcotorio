@@ -34,7 +34,15 @@ local milestones = {
         ["se-energy-science-pack-1"] =      {rating = 3, tech = data.raw["technology"]["se-energy-science-pack-1"],         raw = "se-energy-science-pack-1"},
         ["space-science-pack"] =            {rating = 2, tech = data.raw["technology"]["space-science-pack"],              raw = "space-science-pack"},
         ["automation-science-pack"] =       {rating = 1, tech = nil, raw = "coal"}
-    }
+    },
+    ["Krastorio2"] = {
+        ["advanced-tech-card"] =     {rating = 5, tech = data.raw["technology"]["kr-advanced-tech-card"],       raw = "advanced-tech-card"},
+        ["space-science-pack"] =        {rating = 4, tech = data.raw["technology"]["space-science-pack"],    raw = "space-science-pack"},
+        ["production-science-pack"] =   {rating = 3, tech = data.raw["technology"]["production-science-pack"],  raw = "production-science-pack"},
+        ["utility-science-pack"] =      {rating = 3, tech = data.raw["technology"]["utility-science-pack"],     raw = "utility-science-pack"},
+        ["logistic-science-pack"] =     {rating = 2, tech = data.raw["technology"]["logistic-science-pack"],    raw = "logistic-science-pack"},
+        ["basic-tech-card"] =           {rating = 1, tech = nil, raw = "coal"}
+    },
 }
 
 local function determine_milestone()
