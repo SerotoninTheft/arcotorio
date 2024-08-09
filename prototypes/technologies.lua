@@ -281,7 +281,8 @@ local invalid_categories = {
     ["spaceship-rocket-engine"] = true,
     ["spaceship-ion-engine"] = true,
     ["spaceship-antimatter-engine"] = true,
-
+    --K2 Stuff
+    ["void-crushing"] = true,
 }
 
 local prod_list = data.raw["module"]["productivity-module"].limitation
@@ -419,6 +420,7 @@ tech_util.process_arco_recipes = function()
                 recipe.ingredients = recipe.ingredients or { item }
                 recipe.enabled = recipe.enabled or true
             end
+            processed_recipes[recipe_name] = true
             recipe.show_amount_in_title = false
             recipe.always_show_products = true
         end

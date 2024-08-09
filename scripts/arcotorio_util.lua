@@ -11,9 +11,9 @@ end
 function arcotorio_util.modify_ingredients(recipe, item1, item2, scale, improve)
     if improve < 1 then scale = 1 end
 
-    if recipe.name == "steam-engine" then 
+    --[[ if recipe.name == "kr-vc-Rock-Arco-bead" then
         log ("E")
-    end
+    end ]]
 
     ---@param ingredients table<int, data.IngredientPrototype>
     local scale_ingredients = function(ingredients)

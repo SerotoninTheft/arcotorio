@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.9.11
+Date: 08. 9. 2024
+  Changes:
+    - Added K2 Compatability
+    - Fixed some errors caused by improper vehicle category modifications
+---------------------------------------------------------------------------------------------------
 Version: 0.9.10
 Date: 08. 8. 2024
   Changes:
