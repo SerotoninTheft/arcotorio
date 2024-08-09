@@ -6,6 +6,7 @@ local namings = {"frugal", "efficient", "improved", "zero-waste"}
 return {
     ---@param recipe data.RecipePrototype
     recreate = function(recipe, item_table, scale, improve)
+        local shuffled_table = table.deepcopy(item_table)
         improve = improve or 0
         scale = scale or 1
 
@@ -26,8 +27,6 @@ return {
             recipe.expensive.enabled = false
         end
 
-        local seed = recipe.name or recipe.main_product
-
         if improve > 0 then
             local prefix = "arcotorio-manufacturing." .. namings[(6 - scale) - 1]
             local locale = rusty_util.of_recipe(recipe).name
@@ -38,10 +37,30 @@ return {
             if recipe.normal then recipe.normal.enabled = false end
             if recipe.expensive then recipe.expensive.enabled = false end
         end
+        
+        local seed = recipe.name or recipe.main_product
+
+        local section_sum_of_seed = function(section)
+            local start  = math.floor(((section - 1) / 3) * seed:len()) + 1
+            local target = math.ceil((section / 3)       * seed:len())
+            local sum = 0
+            for i = start, target, 1 do
+                sum = sum + seed:byte(i)
+            end
+            return sum
+        end
+
+        local shuffle_table = function(seed)
+            local swap1 = seed % #shuffled_table + 1
+            local swap2 = seed % (#shuffled_table - 1) + 1
+            shuffled_table[swap1], shuffled_table[swap2] =
+                shuffled_table[swap2], shuffled_table[swap1]
+        end
 
         -- Pick two items safely
-        local ing = arcotorio_util.pick_two_items(item_table, (string.byte(seed) - scale) * 7919)
-        local res = arcotorio_util.pick_two_items(item_table, (string.byte(seed) + scale) * 7919)
+        local ing = arcotorio_util.pick_two_items(shuffled_table, section_sum_of_seed(1) * 7919)
+        shuffle_table(section_sum_of_seed(2) * 7919)
+        local res = arcotorio_util.pick_two_items(shuffled_table, section_sum_of_seed(3) * 7919)
 
         -- Add ingredients safely
         if arcotorio_util.modify_ingredients then
