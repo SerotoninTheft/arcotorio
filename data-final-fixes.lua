@@ -54,13 +54,13 @@ local function append_arco_fuel(list)
                 vehicle.burner.burnt_inventory_size = vehicle.burner.burnt_inventory_size or vehicle.burner.fuel_inventory_size
             end
         elseif vehicle.energy_source.type == "burner" then
-            if vehicle.burner.fuel_category then
-                vehicle.burner.fuel_categories = vehicle.burner.fuel_categories or {}
-                table.insert(vehicle.burner.fuel_categories, vehicle.burner.fuel_category)
+            if vehicle.energy_source.fuel_category then
+                vehicle.energy_source.fuel_categories = vehicle.energy_source.fuel_categories or {}
+                table.insert(vehicle.energy_source.fuel_categories, vehicle.energy_source.fuel_category)
             end
-            if vehicle.burner.fuel_categories then
-                table.insert(vehicle.burner.fuel_categories, "mcarco")
-                vehicle.burner.burnt_inventory_size = vehicle.burner.burnt_inventory_size or vehicle.burner.fuel_inventory_size
+            if vehicle.energy_source.fuel_categories then
+                table.insert(vehicle.energy_source.fuel_categories, "mcarco")
+                vehicle.energy_source.burnt_inventory_size = vehicle.energy_source.burnt_inventory_size or vehicle.energy_source.fuel_inventory_size
             end
         end
 
