@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.9.12
+Date: 08. 9. 2024
+  Changes:
+    - WARNING!!!: This update patches an issue with randomization that has existed pre-release. 
+    - WARNING!!!: It will modify every recipe in your save and definitely break your factories. 
+    - WARNING!!!: It will also make the early game Arco-orbs more difficult as its now significantly less likely for them to output what they need. 
+    - WARNING!!!: However, it makes the lategame somewhat easier by allowing higher tiers to output what they input
+---------------------------------------------------------------------------------------------------
 Version: 0.9.11
 Date: 08. 9. 2024
   Changes:
