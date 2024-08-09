@@ -9,6 +9,7 @@
         "base >= 1.1", 
         "rusty-locale", 
         "?IndustrialRevolution3",
+        "?Krastorio2",
         "?space-exploration",
         "?RampantArsenal",
         "?RampantIndustry",
