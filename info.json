@@ -1,6 +1,6 @@
 {
     "name": "arcotorio",
-    "version": "0.9.12",
+    "version": "0.9.13",
     "title": "Arcotorio",
     "author": "Serotonintheft, ArchEzekiel",
     "description": "Mod that adds several different tiers of arcospheres, and changes every recipe to require arcospheres and arcosphere management all throughout the game. Recipes are automatically generated, so this should be compatible with most overhaul mods.",

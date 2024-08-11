@@ -437,7 +437,7 @@ for _, recipe_data in pairs(folds) do
         result_count = recipe_data.result_count,
         results = recipe_data.results,
         ingredients = recipe_data.ingredients,
-        energy_required = recipe_data.seconds or 2,
+        energy_required = recipe_data.seconds or 1,
         enabled = false,
         order = recipe_data.order or ("b["..name.."]"),
         localised_name = recipe_data.localised_name,
